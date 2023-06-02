@@ -2080,6 +2080,7 @@ GameObject:
   - component: {fileID: 1358279244}
   - component: {fileID: 1358279242}
   - component: {fileID: 1358279247}
+  - component: {fileID: 1358279248}
   m_Layer: 8
   m_Name: Steak (1)
   m_TagString: Untagged
@@ -2182,6 +2183,21 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1358279248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1358279241}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 770bf266ddf47784ea0f47ddc2c4293c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bounciness: 1
+  stiffness: 1
+  force: 2
 --- !u!1001 &1405588440
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2426,6 +2442,7 @@ GameObject:
   - component: {fileID: 1524396149}
   - component: {fileID: 1524396154}
   - component: {fileID: 1524396155}
+  - component: {fileID: 1524396156}
   m_Layer: 8
   m_Name: Steak (2)
   m_TagString: Untagged
@@ -2591,6 +2608,21 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   lockHandOnGrab: 0
+--- !u!114 &1524396156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1524396148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 770bf266ddf47784ea0f47ddc2c4293c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bounciness: 1
+  stiffness: 1
+  force: 2
 --- !u!1 &1594658651
 GameObject:
   m_ObjectHideFlags: 0
@@ -3127,6 +3159,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80839b3fc6134b34ba69b30a22f0b5b4, type: 3}
+--- !u!1 &6119991278791553733 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6119991279019473695, guid: 80839b3fc6134b34ba69b30a22f0b5b4,
+    type: 3}
+  m_PrefabInstance: {fileID: 6119991278791553732}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6119991278791553734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6119991278791553733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 770bf266ddf47784ea0f47ddc2c4293c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bounciness: 1
+  stiffness: 1
+  force: 2
 --- !u!1001 &8877241655061273415
 PrefabInstance:
   m_ObjectHideFlags: 0

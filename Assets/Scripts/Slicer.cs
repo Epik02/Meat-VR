@@ -45,6 +45,11 @@ public class Slicer : MonoBehaviour
     {
         obj.AddComponent<MeshCollider>().convex = true;
         obj.AddComponent<Rigidbody>();
+        
+        Softbody softbody = obj.AddComponent<Softbody>();
+        //softbody.bounciness = 2.0f;
+        //softbody.stiffness = 2.0f;
+        softbody.force = 2.0f;
     }
 
     private SlicedHull SliceObject(GameObject obj, Material crossSectionMaterial = null)
