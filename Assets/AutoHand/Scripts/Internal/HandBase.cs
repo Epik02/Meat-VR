@@ -344,7 +344,7 @@ namespace Autohand {
             if(usingDynamicTimestep) {
                 if(FindObjectOfType<DynamicTimestepSetter>() == null) {
                     new GameObject() { name = "DynamicFixedTimeSetter" }.AddComponent<DynamicTimestepSetter>();
-                    Debug.Log("AUTO HAND: Creating Dynamic Timestepper");
+                    //Debug.Log("AUTO HAND: Creating Dynamic Timestepper"); //commented
                 }
             }
         }
