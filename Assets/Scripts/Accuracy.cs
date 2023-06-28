@@ -61,7 +61,7 @@ public class Accuracy : MonoBehaviour
             UnityEngine.Debug.Log("exitedtrigger");
             inMeatInGeneral = false;
             AddAccuracy();
-            mText.text = "Accuracy: " + overallAccuracy + "%";
+            mText.text = "Accuracy: " + overallAccuracy.ToString("F2") + "%";
 
             listNum = 0;
             //resets list so a new accuracy is determined each cut

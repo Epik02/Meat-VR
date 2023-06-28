@@ -6,35 +6,32 @@ public class Sink : MonoBehaviour
 {
     public ParticleSystem waterParticle;
 
-    private bool isTriggered;
+    private List<GameObject> hands = new List<GameObject>();
 
     // Start is called before the first frame update
     void Start()
     {
         waterParticle.Stop();
-        isTriggered = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (isTriggered)
-        {
-            waterParticle.Play();
-        }
-        else
-        {
-            waterParticle.Stop();
-        }
+
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        isTriggered = true;
+        hands.Add(other.gameObject);
+        waterParticle.Play();
     }
 
     private void OnTriggerExit(Collider other)
     {
-        isTriggered = false;
+        hands.Remove(other.gameObject);
+        if (hands.Count <= 0)
+        {
+            waterParticle.Stop();
+        }
     }
 }

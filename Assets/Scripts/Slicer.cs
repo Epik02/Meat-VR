@@ -16,7 +16,10 @@ public class Slicer : MonoBehaviour
 
     private void Update()
     {
-        textDisplay.text = "Strength: " + strength + "%";
+        if (textDisplay != null)
+        {
+            textDisplay.text = "Strength: " + strength + "%";
+        }
 
         if (strength > 100)
         {

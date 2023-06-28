@@ -1,13 +1,23 @@
+using Autohand;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static Unity.VisualScripting.Member;
 
 public class Honing : MonoBehaviour
 {
     public List<HoningCheckpoint> checkpoints;
     public bool check = false;
+    public LayerMask knifeLayer;
 
+    private Rigidbody rb;
     private GameObject knifeObject;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -22,9 +32,9 @@ public class Honing : MonoBehaviour
 
             if (i == checkpoints.Count && check)
             {
-                if (knifeObject.GetComponent<SliceListener>())
+                if (knifeObject.GetComponent<KnifeStrength>())
                 {
-                    knifeObject.GetComponent<SliceListener>().slicer.strength += 10.0f;
+                    knifeObject.GetComponent<KnifeStrength>().strength += 10.0f;
                 }
 
                 honing.check = false;
@@ -32,41 +42,41 @@ public class Honing : MonoBehaviour
         }
     }
 
-    //private void OnCollisionEnter(Collision other)
-    //{
-    //    if (other.gameObject.CompareTag("Knife"))
-    //    {
-    //        knifeObject = other.gameObject;
-    //        check = true;
-    //    }
-    //}
-
-    //private void OnCollisionExit(Collision other)
-    //{
-    //    knifeObject = null;
-    //    check = false;
-    //    foreach (var honing in checkpoints) 
-    //    {
-    //        honing.check = false;
-    //    }
-    //}
-
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.CompareTag("Knife"))
+        if (rb == null)
         {
-            knifeObject = other.gameObject;
-            check = true;
+            return;
+        }
+
+        if (knifeLayer == (knifeLayer | (1 << other.gameObject.layer)))
+        {
+            if (other.collider.attachedRigidbody == null || other.collider.attachedRigidbody.mass > 0.0000001f)
+            {
+                knifeObject = other.gameObject;
+                check = true;
+            }
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    private void OnCollisionExit(Collision other) 
     {
-        knifeObject = null;
-        check = false;
-        foreach (var honing in checkpoints)
+        if (rb == null)
         {
-            honing.check = false;
+            return;
+        }
+
+        if (knifeLayer == (knifeLayer | (1 << other.gameObject.layer)))
+        {
+            if (other.collider.attachedRigidbody == null || other.collider.attachedRigidbody.mass > 0.0000001f)
+            {
+                knifeObject = null;
+                check = false;
+                foreach (var honing in checkpoints)
+                {
+                    honing.check = false;
+                }
+            }
         }
     }
 }

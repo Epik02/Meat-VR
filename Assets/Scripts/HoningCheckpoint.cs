@@ -4,21 +4,17 @@ using UnityEngine;
 
 public class HoningCheckpoint : MonoBehaviour
 {
+    public LayerMask knifeLayer;
     public bool check = false;
-
-    //private void OnCollisionEnter(Collision other)
-    //{
-    //    if (other.gameObject.CompareTag("Knife"))
-    //    {
-    //        check = true;
-    //    }
-    //}
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Knife"))
+        if (knifeLayer == (knifeLayer | (1 << other.gameObject.layer)))
         {
-            check = true;
+            if (other.attachedRigidbody == null || other.attachedRigidbody.mass > 0.0000001f)
+            {
+                check = true;
+            }
         }
     }
 }
