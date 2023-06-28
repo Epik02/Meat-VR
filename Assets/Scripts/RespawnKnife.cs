@@ -7,7 +7,6 @@ public class RespawnKnife : MonoBehaviour
 {
     public Stopwatch timer = new Stopwatch();
     public GameObject knife;
-    //-0.6
     public float respawnYPos;
     public float timeToRespawn;
     public Vector3 newKnifePos = new Vector3();

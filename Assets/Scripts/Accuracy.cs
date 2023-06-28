@@ -40,9 +40,6 @@ public class Accuracy : MonoBehaviour
     public GameObject accobjF;
     public GameObject accobjG;
 
-    //Thread loopThread = new Thread(() => intervalInstantiate());
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -74,16 +71,6 @@ public class Accuracy : MonoBehaviour
         }
     }
 
-    //private void newAccuracy()
-    //{
-    //    hit = PlayerPrefs.GetInt("AccuracyObjectHit");
-    //    missed = PlayerPrefs.GetInt("AccuracyObjectMissed");
-    //    UnityEngine.Debug.Log("hit: " + hit);
-    //    UnityEngine.Debug.Log("missed: " + missed);
-    //    acctest = hit / (hit + missed);
-
-    //}
-
     private void AddAccuracy()
     {
         UnityEngine.Debug.Log("ADDING ACCURACY");
@@ -110,44 +97,6 @@ public class Accuracy : MonoBehaviour
         UnityEngine.Debug.Log("END ADD ACCURACY");
 
     }
-
-    //private void AddAccuracy()
-    //{
-    //    if (listNum > 0)
-    //    {
-    //        //adds up accuracy of instantiated objects compared to accuracy object z position (will change this to check xyz positions of child objects later for more accurate percentage)
-    //        for (int i = 0; i < listNum; i++) //checks to see how close the knifes positions were to the accuracy object(s)
-    //        {
-    //            if (knifePos[i].z > accuracyObject.transform.position.z)
-    //            {
-    //                currentAccuracy = Mathf.Abs(accuracyObject.transform.position.z) / Mathf.Abs(knifePos[i].z); //problem here
-    //                knifeAccuracy.Add(currentAccuracy);
-    //                //UnityEngine.Debug.Log("knifepos: " + knifePos[i].z);
-    //                //UnityEngine.Debug.Log("accuracyobj: " + accuracyObject.transform.position.z);
-    //            }
-    //            else
-    //            {
-    //                currentAccuracy = Mathf.Abs(knifePos[i].z) / Mathf.Abs(accuracyObject.transform.position.z);
-    //                knifeAccuracy.Add(currentAccuracy);
-    //                //UnityEngine.Debug.Log("knifepos: " + knifePos[i].z);
-    //                //UnityEngine.Debug.Log("accuracyobj: " + accuracyObject.transform.position.z);
-    //            }
-    //        }
-
-    //        //adds up overall accuracy percentage
-    //        for (int i = 0; i < listNum; i++)
-    //        {
-    //            overallAccuracy = overallAccuracy + knifeAccuracy[i];
-    //            if (i == (listNum - 1))
-    //            {
-    //                overallAccuracy = overallAccuracy / (listNum + 1);
-    //                //overallAccuracy = overallAccuracy * 100;
-    //                UnityEngine.Debug.Log("we hittin this code");
-    //                //accuracy displayed on text in ontriggerexit
-    //            }
-    //        }
-    //    }
-    //}
 
     // Update is called once per frame
     void Update()

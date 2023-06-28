@@ -5246,17 +5246,17 @@ PrefabInstance:
     - target: {fileID: 7942002210973373747, guid: a5226a72c9553294abfe172a458b5805,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.7293148
+      value: 5.82
       objectReference: {fileID: 0}
     - target: {fileID: 7942002210973373747, guid: a5226a72c9553294abfe172a458b5805,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: -0.36
       objectReference: {fileID: 0}
     - target: {fileID: 7942002210973373747, guid: a5226a72c9553294abfe172a458b5805,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.41640514
+      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 7942002210973373747, guid: a5226a72c9553294abfe172a458b5805,
         type: 3}
@@ -7590,7 +7590,7 @@ GameObject:
   - component: {fileID: 1653584952}
   - component: {fileID: 1653584951}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: StatsBoard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8190,6 +8190,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: AccuracyTestSword
       objectReference: {fileID: 0}
+    - target: {fileID: 2152953615674346320, guid: ea62f4fac2a75384d83d7210ac87b6d2,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2152953615674346327, guid: ea62f4fac2a75384d83d7210ac87b6d2,
         type: 3}
       propertyPath: m_RootOrder
@@ -8208,7 +8213,7 @@ PrefabInstance:
     - target: {fileID: 2152953615674346327, guid: ea62f4fac2a75384d83d7210ac87b6d2,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.5379902
+      value: 1.793
       objectReference: {fileID: 0}
     - target: {fileID: 2152953615674346327, guid: ea62f4fac2a75384d83d7210ac87b6d2,
         type: 3}
@@ -8542,6 +8547,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PickUpSword
       objectReference: {fileID: 0}
+    - target: {fileID: 8598021086704354771, guid: 09209e221a878ab42a9aed474d449411,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8598021086704354772, guid: 09209e221a878ab42a9aed474d449411,
         type: 3}
       propertyPath: m_RootOrder
@@ -8550,17 +8560,17 @@ PrefabInstance:
     - target: {fileID: 8598021086704354772, guid: 09209e221a878ab42a9aed474d449411,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2.619
+      value: 2.517
       objectReference: {fileID: 0}
     - target: {fileID: 8598021086704354772, guid: 09209e221a878ab42a9aed474d449411,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.03
+      value: -0.011
       objectReference: {fileID: 0}
     - target: {fileID: 8598021086704354772, guid: 09209e221a878ab42a9aed474d449411,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.513
+      value: 1.458
       objectReference: {fileID: 0}
     - target: {fileID: 8598021086704354772, guid: 09209e221a878ab42a9aed474d449411,
         type: 3}
