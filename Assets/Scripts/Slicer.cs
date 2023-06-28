@@ -1,7 +1,11 @@
 ﻿using UnityEngine;
 using EzySlice;
+using TMPro;
 public class Slicer : MonoBehaviour
 {
+    public float strength = 100.0f;
+    public TMP_Text textDisplay;
+
     public Material materialAfterSlice;
     public LayerMask sliceMask;
     public bool isTouched;
@@ -12,6 +16,13 @@ public class Slicer : MonoBehaviour
 
     private void Update()
     {
+        textDisplay.text = "Strength: " + strength + "%";
+
+        if (strength > 100)
+        {
+            strength = 100.0f;
+        }
+
         if (isTouched == true)
         {
             isTouched = false;
@@ -37,6 +48,7 @@ public class Slicer : MonoBehaviour
                 lowerHullGameobject.layer = LayerSwitch;
 
                 Destroy(objectToBeSliced.gameObject);
+                strength -= 5.0f;
             }
         }
     }
