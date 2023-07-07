@@ -17,6 +17,10 @@ public class KnifeStrength : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (strength > 100.0f)
+        {
+            strength = 100.0f;
+        }
         if (textDisplay != null)
         {
             textDisplay.text = "Strength: " + strength + "%";

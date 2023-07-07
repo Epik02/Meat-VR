@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class HandDemo : MonoBehaviour
 {
@@ -25,6 +26,10 @@ public class HandDemo : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        var euler = startPosition.parent.rotation.eulerAngles;
+        var rotate = Quaternion.Euler(euler.x, -euler.y, euler.z);
+        transform.rotation = rotate;
+
         skinned = GetComponentsInChildren<SkinnedMeshRenderer>();
         renderers = GetComponentsInChildren<MeshRenderer>();
         originalAlpha = skinned[0].material.color.a;

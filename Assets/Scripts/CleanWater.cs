@@ -21,15 +21,22 @@ public class CleanWater : MonoBehaviour
 
     private void OnParticleCollision(GameObject other)
     {
-        if ((whatToClean.value & (1 << other.layer)) > 0)
+        Dirty dirty = other.GetComponent<Dirty>();
+        Dirty dirtyChild = other.GetComponentInChildren<Dirty>();
+
+        if (dirty)
         {
-            Dirty dirty = other.GetComponent<Dirty>();
-            if (dirty != null)
+            if (dirty.dirtiness > 0.0f)
             {
-                if (dirty.dirtiness > 0.0f)
-                {
-                    dirty.dirtiness -= cleanPerParticle;
-                }
+                dirty.dirtiness -= cleanPerParticle;
+            }
+        }
+
+        if (dirtyChild)
+        {
+            if (dirtyChild.dirtiness > 0.0f)
+            {
+                dirtyChild.dirtiness -= cleanPerParticle;
             }
         }
     }
