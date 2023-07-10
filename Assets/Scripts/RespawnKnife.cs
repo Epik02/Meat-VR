@@ -10,11 +10,6 @@ public class RespawnKnife : MonoBehaviour
     public float respawnYPos;
     public float timeToRespawn;
     public Vector3 newKnifePos = new Vector3();
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()

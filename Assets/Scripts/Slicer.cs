@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using EzySlice;
 using TMPro;
+using Autohand;
+
 public class Slicer : MonoBehaviour
 {
     public float strength = 100.0f;
@@ -42,8 +44,21 @@ public class Slicer : MonoBehaviour
                 upperHullGameobject.transform.position = objectToBeSliced.transform.position;
                 lowerHullGameobject.transform.position = objectToBeSliced.transform.position;
 
+                upperHullGameobject.tag = "cuttable";
+                lowerHullGameobject.tag = "cuttable";
+
                 MakeItPhysical(upperHullGameobject);
                 MakeItPhysical(lowerHullGameobject);
+
+                //makes it so you can pick up the sliced objects
+                upperHullGameobject.AddComponent<Grabbable>();
+                lowerHullGameobject.AddComponent<Grabbable>();
+
+                Grabbable upperHullGrabbable = upperHullGameobject.GetComponent<Grabbable>();
+                Grabbable lowerHullGrabbable = lowerHullGameobject.GetComponent<Grabbable>();
+
+                upperHullGrabbable.body = upperHullGameobject.transform.GetComponent<Rigidbody>();
+                lowerHullGrabbable.body = lowerHullGameobject.transform.GetComponent<Rigidbody>();
 
                 //so you can cut the upper and lower hull
                 int LayerSwitch = LayerMask.NameToLayer("Sliceable");

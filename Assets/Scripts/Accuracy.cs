@@ -32,13 +32,7 @@ public class Accuracy : MonoBehaviour
     private float hit;
     private float missed;
     private float acctest;
-    public GameObject accobjA;
-    public GameObject accobjB;
-    public GameObject accobjC;
-    public GameObject accobjD;
-    public GameObject accobjE;
-    public GameObject accobjF;
-    public GameObject accobjG;
+    public GameObject cut;
 
     // Start is called before the first frame update
     void Start()
@@ -115,6 +109,9 @@ public class Accuracy : MonoBehaviour
                 instantiatedObject = Instantiate(objectToInstantiate);
                 instantiatedObject.transform.SetPositionAndRotation(Knife.transform.position, Knife.transform.rotation); // instantiates an object every (timeBetweenInstantiation) seconds so we know where the knife was
                 knifePos.Add(instantiatedObject.transform.gameObject);
+
+                //
+
                 if (cuttingPathCheck.cuttingInPath == true)
                 {
                     knifePath.Add(true);
@@ -138,7 +135,6 @@ public class Accuracy : MonoBehaviour
         {
             timer.Stop();
             timer.Reset();
-            //AddAccuracy();
         }
     }
 }
