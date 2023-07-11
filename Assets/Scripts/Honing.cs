@@ -32,9 +32,16 @@ public class Honing : MonoBehaviour
 
             if (i == checkpoints.Count && check)
             {
-                if (knifeObject.GetComponent<KnifeStrength>())
+                if (gameObject.GetComponent<Dirty>().dirtiness > 0.0f)
                 {
-                    knifeObject.GetComponent<KnifeStrength>().strength += 10.0f;
+                    knifeObject.GetComponentInChildren<Dirty>().dirtiness += 10.0f;
+                }
+                else
+                {
+                    if (knifeObject.GetComponent<KnifeStrength>())
+                    {
+                        knifeObject.GetComponent<KnifeStrength>().strength += 10.0f;
+                    }
                 }
 
                 honing.check = false;

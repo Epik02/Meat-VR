@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class CleanWater : MonoBehaviour
 {
-    public LayerMask whatToClean;
+    public GameObject warningPanel;
     public float cleanPerParticle = 0.1f;
 
     // Start is called before the first frame update
@@ -28,6 +29,7 @@ public class CleanWater : MonoBehaviour
         {
             if (dirty.dirtiness > 0.0f)
             {
+                warningPanel.SetActive(false);
                 dirty.dirtiness -= cleanPerParticle;
             }
         }
@@ -36,6 +38,7 @@ public class CleanWater : MonoBehaviour
         {
             if (dirtyChild.dirtiness > 0.0f)
             {
+                warningPanel.SetActive(false);
                 dirtyChild.dirtiness -= cleanPerParticle;
             }
         }

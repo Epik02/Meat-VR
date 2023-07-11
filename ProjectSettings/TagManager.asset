@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Knife
   - cuttable
+  - Item
+  - Meat
   layers:
   - Default
   - TransparentFX
