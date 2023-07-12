@@ -5,16 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class SceneChanger : MonoBehaviour
 {
-    //public enum SceneToChangeTo
-    //{
-    //    Game,
-    //    Menu,
-    //    Lobby,
-    //    End
-    //};
-
-    //public SceneToChangeTo sceneToChangeTo;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -29,23 +19,7 @@ public class SceneChanger : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        //switch (sceneToChangeTo)
-        //{
-        //    case SceneToChangeTo.Game:
-        //        GameScene();
-        //        break;
-        //    case SceneToChangeTo.Menu:
-        //        MenuScene();
-        //        break;
-        //    case SceneToChangeTo.Lobby:
-        //        LobbyScene(); 
-        //        break;
-        //    case SceneToChangeTo.End:
-        //        EndScene();
-        //        break;
-        //    default:
-        //        break;
-        //}
+
     }
 
     public void GameScene()
@@ -65,6 +39,7 @@ public class SceneChanger : MonoBehaviour
 
     public void EndScene()
     {
+        Debug.Log("Test");
         //SceneManager.LoadScene("SampleScene");
     }
 }
