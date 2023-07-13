@@ -6,7 +6,7 @@ using Autohand;
 public class Slicer : MonoBehaviour
 {
     public float strength = 100.0f;
-    public TMP_Text textDisplay;
+    //public TMP_Text textDisplay;
 
     public Material materialAfterSlice;
     public LayerMask sliceMask;
@@ -18,15 +18,15 @@ public class Slicer : MonoBehaviour
 
     private void Update()
     {
-        if (textDisplay != null)
-        {
-            textDisplay.text = "Strength: " + strength + "%";
-        }
+        //if (textDisplay != null)
+        //{
+        //    textDisplay.text = "Strength: " + strength + "%";
+        //}
 
-        if (strength > 100)
-        {
-            strength = 100.0f;
-        }
+        //if (strength > 100)
+        //{
+        //    strength = 100.0f;
+        //}
 
         if (isTouched == true)
         {

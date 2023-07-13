@@ -17,14 +17,9 @@ public class SceneChanger : MonoBehaviour
 
     }
 
-    private void OnCollisionEnter(Collision other)
-    {
-
-    }
-
     public void GameScene()
     {
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("GameDemo");
     }
 
     public void MenuScene()
@@ -37,9 +32,17 @@ public class SceneChanger : MonoBehaviour
         SceneManager.LoadScene("Lobby");
     }
 
+    public void ExitGame()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+        Application.Quit ();
+#endif
+    }
+
     public void EndScene()
     {
-        Debug.Log("Test");
         //SceneManager.LoadScene("SampleScene");
     }
 }
