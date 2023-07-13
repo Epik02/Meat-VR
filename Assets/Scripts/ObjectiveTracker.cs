@@ -11,6 +11,7 @@ public class ObjectiveTracker : MonoBehaviour
     public GameObject rightHand;
     public GameObject leftHand;
     public GameObject knife;
+    public GameObject meat;
     public Image[] checkmarks;
     public TMP_Text stepText;
     public ParticleSystem[] completeParticles;
@@ -71,33 +72,30 @@ public class ObjectiveTracker : MonoBehaviour
         if (steps[2])
         {
             stepText.text = "Step 3: Bring the meat to the green indicator";
-            //if ()
-            //{
-            //    completeParticles[2].Play();
-            //    steps[2] = false;
-            //    steps[3] = true;
-            //    index++;
-            //}
+            if (meat.GetComponent<Collider>().isTrigger)
+            {
+                completeParticles[2].Play();
+                steps[2] = false;
+                steps[3] = true;
+                index++;
+            }
         }
         if (steps[3])
         {
-            //stepText.text = "Step 4: ";
-            //if ()
-            //{
-            //    completeParticles[3].Play();
-            //    steps[3] = false;
-            //    steps[4] = true;
-            //    index++;
-            //}
+            stepText.text = "Step 4: Cut the meat by following the guidelines";
+            if (meat == null)
+            {
+                completeParticles[3].Play();
+                steps[3] = false;
+                steps[4] = true;
+                index++;
+            }
         }
         if (steps[4])
         {
-            //stepText.text = "Step 5: ";
-            //if ()
-            //{
-            //    completeParticles[4].Play();
-            //    steps[4] = false;
-            //}
+            stepText.text = "Objectives Complete!";
+            //completeParticles[4].Play();
+            steps[4] = false;
         }
     }
 
