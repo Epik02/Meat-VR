@@ -70,7 +70,7 @@ public class ObjectiveTracker : MonoBehaviour
         }
         if (steps[2])
         {
-            stepText.text = "Step 3: Follow the guidelines and cut the meat";
+            stepText.text = "Step 3: Bring the meat to the green indicator";
             //if ()
             //{
             //    completeParticles[2].Play();
