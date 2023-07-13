@@ -5,6 +5,7 @@ using UnityEngine;
 public class knifeMechanics : MonoBehaviour
 {
     bool inMeatInGeneral = false;
+    private Collider meat;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +14,7 @@ public class knifeMechanics : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        meat = other;
         if (other.gameObject.tag == "cuttable")
         {
             inMeatInGeneral = true;
@@ -25,6 +27,7 @@ public class knifeMechanics : MonoBehaviour
         {
             inMeatInGeneral = false;
         }
+        inMeatInGeneral = false;
     }
 
     // Update is called once per frame

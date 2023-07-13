@@ -8,6 +8,7 @@ public class MeatManager : MonoBehaviour
     public Vector3 position;
     public Quaternion rotation;
     private Collider currentMeat;
+    private bool inMeat = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +19,7 @@ public class MeatManager : MonoBehaviour
         currentMeat = other;
         if (other.gameObject.tag == "cuttable")
         {
+            inMeat = true;
             other.gameObject.transform.position = position;
 
             other.gameObject.GetComponent<MeshCollider>().isTrigger = true;
@@ -33,17 +35,24 @@ public class MeatManager : MonoBehaviour
             other.gameObject.GetComponent<Rigidbody>().useGravity = false;
             //other.gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
         }
+        else
+        {
+            inMeat = false;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        currentMeat.gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
-        currentMeat.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX;
-        currentMeat.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY;
-        currentMeat.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionZ;
-        currentMeat.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX;
-        currentMeat.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationY;
-        currentMeat.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationZ;
+        if (inMeat && currentMeat != null)
+        {
+            currentMeat.gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0, 0, 0);
+            currentMeat.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX;
+            currentMeat.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY;
+            currentMeat.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionZ;
+            currentMeat.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX;
+            currentMeat.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationY;
+            currentMeat.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationZ;
+        }
     }
 }

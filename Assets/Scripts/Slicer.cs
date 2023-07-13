@@ -41,6 +41,9 @@ public class Slicer : MonoBehaviour
                 GameObject upperHullGameobject = slicedObject.CreateUpperHull(objectToBeSliced.gameObject, materialAfterSlice);
                 GameObject lowerHullGameobject = slicedObject.CreateLowerHull(objectToBeSliced.gameObject, materialAfterSlice);
 
+                //test
+                //upperHullGameobject.transform.parent = objectToBeSliced.transform.GetChild(0);
+
                 upperHullGameobject.transform.position = objectToBeSliced.transform.position;
                 lowerHullGameobject.transform.position = objectToBeSliced.transform.position;
 
@@ -66,7 +69,7 @@ public class Slicer : MonoBehaviour
                 lowerHullGameobject.layer = LayerSwitch;
 
                 Destroy(objectToBeSliced.gameObject);
-                strength -= 5.0f;
+                //strength -= 5.0f;
             }
         }
     }
@@ -76,10 +79,12 @@ public class Slicer : MonoBehaviour
         obj.AddComponent<MeshCollider>().convex = true;
         obj.AddComponent<Rigidbody>();
         
-        Softbody softbody = obj.AddComponent<Softbody>();
+        //Softbody softbody = obj.AddComponent<Softbody>();
+
         //softbody.bounciness = 2.0f;
         //softbody.stiffness = 2.0f;
-        softbody.force = 2.0f;
+
+        //softbody.force = 2.0f;
     }
 
     private SlicedHull SliceObject(GameObject obj, Material crossSectionMaterial = null)
