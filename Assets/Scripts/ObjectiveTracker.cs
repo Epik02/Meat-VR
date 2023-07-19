@@ -61,7 +61,7 @@ public class ObjectiveTracker : MonoBehaviour
         if (steps[1])
         {
             stepText.text = "Step 2: Strengthen your knife";
-            if (knife.GetComponent<KnifeStrength>().strength >= 100.0f)
+            if (knife.GetComponent<KnifeStraighten>().strength >= 100.0f)
             {
                 completeParticles[1].Play();
                 steps[1] = false;

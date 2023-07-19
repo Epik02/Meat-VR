@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class KnifeStrength : MonoBehaviour
+public class KnifeStraighten : MonoBehaviour
 {
     public float strength = 20.0f;
     public TMP_Text textDisplay;
@@ -23,7 +23,7 @@ public class KnifeStrength : MonoBehaviour
         }
         if (textDisplay != null)
         {
-            textDisplay.text = "Strength: " + strength + "%";
+            textDisplay.text = "Straighten: " + strength + "%";
         }
     }
 }

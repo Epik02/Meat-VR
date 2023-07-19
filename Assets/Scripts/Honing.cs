@@ -38,9 +38,9 @@ public class Honing : MonoBehaviour
                 }
                 else
                 {
-                    if (knifeObject.GetComponent<KnifeStrength>())
+                    if (knifeObject.GetComponent<KnifeStraighten>())
                     {
-                        knifeObject.GetComponent<KnifeStrength>().strength += 10.0f;
+                        knifeObject.GetComponent<KnifeStraighten>().strength += 10.0f;
                     }
                 }
 
