@@ -5,9 +5,10 @@ using UnityEngine;
 public class ItemRespawn : MonoBehaviour
 {
     public Transform newPosition;
-    public float bottom = -1.0f;
+    public float bottom = -0.6f;
 
     private Dirty dirty;
+    private Clean clean;
 
     // Start is called before the first frame update
     void Start()
@@ -16,6 +17,12 @@ public class ItemRespawn : MonoBehaviour
         if (dirty == null)
         {
             dirty = GetComponentInChildren<Dirty>();
+        }
+
+        clean = GetComponent<Clean>();
+        if (clean == null)
+        {
+            clean = GetComponentInChildren<Clean>();
         }
     }
 
@@ -27,6 +34,7 @@ public class ItemRespawn : MonoBehaviour
             transform.position = newPosition.position;
             transform.rotation = newPosition.rotation;
             dirty.dirtiness = 100.0f;
+            clean.cleanness = 0.0f;
         }
     }
 }

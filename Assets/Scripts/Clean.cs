@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Dirty : MonoBehaviour
+public class Clean : MonoBehaviour
 {
-    public float dirtiness = 0.0f;
+    public float cleanness = 0.0f;
 
     private int mat;
     private MeshRenderer meshRenderer;
@@ -26,7 +26,7 @@ public class Dirty : MonoBehaviour
         {
             for (int i = 0; i < skinnedMeshRenderer.materials.Length; i++)
             {
-                if (skinnedMeshRenderer.materials[i].name.Contains("stain"))
+                if (skinnedMeshRenderer.materials[i].name.Contains("soap"))
                 {
                     mat = i;
                 }
@@ -36,7 +36,7 @@ public class Dirty : MonoBehaviour
         {
             for (int i = 0; i < meshRenderer.materials.Length; i++)
             {
-                if (meshRenderer.materials[i].name.Contains("stain"))
+                if (meshRenderer.materials[i].name.Contains("soap"))
                 {
                     mat = i;
                 }
@@ -47,16 +47,16 @@ public class Dirty : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(skinned)
+        if (skinned)
         {
             Color c = skinnedMeshRenderer.materials[mat].color;
-            c.a = dirtiness / 100.0f;
+            c.a = cleanness / 100.0f;
             skinnedMeshRenderer.materials[mat].color = c;
         }
         else
         {
             Color c = meshRenderer.materials[mat].color;
-            c.a = dirtiness / 100.0f;
+            c.a = cleanness / 100.0f;
             meshRenderer.materials[mat].color = c;
         }
     }

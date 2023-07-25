@@ -8,6 +8,8 @@ TagManager:
   - cuttable
   - Item
   - Meat
+  - Trash
+  - Particle
   layers:
   - Default
   - TransparentFX

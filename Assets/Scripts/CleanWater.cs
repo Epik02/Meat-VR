@@ -9,12 +9,14 @@ public class CleanWater : MonoBehaviour
     public ParticleSystem finishedParticle;
     public float cleanPerParticle = 0.1f;
 
-    private List<Dirty> cleanObjects;
+    private List<Dirty> dirtyObjects;
+    private List<Clean> cleanObjects;
 
     // Start is called before the first frame update
     void Start()
     {
-        cleanObjects = new List<Dirty>();
+        dirtyObjects = new List<Dirty>();
+        cleanObjects = new List<Clean>();
         finishedParticle.Stop();
     }
 
@@ -29,40 +31,81 @@ public class CleanWater : MonoBehaviour
         Dirty dirty = other.GetComponent<Dirty>();
         Dirty dirtyChild = other.GetComponentInChildren<Dirty>();
 
+        Clean clean = other.GetComponent<Clean>();
+        Clean cleanChild = other.GetComponentInChildren<Clean>();
+
         if (dirty)
         {
-            if (!cleanObjects.Contains(dirty))
+            if (!dirtyObjects.Contains(dirty))
             {
-                cleanObjects.Add(dirty);
+                dirtyObjects.Add(dirty);
             }
             if (dirty.dirtiness > 0.0f)
             {
-                cleanObjects.Remove(dirty);
+                dirtyObjects.Remove(dirty);
                 warningPanel.SetActive(false);
                 dirty.dirtiness -= cleanPerParticle;
             }
-            if (!cleanObjects.Contains(dirty) && dirty.dirtiness <= 0.0f)
+            if (!dirtyObjects.Contains(dirty) && dirty.dirtiness <= 0.0f)
             {
-                cleanObjects.Add(dirty);
+                dirtyObjects.Add(dirty);
                 finishedParticle.Play();
             }
         }
 
         if (dirtyChild)
         {
-            if (!cleanObjects.Contains(dirtyChild))
+            if (!dirtyObjects.Contains(dirtyChild))
             {
-                cleanObjects.Add(dirtyChild);
+                dirtyObjects.Add(dirtyChild);
             }
             if (dirtyChild.dirtiness > 0.0f)
             {
-                cleanObjects.Remove(dirtyChild);
+                dirtyObjects.Remove(dirtyChild);
                 warningPanel.SetActive(false);
                 dirtyChild.dirtiness -= cleanPerParticle;
             }
-            if (!cleanObjects.Contains(dirtyChild) && dirtyChild.dirtiness <= 0.0f)
+            if (!dirtyObjects.Contains(dirtyChild) && dirtyChild.dirtiness <= 0.0f)
             {
-                cleanObjects.Add(dirtyChild);
+                dirtyObjects.Add(dirtyChild);
+                finishedParticle.Play();
+            }
+        }
+
+        if (clean)
+        {
+            if (!cleanObjects.Contains(clean))
+            {
+                cleanObjects.Add(clean);
+            }
+            if (clean.cleanness > 0.0f)
+            {
+                cleanObjects.Remove(clean);
+                warningPanel.SetActive(false);
+                clean.cleanness -= cleanPerParticle;
+            }
+            if (!cleanObjects.Contains(clean) && clean.cleanness <= 0.0f)
+            {
+                cleanObjects.Add(clean);
+                finishedParticle.Play();
+            }
+        }
+
+        if (cleanChild)
+        {
+            if (!cleanObjects.Contains(cleanChild))
+            {
+                cleanObjects.Add(cleanChild);
+            }
+            if (cleanChild.cleanness > 0.0f)
+            {
+                cleanObjects.Remove(cleanChild);
+                warningPanel.SetActive(false);
+                cleanChild.cleanness -= cleanPerParticle;
+            }
+            if (!cleanObjects.Contains(cleanChild) && cleanChild.cleanness <= 0.0f)
+            {
+                cleanObjects.Add(cleanChild);
                 finishedParticle.Play();
             }
         }
