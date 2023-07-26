@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e1288d269c4966e4291b781672ca9164
+guid: cd162ed3ce736ec4b8ac415b55222045
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -7,8 +7,13 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Dispenser
-    second: {fileID: 2100000, guid: 9c22cd5290acd8641b99c59749f36280, type: 2}
+      name: Board
+    second: {fileID: 2100000, guid: 45a0fbf96bc9ab24c83f83ac1bcb6b94, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Frame
+    second: {fileID: 2100000, guid: 32dc53f44cf528a4f895090ee215c334, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

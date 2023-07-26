@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e1288d269c4966e4291b781672ca9164
+guid: 058d0019fc29068459d77d2e109a6bb0
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
@@ -7,8 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Dispenser
-    second: {fileID: 2100000, guid: 9c22cd5290acd8641b99c59749f36280, type: 2}
+      name: Material.001
+    second: {fileID: 2100000, guid: 8843d8b08b2ce4545a6513b2f47de0d0, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
