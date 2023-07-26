@@ -19,7 +19,7 @@ public class SceneChanger : MonoBehaviour
 
     public void GameScene()
     {
-        SceneManager.LoadScene("GameDemo");
+        SceneManager.LoadScene("TestDemo");
     }
 
     public void MenuScene()

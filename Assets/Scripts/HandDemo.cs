@@ -6,6 +6,7 @@ using static UnityEngine.GraphicsBuffer;
 public class HandDemo : MonoBehaviour
 {
     public GameObject player;
+    public List<Transform> lerpPositions;
     public Transform startPosition;
     public Transform endPosition;
     public float totalDistance = 5.0f;
@@ -17,6 +18,7 @@ public class HandDemo : MonoBehaviour
     private float fadeOutSpeed = 2.0f;
     private float originalAlpha = 0.0f;
     private float timer = 0.0f;
+    private int positionIndex = 0;
     private float travelTime = 1.0f;
     private float restTimer = 0.0f;
 
@@ -80,11 +82,15 @@ public class HandDemo : MonoBehaviour
             }
         }
 
-        if (timer < 1)
+        if (lerpPositions.Count <= 2 && timer < 1)
         {
             transform.position = Vector3.Lerp(startPosition.position, endPosition.position, t);
         }
-        else 
+        if (lerpPositions.Count > 2)
+        {
+            DoLerp();
+        }
+        if (lerpPositions.Count <= 2 && timer > 1) 
         {
             restTimer += Time.deltaTime;
 
@@ -141,5 +147,32 @@ public class HandDemo : MonoBehaviour
         tempColor.a = alpha;
         currentColor = tempColor;
         return currentColor;
+    }
+
+    public void DoLerp()
+    {
+        if (timer > travelTime)
+        {
+            timer = 0.0f;
+            positionIndex += 1;
+
+            if (positionIndex >= lerpPositions.Count)
+            {
+                positionIndex = 0;
+            }
+        }
+
+        float t = timer / travelTime;
+
+        Vector3 p0, p1;
+        int p0_index, p1_index;
+
+        p1_index = positionIndex;
+        p0_index = (p1_index == 0) ? lerpPositions.Count - 1 : p1_index - 1;
+
+        p0 = lerpPositions[p0_index].position;
+        p1 = lerpPositions[p1_index].position;
+
+        transform.position = Vector3.Lerp(p0, p1, t);
     }
 }
