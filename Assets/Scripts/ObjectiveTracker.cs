@@ -53,7 +53,9 @@ public class ObjectiveTracker : MonoBehaviour
                 item.GetComponent<Grabbable>().enabled = false;
             }
 
-            if (rightHand.GetComponentInChildren<Dirty>().dirtiness <= 0.0f && leftHand.GetComponentInChildren<Dirty>().dirtiness <= 0.0f)
+            if (rightHand.GetComponentInChildren<Dirty>().dirtiness <= 0.0f && leftHand.GetComponentInChildren<Dirty>().dirtiness <= 0.0f &&
+                rightHand.GetComponentInChildren<Clean>().cleanness <= 0.0f && leftHand.GetComponentInChildren<Clean>().cleanness <= 0.0f &&
+                rightHand.GetComponentInChildren<Wet>().wetness <= 0.0f && leftHand.GetComponentInChildren<Wet>().wetness <= 0.0f)
             {
                 completeParticles[0].Play();
                 steps[0] = false;
@@ -75,6 +77,12 @@ public class ObjectiveTracker : MonoBehaviour
                 }
 
                 completeParticles[1].Play();
+                Destroy(rightHand.GetComponentInChildren<Dirty>());
+                Destroy(rightHand.GetComponentInChildren<Clean>());
+                Destroy(rightHand.GetComponentInChildren<Wet>());
+                Destroy(leftHand.GetComponentInChildren<Dirty>());
+                Destroy(leftHand.GetComponentInChildren<Clean>());
+                Destroy(leftHand.GetComponentInChildren<Wet>());
                 steps[1] = false;
                 steps[2] = true;
                 index++;
@@ -116,7 +124,6 @@ public class ObjectiveTracker : MonoBehaviour
         if (steps[5])
         {
             stepText.text = "Objectives Complete!";
-            //completeParticles[4].Play();
             steps[5] = false;
         }
     }

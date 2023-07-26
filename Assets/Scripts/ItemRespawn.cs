@@ -33,8 +33,11 @@ public class ItemRespawn : MonoBehaviour
         {
             transform.position = newPosition.position;
             transform.rotation = newPosition.rotation;
-            dirty.dirtiness = 100.0f;
-            clean.cleanness = 0.0f;
+            if (dirty && clean)
+            {
+                dirty.dirtiness = 100.0f;
+                clean.cleanness = 0.0f;
+            }
         }
     }
 }
