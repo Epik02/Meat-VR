@@ -23,13 +23,14 @@ public class ObjectiveTracker : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        index = 0;
         if (rightHand == null && leftHand == null)
         {
+            index = 0;
             steps[1] = true;
         }
         else
         {
+            index = -1;
             steps[0] = true;
         }
         foreach (var particle in completeParticles) 
@@ -77,12 +78,6 @@ public class ObjectiveTracker : MonoBehaviour
                 }
 
                 completeParticles[1].Play();
-                Destroy(rightHand.GetComponentInChildren<Dirty>());
-                Destroy(rightHand.GetComponentInChildren<Clean>());
-                Destroy(rightHand.GetComponentInChildren<Wet>());
-                Destroy(leftHand.GetComponentInChildren<Dirty>());
-                Destroy(leftHand.GetComponentInChildren<Clean>());
-                Destroy(leftHand.GetComponentInChildren<Wet>());
                 steps[1] = false;
                 steps[2] = true;
                 index++;

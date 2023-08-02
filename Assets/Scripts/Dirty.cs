@@ -26,7 +26,7 @@ public class Dirty : MonoBehaviour
         {
             for (int i = 0; i < skinnedMeshRenderer.materials.Length; i++)
             {
-                if (skinnedMeshRenderer.materials[i].name.Contains("stain"))
+                if (skinnedMeshRenderer.materials[i].name.Contains("Dirt"))
                 {
                     mat = i;
                 }
@@ -36,7 +36,7 @@ public class Dirty : MonoBehaviour
         {
             for (int i = 0; i < meshRenderer.materials.Length; i++)
             {
-                if (meshRenderer.materials[i].name.Contains("stain"))
+                if (meshRenderer.materials[i].name.Contains("Dirt"))
                 {
                     mat = i;
                 }

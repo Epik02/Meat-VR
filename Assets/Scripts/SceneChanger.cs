@@ -5,18 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class SceneChanger : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void GameScene()
     {
         SceneManager.LoadScene("TestDemo");
@@ -24,12 +12,12 @@ public class SceneChanger : MonoBehaviour
 
     public void MenuScene()
     {
-        SceneManager.LoadScene("MainMenu");
+        SceneManager.LoadScene("MenuDemo");
     }
 
-    public void LobbyScene()
+    public void TutorialScene()
     {
-        SceneManager.LoadScene("Lobby");
+        SceneManager.LoadScene("TutorialDemo");
     }
 
     public void ExitGame()
@@ -39,10 +27,5 @@ public class SceneChanger : MonoBehaviour
 #else
         Application.Quit ();
 #endif
-    }
-
-    public void EndScene()
-    {
-        //SceneManager.LoadScene("SampleScene");
     }
 }

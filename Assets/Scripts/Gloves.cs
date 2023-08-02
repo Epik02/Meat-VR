@@ -39,6 +39,13 @@ public class Gloves : MonoBehaviour
                 leftHandMesh.sharedMesh = gloveMesh;
                 leftHandMesh.material = gloveMaterial;
 
+                Destroy(rightHand.GetComponentInChildren<Dirty>());
+                Destroy(rightHand.GetComponentInChildren<Clean>());
+                Destroy(rightHand.GetComponentInChildren<Wet>());
+                Destroy(leftHand.GetComponentInChildren<Dirty>());
+                Destroy(leftHand.GetComponentInChildren<Clean>());
+                Destroy(leftHand.GetComponentInChildren<Wet>());
+
                 Destroy(gameObject);
             }
         }
