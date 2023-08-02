@@ -14,8 +14,9 @@ public class ObjectiveTracker : MonoBehaviour
     public GameObject knife;
     public GameObject meat;
     public Image[] checkmarks;
-    public TMP_Text stepText;
+    //public TMP_Text stepText;
     public ParticleSystem[] completeParticles;
+    public Image[] instructions;
 
     private bool[] steps = new bool[6] { false, false, false, false, false, false };
     private int index;
@@ -42,11 +43,12 @@ public class ObjectiveTracker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        InstructionDisplay();
         CheckmarkDisplay();
 
         if (steps[0])
         {
-            stepText.text = "Step 1: Wash your hands";
+            //stepText.text = "Step 1: Wash your hands";
 
             var grabbables = FindObjectsOfType(typeof(Grabbable));
             foreach (var item in grabbables)
@@ -66,7 +68,7 @@ public class ObjectiveTracker : MonoBehaviour
         }
         if (steps[1])
         {
-            stepText.text = "Step 2: Put on gloves";
+            //stepText.text = "Step 2: Put on gloves";
 
             var grabbables = FindObjectsOfType(typeof(Grabbable));
 
@@ -85,7 +87,7 @@ public class ObjectiveTracker : MonoBehaviour
         }
         if (steps[2])
         {
-            stepText.text = "Step 3: Straighten your knife";
+            //stepText.text = "Step 3: Straighten your knife";
             if (knife.GetComponent<KnifeStraighten>().strength >= 100.0f)
             {
                 completeParticles[2].Play();
@@ -96,7 +98,7 @@ public class ObjectiveTracker : MonoBehaviour
         }
         if (steps[3])
         {
-            stepText.text = "Step 4: Bring the meat to the green indicator";
+            //stepText.text = "Step 4: Bring the meat to the green indicator";
             if (meat.GetComponent<Collider>().isTrigger)
             {
                 completeParticles[3].Play();
@@ -107,7 +109,7 @@ public class ObjectiveTracker : MonoBehaviour
         }
         if (steps[4])
         {
-            stepText.text = "Step 5: Cut the meat by following the guidelines";
+            //stepText.text = "Step 5: Cut the meat by following the guidelines";
             if (meat == null)
             {
                 completeParticles[4].Play();
@@ -118,7 +120,7 @@ public class ObjectiveTracker : MonoBehaviour
         }
         if (steps[5])
         {
-            stepText.text = "Objectives Complete!";
+            //stepText.text = "Objectives Complete!";
             steps[5] = false;
         }
     }
@@ -134,6 +136,21 @@ public class ObjectiveTracker : MonoBehaviour
             else
             {
                 checkmarks[i].enabled = false;
+            }
+        }
+    }
+
+    public void InstructionDisplay()
+    {
+        for (int i = 0; i < instructions.Length; i++)
+        {
+            if (i - 1 == index)
+            {
+                instructions[i].enabled = true;
+            }
+            else
+            {
+                instructions[i].enabled = false;
             }
         }
     }
