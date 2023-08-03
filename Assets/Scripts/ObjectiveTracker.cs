@@ -46,57 +46,57 @@ public class ObjectiveTracker : MonoBehaviour
         InstructionDisplay();
         CheckmarkDisplay();
 
+        //if (steps[0])
+        //{
+        //    //stepText.text = "Step 1: Wash your hands";
+
+        //    var grabbables = FindObjectsOfType(typeof(Grabbable));
+        //    foreach (var item in grabbables)
+        //    {
+        //        item.GetComponent<Grabbable>().enabled = false;
+        //    }
+
+        //    if (rightHand.GetComponentInChildren<Dirty>().dirtiness <= 0.0f && leftHand.GetComponentInChildren<Dirty>().dirtiness <= 0.0f &&
+        //        rightHand.GetComponentInChildren<Clean>().cleanness <= 0.0f && leftHand.GetComponentInChildren<Clean>().cleanness <= 0.0f &&
+        //        rightHand.GetComponentInChildren<Wet>().wetness <= 0.0f && leftHand.GetComponentInChildren<Wet>().wetness <= 0.0f)
+        //    {
+        //        completeParticles[0].Play();
+        //        steps[0] = false;
+        //        steps[1] = true;
+        //        index++;
+        //    }
+        //}
+        //if (steps[1])
+        //{
+        //    //stepText.text = "Step 2: Put on gloves";
+
+        //    var grabbables = FindObjectsOfType(typeof(Grabbable));
+
+        //    if (gloves == null)
+        //    {
+        //        foreach (var item in grabbables)
+        //        {
+        //            item.GetComponent<Grabbable>().enabled = true;
+        //        }
+
+        //        completeParticles[1].Play();
+        //        steps[1] = false;
+        //        steps[2] = true;
+        //        index++;
+        //    }
+        //}
+        //if (steps[2])
+        //{
+        //    //stepText.text = "Step 3: Straighten your knife";
+        //    if (knife.GetComponent<KnifeStraighten>().strength >= 100.0f)
+        //    {
+        //        completeParticles[2].Play();
+        //        steps[2] = false;
+        //        steps[3] = true;
+        //        index++;
+        //    }
+        //}
         if (steps[0])
-        {
-            //stepText.text = "Step 1: Wash your hands";
-
-            var grabbables = FindObjectsOfType(typeof(Grabbable));
-            foreach (var item in grabbables)
-            {
-                item.GetComponent<Grabbable>().enabled = false;
-            }
-
-            if (rightHand.GetComponentInChildren<Dirty>().dirtiness <= 0.0f && leftHand.GetComponentInChildren<Dirty>().dirtiness <= 0.0f &&
-                rightHand.GetComponentInChildren<Clean>().cleanness <= 0.0f && leftHand.GetComponentInChildren<Clean>().cleanness <= 0.0f &&
-                rightHand.GetComponentInChildren<Wet>().wetness <= 0.0f && leftHand.GetComponentInChildren<Wet>().wetness <= 0.0f)
-            {
-                completeParticles[0].Play();
-                steps[0] = false;
-                steps[1] = true;
-                index++;
-            }
-        }
-        if (steps[1])
-        {
-            //stepText.text = "Step 2: Put on gloves";
-
-            var grabbables = FindObjectsOfType(typeof(Grabbable));
-
-            if (gloves == null)
-            {
-                foreach (var item in grabbables)
-                {
-                    item.GetComponent<Grabbable>().enabled = true;
-                }
-
-                completeParticles[1].Play();
-                steps[1] = false;
-                steps[2] = true;
-                index++;
-            }
-        }
-        if (steps[2])
-        {
-            //stepText.text = "Step 3: Straighten your knife";
-            if (knife.GetComponent<KnifeStraighten>().strength >= 100.0f)
-            {
-                completeParticles[2].Play();
-                steps[2] = false;
-                steps[3] = true;
-                index++;
-            }
-        }
-        if (steps[3])
         {
             //stepText.text = "Step 4: Bring the meat to the green indicator";
             if (meat.GetComponent<Collider>().isTrigger)
@@ -104,7 +104,7 @@ public class ObjectiveTracker : MonoBehaviour
                 completeParticles[3].Play();
                 steps[3] = false;
                 steps[4] = true;
-                index++;
+                index = 4;
             }
         }
         if (steps[4])
