@@ -7,11 +7,13 @@ using static Unity.VisualScripting.Member;
 public class Honing : MonoBehaviour
 {
     public List<HoningCheckpoint> checkpoints;
+    public ParticleSystem honingParticle;
     public bool check = false;
     public LayerMask knifeLayer;
 
     private Rigidbody rb;
     private GameObject knifeObject;
+    private bool fullStraigthen = false;
 
     // Start is called before the first frame update
     void Start()
@@ -32,18 +34,26 @@ public class Honing : MonoBehaviour
 
             if (i == checkpoints.Count && check)
             {
-                if (gameObject.GetComponent<Dirty>().dirtiness > 0.0f)
+                if (gameObject.GetComponentInChildren<Dirty>().dirtiness > 0.0f)
                 {
                     knifeObject.GetComponentInChildren<Dirty>().dirtiness += 10.0f;
                 }
-                else
+                if (gameObject.GetComponentInChildren<Dirty>().dirtiness <= 0.0f && gameObject.GetComponentInChildren<Clean>().cleanness <= 0.0f)
                 {
                     if (knifeObject.GetComponent<KnifeStraighten>())
                     {
                         knifeObject.GetComponent<KnifeStraighten>().strength += 10.0f;
                     }
+                    if (knifeObject.GetComponent<KnifeStraighten>().strength < 100.0f)
+                    {
+                        fullStraigthen = false;
+                    }
+                    if (knifeObject.GetComponent<KnifeStraighten>().strength >= 100.0f && !fullStraigthen)
+                    {
+                        honingParticle.Play();
+                        fullStraigthen = true;
+                    }
                 }
-
                 honing.check = false;
             }
         }

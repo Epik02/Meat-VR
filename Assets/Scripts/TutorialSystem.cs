@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class TutorialSystem : MonoBehaviour
 {
+    public List<ParticleSystem> completeParticles;
     public Image[] checkmarks;
     public TMP_Text stepText;
     public GameObject[] tools;
@@ -44,6 +45,7 @@ public class TutorialSystem : MonoBehaviour
             if (player.transform.position != playerOriginalPosition && player.transform.rotation != playerOriginalRotation)
             {
                 index++;
+                completeParticles[0].Play();
                 steps[0] = false;
                 steps[1] = true;
             }
@@ -55,6 +57,7 @@ public class TutorialSystem : MonoBehaviour
             if (isGrabbed)
             {
                 index++;
+                completeParticles[1].Play();
                 steps[1] = false;
                 steps[2] = true;
             }
@@ -66,6 +69,7 @@ public class TutorialSystem : MonoBehaviour
             if (gloves == null)
             {
                 index++;
+                completeParticles[2].Play();
                 steps[2] = false;
                 steps[3] = true;
             }
@@ -78,6 +82,7 @@ public class TutorialSystem : MonoBehaviour
                 knife.GetComponentInChildren<Dirty>().dirtiness <= 0 && knife.GetComponentInChildren<Clean>().cleanness <= 0)
             {
                 index++;
+                completeParticles[3].Play();
                 steps[3] = false;
                 steps[4] = true;
             }
@@ -89,6 +94,7 @@ public class TutorialSystem : MonoBehaviour
             if (knife.GetComponent<KnifeStraighten>().strength >= 100.0f)
             {
                 index++;
+                completeParticles[4].Play();
                 steps[4] = false;
                 steps[5] = true;
             }
@@ -97,10 +103,11 @@ public class TutorialSystem : MonoBehaviour
         {
             stepText.text = "Spawn and Cut Meat";
 
-            var cuttables = GameObject.FindGameObjectsWithTag("cuttable");
-            if (cuttables.Length > 0)
+            var cutMeat = FindObjectsOfType(typeof(CutMeat));
+            if (cutMeat.Length > 0)
             {
                 index++;
+                completeParticles[5].Play();
                 steps[5] = false;
             }
         }
@@ -116,6 +123,7 @@ public class TutorialSystem : MonoBehaviour
         {
             if (item == tool)
             {
+                completeParticles[1].gameObject.transform.position = tool.transform.position;
                 isGrabbed = true;
             }
         }

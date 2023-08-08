@@ -55,7 +55,7 @@ public class Air : MonoBehaviour
                 dryObjects.Remove(wetChild);
                 wetChild.wetness -= dryPerParticle;
             }
-            if (!dryObjects.Contains(wetChild) && wetChild.wetness >= 100.0f)
+            if (!dryObjects.Contains(wetChild) && wetChild.wetness <= 0.0f)
             {
                 dryObjects.Add(wetChild);
                 ps.Play();

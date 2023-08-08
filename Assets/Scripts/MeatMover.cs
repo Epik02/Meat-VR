@@ -6,8 +6,8 @@ public class MeatMover : MonoBehaviour
 {
     public int part;
 
-    private List<GameObject> meats = new List<GameObject>();
     private Vector3 push;
+    private bool moveMeat = false;
 
     // Start is called before the first frame update
     void Start()
@@ -28,9 +28,11 @@ public class MeatMover : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (meats.Count > 0)
+        var tempMeatList = GameObject.FindGameObjectsWithTag("Meat");
+
+        if (moveMeat)
         {
-            foreach (var item in meats)
+            foreach (var item in tempMeatList)
             {
                 item.transform.localPosition += push;
             }
@@ -41,7 +43,7 @@ public class MeatMover : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Meat"))
         {
-            meats.Add(other.gameObject);
+            moveMeat = true;
         }
     }
 
@@ -49,7 +51,7 @@ public class MeatMover : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Meat"))
         {
-            meats.Remove(other.gameObject);
+            moveMeat = false;
         }
     }
 }
