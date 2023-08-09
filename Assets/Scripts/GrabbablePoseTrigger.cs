@@ -27,6 +27,7 @@ public class GrabbablePoseTrigger : MonoBehaviour
         newParticle.transform.position = particleStart.position;
         newParticle.transform.rotation = gameObject.transform.rotation;
         newParticle.transform.localScale = Vector3.one;
+        AudioManager.instance.PlayOneShot(FMODEvents.instance.sprayBottle, this.transform.position);
         if (newParticle.GetComponent<ParticleSystem>().isStopped)
         {
             Destroy(newParticle);

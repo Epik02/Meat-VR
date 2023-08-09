@@ -1,4 +1,5 @@
 using Autohand;
+using FMOD.Studio;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -40,12 +41,10 @@ public class Honing : MonoBehaviour
                 }
                 if (gameObject.GetComponentInChildren<Dirty>().dirtiness <= 0.0f && gameObject.GetComponentInChildren<Clean>().cleanness <= 0.0f)
                 {
-                    if (knifeObject.GetComponent<KnifeStraighten>())
+                    if (knifeObject.GetComponent<KnifeStraighten>() && knifeObject.GetComponent<KnifeStraighten>().strength < 100.0f)
                     {
                         knifeObject.GetComponent<KnifeStraighten>().strength += 10.0f;
-                    }
-                    if (knifeObject.GetComponent<KnifeStraighten>().strength < 100.0f)
-                    {
+                        AudioManager.instance.PlayOneShot(FMODEvents.instance.honing, this.transform.position);
                         fullStraigthen = false;
                     }
                     if (knifeObject.GetComponent<KnifeStraighten>().strength >= 100.0f && !fullStraigthen)

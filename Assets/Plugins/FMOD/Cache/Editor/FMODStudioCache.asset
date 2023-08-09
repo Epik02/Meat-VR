@@ -1,5 +1,482 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9178178520901714020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Beef VO/B5 Rib Plate
+  m_EditorClassIdentifier: 
+  Path: event:/Beef VO/B5 Rib Plate
+  Guid:
+    Data1: 769804038
+    Data2: 1266454313
+    Data3: -897460556
+    Data4: -1102770321
+  Banks:
+  - {fileID: 96945368748312194}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-8985991365868287367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Tutorial VO/T10 Santizing 4
+  m_EditorClassIdentifier: 
+  Path: event:/Tutorial VO/T10 Santizing 4
+  Guid:
+    Data1: 1379506623
+    Data2: 1203567052
+    Data3: 1738097306
+    Data4: 1247194167
+  Banks:
+  - {fileID: -5476938557829214333}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-8899837003853199288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Interactions/Meat Cutting
+  m_EditorClassIdentifier: 
+  Path: event:/Interactions/Meat Cutting
+  Guid:
+    Data1: 1821285782
+    Data2: 1086757913
+    Data3: 581883326
+    Data4: 1892237274
+  Banks:
+  - {fileID: 5637830065149755805}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-8878960748334582834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Environment
+  m_EditorClassIdentifier: 
+  Path: event:/Environment
+  Guid:
+    Data1: 1904332232
+    Data2: 1214804674
+    Data3: 1658705840
+    Data4: -1822936638
+  Banks:
+  - {fileID: 5637830065149755805}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 12747
+--- !u!114 &-8287814070349897625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Tutorial VO/T11 Santizing 5
+  m_EditorClassIdentifier: 
+  Path: event:/Tutorial VO/T11 Santizing 5
+  Guid:
+    Data1: -239694026
+    Data2: 1306969588
+    Data3: -742373493
+    Data4: -2096491227
+  Banks:
+  - {fileID: -5476938557829214333}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-6078279205716554114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Interactions/Hand Dryer
+  m_EditorClassIdentifier: 
+  Path: event:/Interactions/Hand Dryer
+  Guid:
+    Data1: 1528089897
+    Data2: 1277863092
+    Data3: -421241196
+    Data4: 639655204
+  Banks:
+  - {fileID: 5637830065149755805}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 8211
+--- !u!114 &-5741913856472740056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Tutorial VO/T15 End
+  m_EditorClassIdentifier: 
+  Path: event:/Tutorial VO/T15 End
+  Guid:
+    Data1: -837992970
+    Data2: 1132407389
+    Data3: 1046465969
+    Data4: -1249852756
+  Banks:
+  - {fileID: -5476938557829214333}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-5476938557829214333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Tutorial VO.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Sounds/Build/Desktop/Tutorial VO.bank
+  Name: Tutorial VO
+  StudioPath: bank:/Tutorial VO
+  lastModified: 638271848775422858
+  FileSizes: []
+  Exists: 1
+--- !u!114 &-5167095068164639613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Interactions/Sink
+  m_EditorClassIdentifier: 
+  Path: event:/Interactions/Sink
+  Guid:
+    Data1: 333555179
+    Data2: 1257973141
+    Data3: 729538194
+    Data4: -863894813
+  Banks:
+  - {fileID: 5637830065149755805}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 4021
+--- !u!114 &-3284404742630149228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Tutorial VO/T14 Cutting
+  m_EditorClassIdentifier: 
+  Path: event:/Tutorial VO/T14 Cutting
+  Guid:
+    Data1: -1320916572
+    Data2: 1080959442
+    Data3: 988226997
+    Data4: 1589940587
+  Banks:
+  - {fileID: -5476938557829214333}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-2501645253531469059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Tutorial VO/T5 Handwash
+  m_EditorClassIdentifier: 
+  Path: event:/Tutorial VO/T5 Handwash
+  Guid:
+    Data1: -639553007
+    Data2: 1222207375
+    Data3: 70414994
+    Data4: 1184879243
+  Banks:
+  - {fileID: -5476938557829214333}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-2409941396108273192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Tutorial VO/T2 Stick Movement
+  m_EditorClassIdentifier: 
+  Path: event:/Tutorial VO/T2 Stick Movement
+  Guid:
+    Data1: -835630638
+    Data2: 1266844940
+    Data3: 575275451
+    Data4: 160167187
+  Banks:
+  - {fileID: -5476938557829214333}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-1849026534482644479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Tutorial VO/T6 Gloves
+  m_EditorClassIdentifier: 
+  Path: event:/Tutorial VO/T6 Gloves
+  Guid:
+    Data1: -2135730205
+    Data2: 1213237044
+    Data3: -532161641
+    Data4: 964443956
+  Banks:
+  - {fileID: -5476938557829214333}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-1676722783579207936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Tutorial VO/T7 Sanitizing 1
+  m_EditorClassIdentifier: 
+  Path: event:/Tutorial VO/T7 Sanitizing 1
+  Guid:
+    Data1: -1091016259
+    Data2: 1275998887
+    Data3: 408987824
+    Data4: 1593297324
+  Banks:
+  - {fileID: -5476938557829214333}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-678427839737202007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Tutorial VO/T8 Sanitizing 2
+  m_EditorClassIdentifier: 
+  Path: event:/Tutorial VO/T8 Sanitizing 2
+  Guid:
+    Data1: 218559213
+    Data2: 1245462231
+    Data3: -1489218428
+    Data4: -2069193634
+  Banks:
+  - {fileID: -5476938557829214333}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-555133545704748055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Tutorial VO/T1 Intro
+  m_EditorClassIdentifier: 
+  Path: event:/Tutorial VO/T1 Intro
+  Guid:
+    Data1: 1580255974
+    Data2: 1251522133
+    Data3: -998759290
+    Data4: 500171415
+  Banks:
+  - {fileID: -5476938557829214333}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-49559832365563988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Tutorial VO/T4 Pick Up
+  m_EditorClassIdentifier: 
+  Path: event:/Tutorial VO/T4 Pick Up
+  Guid:
+    Data1: -1200732157
+    Data2: 1102082298
+    Data3: 1843463808
+    Data4: 1221139149
+  Banks:
+  - {fileID: -5476938557829214333}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-39425947711604985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Tutorial VO/T3 IRL Movement
+  m_EditorClassIdentifier: 
+  Path: event:/Tutorial VO/T3 IRL Movement
+  Guid:
+    Data1: -489644232
+    Data2: 1314074888
+    Data3: -2076117857
+    Data4: -1649950318
+  Banks:
+  - {fileID: -5476938557829214333}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12,10 +489,481 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d32cf7c32a3ed8347bac48ef5ed56d82, type: 3}
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
-  EditorBanks: []
-  EditorEvents: []
+  EditorBanks:
+  - {fileID: 750009050509082882}
+  - {fileID: 96945368748312194}
+  - {fileID: 5637830065149755805}
+  - {fileID: -5476938557829214333}
+  EditorEvents:
+  - {fileID: -9178178520901714020}
+  - {fileID: 4222863039330415237}
+  - {fileID: 7246000991660219649}
+  - {fileID: 3410042945677266450}
+  - {fileID: 6794837300605625796}
+  - {fileID: 4882354608697813782}
+  - {fileID: 4891410621478954148}
+  - {fileID: 4172779717136278943}
+  - {fileID: -6078279205716554114}
+  - {fileID: 6095878477842957154}
+  - {fileID: 2322179746858572017}
+  - {fileID: -8899837003853199288}
+  - {fileID: -8878960748334582834}
+  - {fileID: 3124099567636710192}
+  - {fileID: 1741266714293482026}
+  - {fileID: -5167095068164639613}
+  - {fileID: -49559832365563988}
+  - {fileID: -2501645253531469059}
+  - {fileID: 1590604548881589840}
+  - {fileID: -8287814070349897625}
+  - {fileID: -39425947711604985}
+  - {fileID: 7402317115939091813}
+  - {fileID: 2341613646916435076}
+  - {fileID: -3284404742630149228}
+  - {fileID: -1676722783579207936}
+  - {fileID: -8985991365868287367}
+  - {fileID: -2409941396108273192}
+  - {fileID: -1849026534482644479}
+  - {fileID: -555133545704748055}
+  - {fileID: -678427839737202007}
+  - {fileID: -5741913856472740056}
   EditorParameters: []
-  MasterBanks: []
-  StringsBanks: []
-  cacheTime: 0
+  MasterBanks:
+  - {fileID: 5637830065149755805}
+  StringsBanks:
+  - {fileID: 750009050509082882}
+  cacheTime: 638271848775422858
   cacheVersion: 131605
+--- !u!114 &96945368748312194
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Beef VO.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Sounds/Build/Desktop/Beef VO.bank
+  Name: Beef VO
+  StudioPath: bank:/Beef VO
+  lastModified: 638271848775275796
+  FileSizes: []
+  Exists: 1
+--- !u!114 &750009050509082882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.strings.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Sounds/Build/Desktop/Master.strings.bank
+  Name: Master.strings
+  StudioPath: bank:/Master.strings
+  lastModified: 638271848775321369
+  FileSizes:
+  - Name: 
+    Value: 2244
+  Exists: 1
+--- !u!114 &1590604548881589840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Tutorial VO/T12 Straightening 1
+  m_EditorClassIdentifier: 
+  Path: event:/Tutorial VO/T12 Straightening 1
+  Guid:
+    Data1: -739764193
+    Data2: 1120343077
+    Data3: 1805090709
+    Data4: -1110031408
+  Banks:
+  - {fileID: -5476938557829214333}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &1741266714293482026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Interactions/Spray Bottle
+  m_EditorClassIdentifier: 
+  Path: event:/Interactions/Spray Bottle
+  Guid:
+    Data1: 389817319
+    Data2: 1123180493
+    Data3: 1583804087
+    Data4: -334572823
+  Banks:
+  - {fileID: 5637830065149755805}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &2322179746858572017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Interactions/Honing
+  m_EditorClassIdentifier: 
+  Path: event:/Interactions/Honing
+  Guid:
+    Data1: -481633424
+    Data2: 1319294724
+    Data3: 722971046
+    Data4: 2123923358
+  Banks:
+  - {fileID: 5637830065149755805}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &2341613646916435076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Tutorial VO/T13 Straightening 2
+  m_EditorClassIdentifier: 
+  Path: event:/Tutorial VO/T13 Straightening 2
+  Guid:
+    Data1: -314049706
+    Data2: 1242855389
+    Data3: -1321765757
+    Data4: -1357163768
+  Banks:
+  - {fileID: -5476938557829214333}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &3124099567636710192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Interactions/Soap Dispenser
+  m_EditorClassIdentifier: 
+  Path: event:/Interactions/Soap Dispenser
+  Guid:
+    Data1: -1780442678
+    Data2: 1119176451
+    Data3: -1803865196
+    Data4: -677593026
+  Banks:
+  - {fileID: 5637830065149755805}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &3410042945677266450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Beef VO/B1 Intro
+  m_EditorClassIdentifier: 
+  Path: event:/Beef VO/B1 Intro
+  Guid:
+    Data1: 1431040618
+    Data2: 1192237887
+    Data3: -1833239148
+    Data4: 330346436
+  Banks:
+  - {fileID: 96945368748312194}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &4172779717136278943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Interactions/Meat Fall
+  m_EditorClassIdentifier: 
+  Path: event:/Interactions/Meat Fall
+  Guid:
+    Data1: -1002788567
+    Data2: 1288979144
+    Data3: 515852179
+    Data4: 2107284317
+  Banks:
+  - {fileID: 5637830065149755805}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &4222863039330415237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Beef VO/B6 Score
+  m_EditorClassIdentifier: 
+  Path: event:/Beef VO/B6 Score
+  Guid:
+    Data1: -2080632805
+    Data2: 1074599251
+    Data3: 443646909
+    Data4: 876668187
+  Banks:
+  - {fileID: 96945368748312194}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &4882354608697813782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Beef VO/B5 Rib Plate w Handsaw
+  m_EditorClassIdentifier: 
+  Path: event:/Beef VO/B5 Rib Plate w Handsaw
+  Guid:
+    Data1: -190518072
+    Data2: 1188018725
+    Data3: 1873734073
+    Data4: 1667225914
+  Banks:
+  - {fileID: 96945368748312194}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &4891410621478954148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Beef VO/B3 Inside Skirt
+  m_EditorClassIdentifier: 
+  Path: event:/Beef VO/B3 Inside Skirt
+  Guid:
+    Data1: -41282339
+    Data2: 1104407467
+    Data3: 2063006906
+    Data4: -302901392
+  Banks:
+  - {fileID: 96945368748312194}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &5637830065149755805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: bank:/Master.bank
+  m_EditorClassIdentifier: 
+  Path: Assets/Sounds/Build/Desktop/Master.bank
+  Name: Master
+  StudioPath: bank:/Master
+  lastModified: 638271848775316326
+  FileSizes: []
+  Exists: 1
+--- !u!114 &6095878477842957154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Interactions/Knife Fall
+  m_EditorClassIdentifier: 
+  Path: event:/Interactions/Knife Fall
+  Guid:
+    Data1: 1105710678
+    Data2: 1242468755
+    Data3: -954392177
+    Data4: 1353845074
+  Banks:
+  - {fileID: 5637830065149755805}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &6794837300605625796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Beef VO/B2 Outside Skirt
+  m_EditorClassIdentifier: 
+  Path: event:/Beef VO/B2 Outside Skirt
+  Guid:
+    Data1: -101934711
+    Data2: 1303709711
+    Data3: 658305413
+    Data4: -1906794733
+  Banks:
+  - {fileID: 96945368748312194}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &7246000991660219649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Beef VO/B4 Navel
+  m_EditorClassIdentifier: 
+  Path: event:/Beef VO/B4 Navel
+  Guid:
+    Data1: -971797964
+    Data2: 1143506805
+    Data3: 1242216082
+    Data4: 1129762881
+  Banks:
+  - {fileID: 96945368748312194}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &7402317115939091813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Tutorial VO/T9 Sanitizing 3
+  m_EditorClassIdentifier: 
+  Path: event:/Tutorial VO/T9 Sanitizing 3
+  Guid:
+    Data1: -963788486
+    Data2: 1127850455
+    Data3: 1352366500
+    Data4: 1876863521
+  Banks:
+  - {fileID: -5476938557829214333}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
