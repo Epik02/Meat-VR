@@ -42,7 +42,8 @@ public class TutorialSystem : MonoBehaviour
         {
             stepText.text = "Move and Rotate";
 
-            if (player.transform.position != playerOriginalPosition && player.transform.rotation != playerOriginalRotation)
+            float distance = Vector3.Distance(player.transform.position, playerOriginalPosition);
+            if (distance > 1.0f && player.transform.rotation != playerOriginalRotation)
             {
                 index++;
                 completeParticles[0].Play();
