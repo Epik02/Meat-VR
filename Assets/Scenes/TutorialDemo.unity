@@ -9886,6 +9886,85 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
+--- !u!1 &92904361
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 92904362}
+  - component: {fileID: 92904363}
+  m_Layer: 0
+  m_Name: FMOD Events
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &92904362
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 92904361}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1046909480}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &92904363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 92904361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f7c929549f6c4445b7bb786fc04f62f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soapDispenser:
+    Guid:
+      Data1: -1780442678
+      Data2: 1119176451
+      Data3: -1803865196
+      Data4: -677593026
+    Path: event:/Interactions/Soap Dispenser
+  sink:
+    Guid:
+      Data1: 333555179
+      Data2: 1257973141
+      Data3: 729538194
+      Data4: -863894813
+    Path: event:/Interactions/Sink
+  airDryer:
+    Guid:
+      Data1: 1528089897
+      Data2: 1277863092
+      Data3: -421241196
+      Data4: 639655204
+    Path: event:/Interactions/Hand Dryer
+  honing:
+    Guid:
+      Data1: -481633424
+      Data2: 1319294724
+      Data3: 722971046
+      Data4: 2123923358
+    Path: event:/Interactions/Honing
+  sprayBottle:
+    Guid:
+      Data1: 389817319
+      Data2: 1123180493
+      Data3: 1583804087
+      Data4: -334572823
+    Path: event:/Interactions/Spray Bottle
 --- !u!1 &105386516
 GameObject:
   m_ObjectHideFlags: 0
@@ -41002,6 +41081,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b75bb2662219f464ba11550ef7f35d4d, type: 3}
+--- !u!1 &721552977 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6985504986054122431, guid: b75bb2662219f464ba11550ef7f35d4d,
+    type: 3}
+  m_PrefabInstance: {fileID: 721552976}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &721552978 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1902964633589158217, guid: b75bb2662219f464ba11550ef7f35d4d,
+    type: 3}
+  m_PrefabInstance: {fileID: 721552976}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &728995650 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1902964633226631592, guid: b75bb2662219f464ba11550ef7f35d4d,
@@ -41268,6 +41359,19 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 721552976}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &891105112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 721552978}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c6556701af9e04380698b89f691b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attenuationObject: {fileID: 721552977}
 --- !u!1 &906895321
 GameObject:
   m_ObjectHideFlags: 0
@@ -41545,6 +41649,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d5ac9576837af2a459d79a332ba7d910, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1046909478
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1046909480}
+  - component: {fileID: 1046909479}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1046909479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046909478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be069a0f1af56b74886592f13bd37436, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1046909480
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046909478}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 92904362}
+  m_Father: {fileID: 0}
+  m_RootOrder: 29
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!64 &1054508768
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -41937,7 +42086,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 29
+  m_RootOrder: 30
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1370647304
 GameObject:
@@ -46965,7 +47114,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 30
+  m_RootOrder: 31
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1605982320
 MonoBehaviour:
