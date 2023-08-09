@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{f4d17539-5e30-43ad-979b-14dc340ee57a}">
+		<property name="assetPath">
+			<value>BVO/BVO 7.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>9.47374149659864</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{ff2cd13f-3c14-44b6-8f4b-806403bc01e2}</destination>
+		</relationship>
+	</object>
+</objects>

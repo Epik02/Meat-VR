@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{23186734-8ab0-4a54-a832-4239c512ecc0}">
+		<property name="assetPath">
+			<value>Hand Dryer/Hand Dry 6.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>3.6613151927437642</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{ff2cd13f-3c14-44b6-8f4b-806403bc01e2}</destination>
+		</relationship>
+	</object>
+</objects>

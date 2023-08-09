@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="EncodableAsset" id="{752598f5-401e-4885-b98e-91dbf6cbaf55}">
+		<property name="assetPath">
+			<value>Hand Dryer/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{ff2cd13f-3c14-44b6-8f4b-806403bc01e2}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="EncodableAsset" id="{89922797-0192-46a8-b6b0-e03f1b0d917e}">
+		<property name="assetPath">
+			<value>Spray Bottle/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{ff2cd13f-3c14-44b6-8f4b-806403bc01e2}</destination>
+		</relationship>
+	</object>
+</objects>

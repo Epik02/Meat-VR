@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="EncodableAsset" id="{da463498-e226-4640-9dab-f5f986cae831}">
+		<property name="assetPath">
+			<value>Meat Drop/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{ff2cd13f-3c14-44b6-8f4b-806403bc01e2}</destination>
+		</relationship>
+	</object>
+</objects>
