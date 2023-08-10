@@ -7,7 +7,7 @@ public class FMODEvents : MonoBehaviour
 {
     [SerializeField] public EventReference soapDispenser;
     [SerializeField] public EventReference sink;
-    [SerializeField] public EventReference airDryer;
+    [SerializeField] public List<EventReference> airDryer;
     [SerializeField] public EventReference honing;
     [SerializeField] public EventReference sprayBottle;
     [SerializeField] public List<EventReference> tutorialVoiceOvers;

@@ -135,33 +135,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &-6078279205716554114
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Interactions/Hand Dryer
-  m_EditorClassIdentifier: 
-  Path: event:/Interactions/Hand Dryer
-  Guid:
-    Data1: 1528089897
-    Data2: 1277863092
-    Data3: -421241196
-    Data4: 639655204
-  Banks:
-  - {fileID: 5637830065149755805}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 0
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 7411
 --- !u!114 &-5741913856472740056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -204,7 +177,7 @@ MonoBehaviour:
   Path: Assets/Sounds/Build/Desktop/Tutorial VO.bank
   Name: Tutorial VO
   StudioPath: bank:/Tutorial VO
-  lastModified: 638272751143547126
+  lastModified: 638272799579714206
   FileSizes: []
   Exists: 1
 --- !u!114 &-5167095068164639613
@@ -261,6 +234,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &-2758621350257634305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Interactions/Hand Dryer End
+  m_EditorClassIdentifier: 
+  Path: event:/Interactions/Hand Dryer End
+  Guid:
+    Data1: 1346285203
+    Data2: 1086699569
+    Data3: -1281843563
+    Data4: 1753813697
+  Banks:
+  - {fileID: 5637830065149755805}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1451
 --- !u!114 &-2501645253531469059
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -503,7 +503,6 @@ MonoBehaviour:
   - {fileID: 4882354608697813782}
   - {fileID: 4891410621478954148}
   - {fileID: 4172779717136278943}
-  - {fileID: -6078279205716554114}
   - {fileID: 6095878477842957154}
   - {fileID: 2322179746858572017}
   - {fileID: -8899837003853199288}
@@ -526,12 +525,14 @@ MonoBehaviour:
   - {fileID: -555133545704748055}
   - {fileID: -678427839737202007}
   - {fileID: -5741913856472740056}
+  - {fileID: 4068935056403160562}
+  - {fileID: -2758621350257634305}
   EditorParameters: []
   MasterBanks:
   - {fileID: 5637830065149755805}
   StringsBanks:
   - {fileID: 750009050509082882}
-  cacheTime: 638272752860773999
+  cacheTime: 638272801534170917
   cacheVersion: 131605
 --- !u!114 &96945368748312194
 MonoBehaviour:
@@ -548,7 +549,7 @@ MonoBehaviour:
   Path: Assets/Sounds/Build/Desktop/Beef VO.bank
   Name: Beef VO
   StudioPath: bank:/Beef VO
-  lastModified: 638272751134044417
+  lastModified: 638272799579541692
   FileSizes: []
   Exists: 1
 --- !u!114 &750009050509082882
@@ -566,10 +567,10 @@ MonoBehaviour:
   Path: Assets/Sounds/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638272752860773999
+  lastModified: 638272801534170917
   FileSizes:
   - Name: 
-    Value: 2244
+    Value: 2296
   Exists: 1
 --- !u!114 &1590604548881589840
 MonoBehaviour:
@@ -733,6 +734,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &4068935056403160562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Interactions/Hand Dryer Start
+  m_EditorClassIdentifier: 
+  Path: event:/Interactions/Hand Dryer Start
+  Guid:
+    Data1: 1528089897
+    Data2: 1277863092
+    Data3: -421241196
+    Data4: 639655204
+  Banks:
+  - {fileID: 5637830065149755805}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1900
 --- !u!114 &4172779717136278943
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -856,7 +884,7 @@ MonoBehaviour:
   Path: Assets/Sounds/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638272752860742931
+  lastModified: 638272801534120194
   FileSizes: []
   Exists: 1
 --- !u!114 &6095878477842957154

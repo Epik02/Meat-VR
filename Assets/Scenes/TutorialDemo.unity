@@ -10021,12 +10021,18 @@ MonoBehaviour:
       Data4: -863894813
     Path: event:/Interactions/Sink
   airDryer:
-    Guid:
+  - Guid:
       Data1: 1528089897
       Data2: 1277863092
       Data3: -421241196
       Data4: 639655204
-    Path: event:/Interactions/Hand Dryer
+    Path: event:/Interactions/Hand Dryer Start
+  - Guid:
+      Data1: 1346285203
+      Data2: 1086699569
+      Data3: -1281843563
+      Data4: 1753813697
+    Path: event:/Interactions/Hand Dryer End
   honing:
     Guid:
       Data1: -481633424

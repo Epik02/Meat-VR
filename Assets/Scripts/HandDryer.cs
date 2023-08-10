@@ -2,19 +2,27 @@ using FMOD.Studio;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.ParticleSystem;
 
 public class HandDryer : MonoBehaviour
 {
     public ParticleSystem airParticle;
 
     private List<GameObject> hands = new List<GameObject>();
-    private EventInstance airSound;
+    private List<EventInstance> airSound = new List<EventInstance>();
+    private bool end = false;
 
     // Start is called before the first frame update
     void Start()
     {
         airParticle.Stop();
-        airSound = AudioManager.instance.CreateInstance(FMODEvents.instance.airDryer);
+        for (int i = 0; i < FMODEvents.instance.airDryer.Count; i++)
+        {
+            airSound.Add(AudioManager.instance.CreateInstance(FMODEvents.instance.airDryer[i]));
+        }
+        float temp;
+        airSound[1].getVolume(out temp);
+        airSound[1].setVolume(temp * 5.0f);
     }
 
     // Update is called once per frame
@@ -40,18 +48,31 @@ public class HandDryer : MonoBehaviour
 
     private void UpdateSound()
     {
+        PLAYBACK_STATE playbackState;
+        airSound[0].getPlaybackState(out playbackState);
+
         if (hands.Count > 0)
         {
-            PLAYBACK_STATE playbackState;
-            airSound.getPlaybackState(out playbackState);
             if (playbackState.Equals(PLAYBACK_STATE.STOPPED))
             {
-                airSound.start();
+                airSound[0].start();
+                end = true;
             }
         }
         else
         {
-            airSound.stop(STOP_MODE.ALLOWFADEOUT);
+            if (end)
+            {
+                airSound[0].stop(STOP_MODE.IMMEDIATE);
+                airSound[1].start();
+                end = false;
+            }
+            //end = true;
         }
+        //if (playbackState.Equals(PLAYBACK_STATE.STOPPED))
+        //{
+        //    AudioManager.instance.PlayOneShot(FMODEvents.instance.airDryer[1], this.transform.position);
+        //    //end = false;
+        //}
     }
 }
