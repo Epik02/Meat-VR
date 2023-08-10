@@ -51,7 +51,7 @@ public class Sink : MonoBehaviour
         }
         else
         {
-            sinkSound.stop(STOP_MODE.ALLOWFADEOUT);
+            sinkSound.stop(STOP_MODE.IMMEDIATE);
         }
     }
 }

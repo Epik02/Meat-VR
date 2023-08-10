@@ -10,6 +10,8 @@ public class FMODEvents : MonoBehaviour
     [SerializeField] public EventReference airDryer;
     [SerializeField] public EventReference honing;
     [SerializeField] public EventReference sprayBottle;
+    [SerializeField] public List<EventReference> tutorialVoiceOvers;
+    [SerializeField] public List<EventReference> gameVoiceOvers;
 
     public static FMODEvents instance;
 
