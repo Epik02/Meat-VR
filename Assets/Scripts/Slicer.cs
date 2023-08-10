@@ -16,6 +16,12 @@ public class Slicer : MonoBehaviour
     public Transform startSlicePoint;
     public Transform endSlicePoint;
 
+    //for accuracy on cut objects
+    public GameObject accObject;
+    public GameObject objToIns;
+    public TextMeshPro text;
+    public GameObject knife;
+
     private void Update()
     {
         //if (textDisplay != null)
@@ -56,6 +62,29 @@ public class Slicer : MonoBehaviour
                 //makes it so you can pick up the sliced objects
                 upperHullGameobject.AddComponent<Grabbable>();
                 lowerHullGameobject.AddComponent<Grabbable>();
+
+                //make it so cut pieces of meat work with the accuracy system
+                upperHullGameobject.AddComponent<Accuracy>();
+                lowerHullGameobject.AddComponent<Accuracy>();
+
+                upperHullGameobject.GetComponent<Accuracy>().accuracyObject = accObject;
+                lowerHullGameobject.GetComponent<Accuracy>().accuracyObject = accObject;
+
+                upperHullGameobject.GetComponent<Accuracy>().mText = text;
+                lowerHullGameobject.GetComponent<Accuracy>().mText = text;
+
+                upperHullGameobject.GetComponent<Accuracy>().Knife = knife;
+                lowerHullGameobject.GetComponent<Accuracy>().Knife = knife;
+
+                upperHullGameobject.GetComponent<Accuracy>().objectToInstantiate = objToIns;
+                lowerHullGameobject.GetComponent<Accuracy>().objectToInstantiate = objToIns;
+
+                upperHullGameobject.GetComponent<Accuracy>().speed = 1;
+                lowerHullGameobject.GetComponent<Accuracy>().speed = 1;
+                upperHullGameobject.GetComponent<Accuracy>().timeBetweenInstantiation = 0.1f;
+                lowerHullGameobject.GetComponent<Accuracy>().timeBetweenInstantiation = 0.1f;
+
+
 
                 Grabbable upperHullGrabbable = upperHullGameobject.GetComponent<Grabbable>();
                 Grabbable lowerHullGrabbable = lowerHullGameobject.GetComponent<Grabbable>();

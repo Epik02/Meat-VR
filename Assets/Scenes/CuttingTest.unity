@@ -42166,6 +42166,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slicer: {fileID: 0}
+  offsetx: 0
+  offsety: 0
+  roffsetx: 0
+  roffsety: 0
+  roffsetz: 0
 --- !u!1 &1226028880
 GameObject:
   m_ObjectHideFlags: 0

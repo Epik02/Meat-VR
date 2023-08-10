@@ -7,6 +7,7 @@ public class MeatManager : MonoBehaviour
 {
     public Vector3 position;
     public Quaternion rotation;
+    public GameObject accuracyObject;
     private Collider currentMeat;
     private bool inMeat = false;
     // Start is called before the first frame update
@@ -20,6 +21,7 @@ public class MeatManager : MonoBehaviour
         if (other.gameObject.tag == "cuttable")
         {
             inMeat = true;
+            accuracyObject.SetActive(true);
             other.gameObject.transform.position = position;
 
             other.gameObject.GetComponent<MeshCollider>().isTrigger = true;
@@ -27,13 +29,9 @@ public class MeatManager : MonoBehaviour
 
             other.gameObject.layer = 8;
 
-            //other.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX;
-            //other.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionY;
-            //other.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionZ;
-
-            //other.gameObject.GetComponent<Rigidbody>().detectCollisions = false;
             other.gameObject.GetComponent<Rigidbody>().useGravity = false;
-            //other.gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
+
+            this.transform.position = new Vector3(100, 100, 100); //removes sphere from scene temporaraly
         }
         else
         {
@@ -54,6 +52,11 @@ public class MeatManager : MonoBehaviour
             currentMeat.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX;
             currentMeat.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationY;
             currentMeat.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationZ;
-        }//-73 -84 49
+        }
+        else
+        {
+            accuracyObject.SetActive(false);
+            this.transform.position = new Vector3(2.293f, 0.232f, 1.204f); //brings green sphere back to scene
+        }
     }
 }
