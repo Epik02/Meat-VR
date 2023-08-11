@@ -6,6 +6,8 @@ public class knifeMechanics : MonoBehaviour
 {
     bool inMeatInGeneral = false;
     private Collider meat;
+    public float kniferotx;
+    public float kniferotz;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,7 +29,6 @@ public class knifeMechanics : MonoBehaviour
         {
             inMeatInGeneral = false;
         }
-        inMeatInGeneral = false;
     }
 
     // Update is called once per frame
@@ -39,6 +40,7 @@ public class knifeMechanics : MonoBehaviour
             this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionZ;
             //this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationX;
             //this.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotationZ;
+            this.transform.rotation = Quaternion.Euler(kniferotx, this.transform.rotation.y, kniferotz);
             this.GetComponent<Rigidbody>().freezeRotation = true;
 
         }

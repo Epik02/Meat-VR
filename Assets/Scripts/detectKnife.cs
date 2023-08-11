@@ -20,6 +20,8 @@ public class detectKnife : MonoBehaviour
             {
                 timer.Start();
                 slicer.transform.position = other.transform.position + new Vector3(offsetx, offsety, 0);
+                //slicer.transform.position += Vector3.forward;
+                //slicer.transform.localPosition += transform.forward * Time.deltaTime;
 
                 Vector3 newRotation = new Vector3(other.transform.rotation.eulerAngles.x + roffsetx, other.transform.rotation.eulerAngles.y + roffsety, other.transform.rotation.eulerAngles.z + roffsetz);
                 slicer.transform.rotation = Quaternion.Euler(newRotation);
