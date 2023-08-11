@@ -1,32 +1,59 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class Air : MonoBehaviour
+public class WetSoap : MonoBehaviour
 {
     public float dryPerParticle = 0.5f;
-    public ParticleSystem ps;
+    public List<GameObject> finishedParticles;
 
     private List<Wet> dryObjects;
+    private ParticleSystem ps;
 
     // Start is called before the first frame update
     void Start()
     {
+        var follows = FindObjectsOfType(typeof(ParticleFollow));
+        foreach (var item in follows)
+        {
+            finishedParticles.Add(item.GameObject());
+        }
+        ps = GetComponent<ParticleSystem>();
         dryObjects = new List<Wet>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (ps != null)
+        {
+            if (ps.isStopped)
+            {
+                Destroy(gameObject);
+            }
+        }
     }
 
     private void OnParticleCollision(GameObject other)
     {
+        ParticleSystem p = new ParticleSystem();
+
+        foreach (var item in finishedParticles)
+        {
+            if (item.GetComponent<ParticleFollow>().target != null)
+            {
+                if (item.GetComponent<ParticleFollow>().target.gameObject == other)
+                {
+                    p = item.GetComponent<ParticleSystem>();
+                }
+            }
+        }
+
         Wet wet = other.GetComponent<Wet>();
         Wet wetChild = other.GetComponentInChildren<Wet>();
 
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Item"))
         {
             if (wet)
             {
@@ -42,7 +69,7 @@ public class Air : MonoBehaviour
                 if (!dryObjects.Contains(wet) && wet.wetness >= 100.0f)
                 {
                     dryObjects.Add(wet);
-                    ps.Play();
+                    p.Play();
                 }
             }
 
@@ -60,7 +87,7 @@ public class Air : MonoBehaviour
                 if (!dryObjects.Contains(wetChild) && wetChild.wetness <= 0.0f)
                 {
                     dryObjects.Add(wetChild);
-                    ps.Play();
+                    p.Play();
                 }
             }
         }

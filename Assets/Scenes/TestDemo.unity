@@ -41237,6 +41237,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -183
       objectReference: {fileID: 0}
+    - target: {fileID: 7339666713769622823, guid: b75bb2662219f464ba11550ef7f35d4d,
+        type: 3}
+      propertyPath: reachDistance
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7339666713943794592, guid: b75bb2662219f464ba11550ef7f35d4d,
+        type: 3}
+      propertyPath: reachDistance
+      value: 0.15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b75bb2662219f464ba11550ef7f35d4d, type: 3}
 --- !u!1 &721552977 stripped
@@ -53509,6 +53519,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7891656a704457444b9ceecd87561c2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  kniferotx: 0
+  kniferotz: 0
 --- !u!114 &1991087392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54136,6 +54148,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7891656a704457444b9ceecd87561c2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  kniferotx: 0
+  kniferotz: 0
 --- !u!114 &2117874826
 MonoBehaviour:
   m_ObjectHideFlags: 0

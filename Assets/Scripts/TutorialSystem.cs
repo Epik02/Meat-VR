@@ -3,6 +3,7 @@ using FMOD.Studio;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,6 +17,7 @@ public class TutorialSystem : MonoBehaviour
     public GameObject gloves;
     public GameObject player;
 
+    private AutoHandPlayer autoHandPlayer;
     private List<EventInstance> voiceOvers = new List<EventInstance>();
     private bool[] steps = new bool[8];
     private bool[] stepsVoiceOver = new bool[15];
@@ -26,6 +28,8 @@ public class TutorialSystem : MonoBehaviour
     private float timer;
     private bool isGrabbed = false;
     private bool startTutorial = false;
+    private bool hasRotated = false;
+    private bool hasMoved = false;
     private Vector3 playerOriginalPosition;
     private Quaternion playerOriginalRotation;
 
@@ -37,6 +41,7 @@ public class TutorialSystem : MonoBehaviour
             voiceOvers.Add(AudioManager.instance.CreateInstance(FMODEvents.instance.tutorialVoiceOvers[i]));
         }
 
+        autoHandPlayer = player.transform.parent.GetComponentsInChildren<AutoHandPlayer>()[0];
         instructionIndex = 0;
         chapterIndex = -1;
         //steps[0] = true;
@@ -54,14 +59,17 @@ public class TutorialSystem : MonoBehaviour
 
         timer += Time.deltaTime;
 
-        if (!stepsVoiceOver[0])
+        var temp = FindAnyObjectByType<PlayerConnected>();
+        if (!stepsVoiceOver[0] && temp.connected)
         {
             //AudioManager.instance.PlayOneShot(FMODEvents.instance.tutorialVoiceOvers[0], player.transform.position);
             voiceOvers[0].start();
+            autoHandPlayer.useMovement = false;
             stepsVoiceOver[0] = true;
         }
         if (timer >= 6.5f && !startTutorial)
         {
+            autoHandPlayer.useMovement = true;
             steps[0] = true;
             instructionIndex++;
             startTutorial = true;
@@ -79,7 +87,10 @@ public class TutorialSystem : MonoBehaviour
             }
 
             float distance = Vector3.Distance(player.transform.position, playerOriginalPosition);
-            if (distance > 1.0f && player.transform.rotation != playerOriginalRotation)
+            if (distance > 0.5f) hasMoved = true;
+            if (player.transform.rotation != playerOriginalRotation) hasRotated = true;
+
+            if (hasMoved && hasRotated)
             {
                 instructionIndex++;
                 //index++;
@@ -119,11 +130,20 @@ public class TutorialSystem : MonoBehaviour
                 stepsVoiceOver[3] = true;
             }
 
+            bool tempCheck = false;
             GameObject rightHand = gloves.GetComponent<Gloves>().rightHand;
             GameObject leftHand = gloves.GetComponent<Gloves>().leftHand;
+
             if (rightHand.GetComponentInChildren<Dirty>().dirtiness <= 0.0f && leftHand.GetComponentInChildren<Dirty>().dirtiness <= 0.0f &&
             rightHand.GetComponentInChildren<Clean>().cleanness <= 0.0f && leftHand.GetComponentInChildren<Clean>().cleanness <= 0.0f &&
             rightHand.GetComponentInChildren<Wet>().wetness <= 0.0f && leftHand.GetComponentInChildren<Wet>().wetness <= 0.0f)
+            {
+                tempCheck = true;
+            }
+
+            var tempObject = FindAnyObjectByType(typeof(HandDryer));
+
+            if (tempCheck && tempObject.GetComponent<HandDryer>().airParticle.isStopped)
             {
                 instructionIndex++;
                 chapterIndex++;
