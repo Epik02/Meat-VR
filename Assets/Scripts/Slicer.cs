@@ -34,7 +34,7 @@ public class Slicer : MonoBehaviour
         //    strength = 100.0f;
         //}
 
-        if (isTouched == true)
+        if (isTouched && knife.GetComponent<KnifeStraighten>().strength > 0.0f)
         {
             isTouched = false;
 
@@ -67,6 +67,9 @@ public class Slicer : MonoBehaviour
                 upperHullGameobject.AddComponent<Accuracy>();
                 lowerHullGameobject.AddComponent<Accuracy>();
 
+                upperHullGameobject.AddComponent<CutMeat>();
+                lowerHullGameobject.AddComponent<CutMeat>();
+
                 upperHullGameobject.GetComponent<Accuracy>().accuracyObject = accObject;
                 lowerHullGameobject.GetComponent<Accuracy>().accuracyObject = accObject;
 
@@ -98,7 +101,7 @@ public class Slicer : MonoBehaviour
                 lowerHullGameobject.layer = LayerSwitch;
 
                 Destroy(objectToBeSliced.gameObject);
-                //strength -= 5.0f;
+                knife.GetComponent<KnifeStraighten>().strength -= 10.0f;
             }
         }
     }

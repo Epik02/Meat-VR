@@ -23,7 +23,7 @@ public class MeatMaker : MonoBehaviour
 
     public void CreateMeat()
     {
-        var meats = GameObject.FindGameObjectsWithTag("Meat");
+        var meats = GameObject.FindGameObjectsWithTag("cuttable");
         foreach (var meat in meats) 
         {
             Destroy(meat);
