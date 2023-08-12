@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{3f5c1206-1786-4a78-a34d-1bd265a91f44}">
 		<property name="name">
-			<value>T2B Stick Movement 2</value>
+			<value>T2b Stick Movement 2</value>
 		</property>
 		<property name="outputFormat">
 			<value>0</value>
