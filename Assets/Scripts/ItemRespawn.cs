@@ -9,10 +9,13 @@ public class ItemRespawn : MonoBehaviour
 
     private Dirty dirty;
     private Clean clean;
+    private Rigidbody rb;
 
     // Start is called before the first frame update
     void Start()
     {
+        rb = GetComponent<Rigidbody>();
+
         dirty = GetComponent<Dirty>();
         if (dirty == null)
         {
@@ -33,6 +36,7 @@ public class ItemRespawn : MonoBehaviour
         {
             transform.position = newPosition.position;
             transform.rotation = newPosition.rotation;
+            rb.velocity = Vector3.zero;
             if (dirty && clean)
             {
                 dirty.dirtiness = 100.0f;

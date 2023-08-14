@@ -123,7 +123,7 @@ MonoBehaviour:
   Path: Assets/Sounds/Build/Desktop/Tutorial VO.bank
   Name: Tutorial VO
   StudioPath: bank:/Tutorial VO
-  lastModified: 638276094678045331
+  lastModified: 638276205665111322
   FileSizes: []
   Exists: 1
 --- !u!114 &-5167095068164639613
@@ -508,7 +508,7 @@ MonoBehaviour:
   - {fileID: 5637830065149755805}
   StringsBanks:
   - {fileID: 750009050509082882}
-  cacheTime: 638276094678045331
+  cacheTime: 638276205665111322
   cacheVersion: 131605
 --- !u!114 &96945368748312194
 MonoBehaviour:
@@ -525,7 +525,7 @@ MonoBehaviour:
   Path: Assets/Sounds/Build/Desktop/Beef VO.bank
   Name: Beef VO
   StudioPath: bank:/Beef VO
-  lastModified: 638272800838915865
+  lastModified: 638272799579541692
   FileSizes: []
   Exists: 1
 --- !u!114 &225388508993933824
@@ -651,7 +651,7 @@ MonoBehaviour:
   Path: Assets/Sounds/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638276094674933908
+  lastModified: 638276205665005521
   FileSizes:
   - Name: 
     Value: 2456
@@ -968,7 +968,7 @@ MonoBehaviour:
   Path: Assets/Sounds/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638276094674913902
+  lastModified: 638272801534120194
   FileSizes: []
   Exists: 1
 --- !u!114 &6095878477842957154
