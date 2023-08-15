@@ -61692,6 +61692,7 @@ MonoBehaviour:
   objToIns: {fileID: 330506287}
   text: {fileID: 173289637}
   knife: {fileID: 2117874818}
+  meatRespawnTransform: {fileID: 0}
 --- !u!33 &5398748161226199280
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -62058,6 +62059,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 20798048901729018, guid: cc76cba2e878a314daf1364e0747df65,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 20798048901729018, guid: cc76cba2e878a314daf1364e0747df65,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.00882
+      objectReference: {fileID: 0}
     - target: {fileID: 154995556528605883, guid: cc76cba2e878a314daf1364e0747df65,
         type: 3}
       propertyPath: m_Materials.Array.size
@@ -62192,6 +62203,16 @@ PrefabInstance:
         type: 3}
       propertyPath: onGrab.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 4744519138418580029, guid: cc76cba2e878a314daf1364e0747df65,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4744519138418580029, guid: cc76cba2e878a314daf1364e0747df65,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.02403
       objectReference: {fileID: 0}
     - target: {fileID: 6182638788815371099, guid: cc76cba2e878a314daf1364e0747df65,
         type: 3}
