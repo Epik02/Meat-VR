@@ -41,6 +41,10 @@ public class ItemRespawn : MonoBehaviour
             {
                 dirty.dirtiness = 100.0f;
                 clean.cleanness = 0.0f;
+                if (ScoreManager.instance)
+                {
+                    ScoreManager.instance.RemoveScore(10);
+                }
             }
         }
     }

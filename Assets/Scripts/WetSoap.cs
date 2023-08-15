@@ -68,6 +68,10 @@ public class WetSoap : MonoBehaviour
                 }
                 if (!dryObjects.Contains(wet) && wet.wetness >= 100.0f)
                 {
+                    if (ScoreManager.instance)
+                    {
+                        ScoreManager.instance.AddScore(5);
+                    }
                     dryObjects.Add(wet);
                     p.Play();
                 }
@@ -86,6 +90,10 @@ public class WetSoap : MonoBehaviour
                 }
                 if (!dryObjects.Contains(wetChild) && wetChild.wetness <= 0.0f)
                 {
+                    if (ScoreManager.instance)
+                    {
+                        ScoreManager.instance.AddScore(5);
+                    }
                     dryObjects.Add(wetChild);
                     p.Play();
                 }

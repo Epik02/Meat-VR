@@ -22,6 +22,8 @@ public class Slicer : MonoBehaviour
     public TextMeshPro text;
     public GameObject knife;
 
+    public Transform meatRespawnTransform;
+
     private void Update()
     {
         //if (textDisplay != null)
@@ -69,6 +71,16 @@ public class Slicer : MonoBehaviour
 
                 upperHullGameobject.AddComponent<CutMeat>();
                 lowerHullGameobject.AddComponent<CutMeat>();
+
+                if (meatRespawnTransform != null)
+                {
+                    upperHullGameobject.AddComponent<DropMeat>();
+                    upperHullGameobject.GetComponent<DropMeat>().respawnPosition = meatRespawnTransform;
+                    upperHullGameobject.GetComponent<DropMeat>().bottom = -0.5f;
+                    lowerHullGameobject.AddComponent<DropMeat>();
+                    lowerHullGameobject.GetComponent<DropMeat>().respawnPosition = meatRespawnTransform;
+                    lowerHullGameobject.GetComponent<DropMeat>().bottom = -0.5f;
+                }
 
                 upperHullGameobject.GetComponent<Accuracy>().accuracyObject = accObject;
                 lowerHullGameobject.GetComponent<Accuracy>().accuracyObject = accObject;
