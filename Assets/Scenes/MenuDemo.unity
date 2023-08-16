@@ -2074,7 +2074,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: -89.378, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.010824919, y: -0.06}
+  m_AnchoredPosition: {x: -0.010824919, y: -0.108}
   m_SizeDelta: {x: 29.08076, y: 5}
   m_Pivot: {x: 0.75, y: 0.33}
 --- !u!114 &468382071
@@ -3889,7 +3889,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: -89.378, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.010824919, y: 0.18379152}
+  m_AnchoredPosition: {x: -0.010824919, y: 0.165}
   m_SizeDelta: {x: 29.08076, y: 5}
   m_Pivot: {x: 0.75, y: 0}
 --- !u!114 &1624088347
@@ -3922,7 +3922,10 @@ MonoBehaviour:
     Michael Wilson - Project Manager
 
     Carolyn Wong
-    - 3D Technical Artist, Voice Over Artist'
+    - 3D Technical Artist, Voice Over Artist
+
+    Alvaro Quevedo - Game Development
+    Consultant'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 620015ac43fa8b94494f499d10a34dd7, type: 2}
   m_sharedMaterial: {fileID: -5366395434350346028, guid: 620015ac43fa8b94494f499d10a34dd7,
@@ -3950,8 +3953,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 12
-  m_fontSizeBase: 12
+  m_fontSize: 10
+  m_fontSizeBase: 10
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4294,7 +4297,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: -89.378, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -0.010824919, y: -0.26900005}
+  m_AnchoredPosition: {x: -0.010824919, y: -0.31700006}
   m_SizeDelta: {x: 29.08076, y: 5}
   m_Pivot: {x: 0.75, y: 0.33}
 --- !u!114 &1841400057
@@ -4347,8 +4350,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 12
-  m_fontSizeBase: 12
+  m_fontSize: 10
+  m_fontSizeBase: 10
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
