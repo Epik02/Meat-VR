@@ -15548,6 +15548,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: knifePosition
       objectReference: {fileID: 0}
+    - target: {fileID: 4513842117851786362, guid: 80ff7b1dba4d4594da3b67bb60028415,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4513842117851786364, guid: 80ff7b1dba4d4594da3b67bb60028415,
         type: 3}
       propertyPath: m_RootOrder
@@ -60988,6 +60993,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Beef Rib 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7530324096598270464, guid: 7b93bee99934bf24da0314ebce2a920f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7753184364643665356, guid: 7b93bee99934bf24da0314ebce2a920f,
         type: 3}
