@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Autohand;
+using System;
 
 public class MeatManager : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class MeatManager : MonoBehaviour
     public GameObject accuracyObject;
     private Collider currentMeat;
     private bool inMeat = false;
+    private bool isDirty = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +21,20 @@ public class MeatManager : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         currentMeat = other;
-        if (other.gameObject.tag == "cuttable")
+        MeshRenderer mr = other.GetComponent<MeshRenderer>();
+        if (mr != null) 
+        {
+            isDirty = false;
+            for (int i = 0; i < mr.materials.Length; i++)
+            {
+                if (mr.materials[i].name.Contains("Dirt") && mr.materials[i].color.a > 0.0f)
+                {
+                    isDirty = true;
+                }
+            }
+        }
+
+        if (other.gameObject.tag == "cuttable" && !isDirty)
         {
             inMeat = true;
             accuracyObject.SetActive(true);

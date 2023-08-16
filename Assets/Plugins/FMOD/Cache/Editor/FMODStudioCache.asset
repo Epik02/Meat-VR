@@ -27,33 +27,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &-8985991365868287367
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Tutorial VO/T10 Santizing 4
-  m_EditorClassIdentifier: 
-  Path: event:/Tutorial VO/T10 Santizing 4
-  Guid:
-    Data1: 1379506623
-    Data2: 1203567052
-    Data3: 1738097306
-    Data4: 1247194167
-  Banks:
-  - {fileID: -5476938557829214333}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
 --- !u!114 &-8899837003853199288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -135,33 +108,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
---- !u!114 &-5741913856472740056
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/Tutorial VO/T15 End
-  m_EditorClassIdentifier: 
-  Path: event:/Tutorial VO/T15 End
-  Guid:
-    Data1: -837992970
-    Data2: 1132407389
-    Data3: 1046465969
-    Data4: -1249852756
-  Banks:
-  - {fileID: -5476938557829214333}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 0
 --- !u!114 &-5476938557829214333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,7 +123,7 @@ MonoBehaviour:
   Path: Assets/Sounds/Build/Desktop/Tutorial VO.bank
   Name: Tutorial VO
   StudioPath: bank:/Tutorial VO
-  lastModified: 638272111090688428
+  lastModified: 638276205665111322
   FileSizes: []
   Exists: 1
 --- !u!114 &-5167095068164639613
@@ -279,6 +225,33 @@ MonoBehaviour:
     Data2: 1222207375
     Data3: 70414994
     Data4: 1184879243
+  Banks:
+  - {fileID: -5476938557829214333}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &-2462960309780078457
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Tutorial VO/T9b Sanitizing 3
+  m_EditorClassIdentifier: 
+  Path: event:/Tutorial VO/T9b Sanitizing 3
+  Guid:
+    Data1: -450007340
+    Data2: 1289920743
+    Data3: 2010332825
+    Data4: -1181068346
   Banks:
   - {fileID: -5476938557829214333}
   IsStream: 0
@@ -519,20 +492,23 @@ MonoBehaviour:
   - {fileID: 2341613646916435076}
   - {fileID: -3284404742630149228}
   - {fileID: -1676722783579207936}
-  - {fileID: -8985991365868287367}
   - {fileID: -2409941396108273192}
   - {fileID: -1849026534482644479}
   - {fileID: -555133545704748055}
   - {fileID: -678427839737202007}
-  - {fileID: -5741913856472740056}
   - {fileID: 4068935056403160562}
   - {fileID: -2758621350257634305}
+  - {fileID: 381775615809205111}
+  - {fileID: 371740598629547138}
+  - {fileID: 225388508993933824}
+  - {fileID: -2462960309780078457}
+  - {fileID: 388884834389846353}
   EditorParameters: []
   MasterBanks:
   - {fileID: 5637830065149755805}
   StringsBanks:
   - {fileID: 750009050509082882}
-  cacheTime: 638272858137268988
+  cacheTime: 638276205665111322
   cacheVersion: 131605
 --- !u!114 &96945368748312194
 MonoBehaviour:
@@ -549,9 +525,117 @@ MonoBehaviour:
   Path: Assets/Sounds/Build/Desktop/Beef VO.bank
   Name: Beef VO
   StudioPath: bank:/Beef VO
-  lastModified: 638272111090589772
+  lastModified: 638272799579541692
   FileSizes: []
   Exists: 1
+--- !u!114 &225388508993933824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Tutorial VO/T15 Dropping
+  m_EditorClassIdentifier: 
+  Path: event:/Tutorial VO/T15 Dropping
+  Guid:
+    Data1: 1456549711
+    Data2: 1183182865
+    Data3: -1318313343
+    Data4: 1767655068
+  Banks:
+  - {fileID: -5476938557829214333}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &371740598629547138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Tutorial VO/T10 Sanitizing 4
+  m_EditorClassIdentifier: 
+  Path: event:/Tutorial VO/T10 Sanitizing 4
+  Guid:
+    Data1: -963788486
+    Data2: 1127850455
+    Data3: 1352366500
+    Data4: 1876863521
+  Banks:
+  - {fileID: -5476938557829214333}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &381775615809205111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Tutorial VO/T2b Stick Movement 2
+  m_EditorClassIdentifier: 
+  Path: event:/Tutorial VO/T2b Stick Movement 2
+  Guid:
+    Data1: 1062998534
+    Data2: 1249384326
+    Data3: -769962589
+    Data4: 1142925669
+  Banks:
+  - {fileID: -5476938557829214333}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &388884834389846353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Tutorial VO/T16 End
+  m_EditorClassIdentifier: 
+  Path: event:/Tutorial VO/T16 End
+  Guid:
+    Data1: -837992970
+    Data2: 1132407389
+    Data3: 1046465969
+    Data4: -1249852756
+  Banks:
+  - {fileID: -5476938557829214333}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &750009050509082882
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -567,10 +651,10 @@ MonoBehaviour:
   Path: Assets/Sounds/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638272858137268988
+  lastModified: 638276205665005521
   FileSizes:
   - Name: 
-    Value: 2296
+    Value: 2456
   Exists: 1
 --- !u!114 &1590604548881589840
 MonoBehaviour:
@@ -884,7 +968,7 @@ MonoBehaviour:
   Path: Assets/Sounds/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638272858137258687
+  lastModified: 638272801534120194
   FileSizes: []
   Exists: 1
 --- !u!114 &6095878477842957154
@@ -982,10 +1066,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/Tutorial VO/T9 Sanitizing 3
   Guid:
-    Data1: -963788486
-    Data2: 1127850455
-    Data3: 1352366500
-    Data4: 1876863521
+    Data1: -454698367
+    Data2: 1172888082
+    Data3: 1661114753
+    Data4: 924138216
   Banks:
   - {fileID: -5476938557829214333}
   IsStream: 0
