@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.02.00">
 	<object class="Event" id="{c68dc13a-a1d7-4339-a479-9b5021aade6f}">
 		<property name="name">
-			<value>T10 Sanitizing 4</value>
+			<value>T9 Sanitizing 3</value>
 		</property>
 		<property name="outputFormat">
 			<value>0</value>

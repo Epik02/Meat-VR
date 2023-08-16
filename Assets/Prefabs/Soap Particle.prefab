@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1931624924180228403}
   - component: {fileID: 1931624924180228401}
   - component: {fileID: 1931624924180228400}
-  - component: {fileID: -8396664943328039974}
+  - component: {fileID: -4437061850325695128}
   m_Layer: 0
   m_Name: Soap Particle
   m_TagString: Untagged
@@ -4762,7 +4762,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f1801a88f29c6c2479ef123bc9274c9e, type: 2}
+  - {fileID: 2100000, guid: fcd1646e3dea1b440a7626cdc95a2063, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4813,7 +4813,7 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!114 &-8396664943328039974
+--- !u!114 &-4437061850325695128
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4822,8 +4822,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 1931624924180228402}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 284ddf198ca2d844b8765758db218bd4, type: 3}
+  m_Script: {fileID: 11500000, guid: 114c8d4b4fffc974fad9349afb93b024, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dryPerParticle: 0.5
+  soapPerParticle: 0.5
   finishedParticles: []

@@ -4,20 +4,18 @@ using UnityEngine;
 
 public class DropMeat : MonoBehaviour
 {
+    public Transform droppedPosition;
     public Transform respawnPosition;
     public float bottom = -0.6f;
-    public bool tutorial = false;
 
     private bool dropped;
     private int mat;
     private MeshRenderer meshRenderer;
-    private Rigidbody rb;
 
     // Start is called before the first frame update
     void Start()
     {
         dropped = false;
-        rb = GetComponent<Rigidbody>();
         meshRenderer = GetComponent<MeshRenderer>();
         for (int i = 0; i < meshRenderer.materials.Length; i++)
         {
@@ -33,9 +31,8 @@ public class DropMeat : MonoBehaviour
     {
         if (transform.position.y <= bottom)
         {
-            transform.position = respawnPosition.position;
-            transform.rotation = respawnPosition.rotation;
-            rb.velocity = Vector3.zero;
+            transform.position = droppedPosition.position;
+            transform.rotation = droppedPosition.rotation;
             dropped = true;
         }
         if (dropped)
@@ -56,12 +53,9 @@ public class DropMeat : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Trash") && dropped)
         {
-            if (!tutorial)
-            {
-                GameObject newMeat = Instantiate(gameObject);
-                newMeat.transform.position = respawnPosition.position;
-                newMeat.transform.rotation = respawnPosition.rotation;
-            }
+            GameObject newMeat = Instantiate(gameObject);
+            newMeat.transform.position = respawnPosition.position;
+            newMeat.transform.rotation = respawnPosition.rotation;
             Destroy(gameObject);
         }
     }

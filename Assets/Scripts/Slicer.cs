@@ -22,8 +22,6 @@ public class Slicer : MonoBehaviour
     public TextMeshPro text;
     public GameObject knife;
 
-    public Transform meatRespawnTransform;
-
     private void Update()
     {
         //if (textDisplay != null)
@@ -36,7 +34,7 @@ public class Slicer : MonoBehaviour
         //    strength = 100.0f;
         //}
 
-        if (isTouched && knife.GetComponent<KnifeStraighten>().strength > 0.0f)
+        if (isTouched == true)
         {
             isTouched = false;
 
@@ -69,19 +67,6 @@ public class Slicer : MonoBehaviour
                 upperHullGameobject.AddComponent<Accuracy>();
                 lowerHullGameobject.AddComponent<Accuracy>();
 
-                upperHullGameobject.AddComponent<CutMeat>();
-                lowerHullGameobject.AddComponent<CutMeat>();
-
-                if (meatRespawnTransform != null)
-                {
-                    upperHullGameobject.AddComponent<DropMeat>();
-                    upperHullGameobject.GetComponent<DropMeat>().respawnPosition = meatRespawnTransform;
-                    upperHullGameobject.GetComponent<DropMeat>().bottom = -0.5f;
-                    lowerHullGameobject.AddComponent<DropMeat>();
-                    lowerHullGameobject.GetComponent<DropMeat>().respawnPosition = meatRespawnTransform;
-                    lowerHullGameobject.GetComponent<DropMeat>().bottom = -0.5f;
-                }
-
                 upperHullGameobject.GetComponent<Accuracy>().accuracyObject = accObject;
                 lowerHullGameobject.GetComponent<Accuracy>().accuracyObject = accObject;
 
@@ -113,7 +98,7 @@ public class Slicer : MonoBehaviour
                 lowerHullGameobject.layer = LayerSwitch;
 
                 Destroy(objectToBeSliced.gameObject);
-                knife.GetComponent<KnifeStraighten>().strength -= 10.0f;
+                //strength -= 5.0f;
             }
         }
     }

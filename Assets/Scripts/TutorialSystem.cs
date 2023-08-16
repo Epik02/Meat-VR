@@ -1,45 +1,33 @@
 using Autohand;
-using Autohand.Demo;
 using FMOD.Studio;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.InputSystem.Interactions;
-using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 
 public class TutorialSystem : MonoBehaviour
 {
-    public List<Image> honingImages;
-    public List<Image> cuttingImages;
     public List<Image> instructions;
     public List<ParticleSystem> completeParticles;
     public Image[] checkmarks;
+    //public TMP_Text stepText;
     public GameObject[] tools;
     public GameObject gloves;
     public GameObject player;
-    public GameObject meat;
 
-    private XRHandControllerLink moveController;
-    private XRHandControllerLink turnController;
     private List<EventInstance> voiceOvers = new List<EventInstance>();
-    private bool[] steps = new bool[11];
-    private bool[] stepsVoiceOver = new bool[18];
+    private bool[] steps = new bool[8];
+    private bool[] stepsVoiceOver = new bool[15];
     private GameObject honer;
     private GameObject knife;
     private int chapterIndex;
     private int instructionIndex;
     private float timer;
-    private float lerpTime;
-    private float lerpTravelTime = 0.25f;
-    private int lerpIndex = 0;
     private bool isGrabbed = false;
     private bool startTutorial = false;
-    private bool instructionsBool = true;
-    private bool[] hasMovement = new bool[4];
-    private bool[] hasRotation = new bool[2];
+    private Vector3 playerOriginalPosition;
+    private Quaternion playerOriginalRotation;
 
     // Start is called before the first frame update
     void Start()
@@ -49,12 +37,13 @@ public class TutorialSystem : MonoBehaviour
             voiceOvers.Add(AudioManager.instance.CreateInstance(FMODEvents.instance.tutorialVoiceOvers[i]));
         }
 
-        moveController = player.transform.parent.GetComponentsInChildren<XRHandControllerLink>()[1];
-        turnController = player.transform.parent.GetComponentsInChildren<XRHandControllerLink>()[0];
         instructionIndex = 0;
         chapterIndex = -1;
+        //steps[0] = true;
         honer = tools[0];
         knife = tools[1];
+        playerOriginalPosition = player.transform.position;
+        playerOriginalRotation = player.transform.rotation;
     }
 
     // Update is called once per frame
@@ -67,6 +56,7 @@ public class TutorialSystem : MonoBehaviour
 
         if (!stepsVoiceOver[0])
         {
+            //AudioManager.instance.PlayOneShot(FMODEvents.instance.tutorialVoiceOvers[0], player.transform.position);
             voiceOvers[0].start();
             stepsVoiceOver[0] = true;
         }
@@ -77,58 +67,37 @@ public class TutorialSystem : MonoBehaviour
             startTutorial = true;
         }
 
-        if (steps[0]) // Movement
+        if (steps[0])
         {
+            //stepText.text = "Move and Rotate";
+
             if (!stepsVoiceOver[1])
             {
+                //AudioManager.instance.PlayOneShot(FMODEvents.instance.tutorialVoiceOvers[1], player.transform.position);
                 voiceOvers[1].start();
                 stepsVoiceOver[1] = true;
             }
 
-            if (moveController.GetAxis2D(Common2DAxis.primaryAxis).x > 0.5f) hasMovement[0] = true;   // Right Move
-            if (moveController.GetAxis2D(Common2DAxis.primaryAxis).x < -0.5f) hasMovement[1] = true;   // Left Move
-            if (moveController.GetAxis2D(Common2DAxis.primaryAxis).y > 0.5f) hasMovement[2] = true;   // Up Move
-            if (moveController.GetAxis2D(Common2DAxis.primaryAxis).y < -0.5f) hasMovement[3] = true;   // Down Move
-
-            int tempCount = 0;
-            foreach (var control in hasMovement) if (control) tempCount++;
-            if (tempCount == 4)
+            float distance = Vector3.Distance(player.transform.position, playerOriginalPosition);
+            if (distance > 1.0f && player.transform.rotation != playerOriginalRotation)
             {
                 instructionIndex++;
+                //index++;
                 completeParticles[0].Play();
                 steps[0] = false;
                 steps[1] = true;
             }
         }
-        if (steps[1]) // Rotation
+        if (steps[1])
         {
+            //stepText.text = "Pick Up Tools";
+
             if (!stepsVoiceOver[2])
             {
+                //AudioManager.instance.PlayOneShot(FMODEvents.instance.tutorialVoiceOvers[3], player.transform.position);
                 voiceOvers[1].stop(STOP_MODE.IMMEDIATE);
-                voiceOvers[2].start();
-                stepsVoiceOver[2] = true;
-            }
-
-            if (turnController.GetAxis2D(Common2DAxis.primaryAxis).x > 0.1f) hasRotation[0] = true;   // Right Turn
-            if (turnController.GetAxis2D(Common2DAxis.primaryAxis).x < -0.1f) hasRotation[1] = true;   // Left Turn
-
-            int tempCount = 0;
-            foreach (var control in hasRotation) if (control) tempCount++;
-            if (tempCount == 2)
-            {
-                instructionIndex++;
-                completeParticles[0].Play();
-                steps[1] = false;
-                steps[2] = true;
-            }
-        }
-        if (steps[2]) // Pick up a tool
-        {
-            if (!stepsVoiceOver[3])
-            {
-                voiceOvers[2].stop(STOP_MODE.IMMEDIATE);
                 voiceOvers[3].start();
-                stepsVoiceOver[3] = true;
+                stepsVoiceOver[2] = true;
             }
 
             if (isGrabbed)
@@ -136,160 +105,127 @@ public class TutorialSystem : MonoBehaviour
                 instructionIndex++;
                 chapterIndex++;
                 completeParticles[1].Play();
-                steps[2] = false;
-                steps[3] = true;
+                steps[1] = false;
+                steps[2] = true;
             }
         }
-        if (steps[3]) // Wash hands
+        if (steps[2])
         {
-            if (!stepsVoiceOver[4])
+            if (!stepsVoiceOver[3])
             {
+                //AudioManager.instance.PlayOneShot(FMODEvents.instance.tutorialVoiceOvers[4], player.transform.position);
                 voiceOvers[3].stop(STOP_MODE.IMMEDIATE);
                 voiceOvers[4].start();
-                stepsVoiceOver[4] = true;
+                stepsVoiceOver[3] = true;
             }
 
-            bool tempCheck = false;
             GameObject rightHand = gloves.GetComponent<Gloves>().rightHand;
             GameObject leftHand = gloves.GetComponent<Gloves>().leftHand;
-
             if (rightHand.GetComponentInChildren<Dirty>().dirtiness <= 0.0f && leftHand.GetComponentInChildren<Dirty>().dirtiness <= 0.0f &&
             rightHand.GetComponentInChildren<Clean>().cleanness <= 0.0f && leftHand.GetComponentInChildren<Clean>().cleanness <= 0.0f &&
             rightHand.GetComponentInChildren<Wet>().wetness <= 0.0f && leftHand.GetComponentInChildren<Wet>().wetness <= 0.0f)
             {
-                tempCheck = true;
-            }
-
-            var tempObject = FindAnyObjectByType(typeof(HandDryer));
-
-            if (tempCheck && tempObject.GetComponent<HandDryer>().airParticle.isStopped)
-            {
                 instructionIndex++;
                 chapterIndex++;
-                steps[3] = false;
-                steps[4] = true;
+                steps[2] = false;
+                steps[3] = true;
             }
         }
-        if (steps[4]) // Put gloves on
+        if (steps[3])
         {
-            if (!stepsVoiceOver[5])
+            //stepText.text = "Wash Hands and Wear Gloves";
+
+            if (!stepsVoiceOver[4])
             {
+                //AudioManager.instance.PlayOneShot(FMODEvents.instance.tutorialVoiceOvers[5], player.transform.position);
                 voiceOvers[4].stop(STOP_MODE.IMMEDIATE);
                 voiceOvers[5].start();
-                stepsVoiceOver[5] = true;
+                stepsVoiceOver[4] = true;
             }
 
             if (gloves == null)
             {
                 instructionIndex++;
+                //index++;
                 completeParticles[2].Play();
-                steps[4] = false;
-                steps[5] = true;
+                steps[3] = false;
+                steps[4] = true;
             }
         }
-        if (steps[5]) // Soap tools
+        if (steps[4])
         {
-            if (!stepsVoiceOver[6])
+            if (!stepsVoiceOver[5])
             {
+                //AudioManager.instance.PlayOneShot(FMODEvents.instance.tutorialVoiceOvers[8], player.transform.position);
                 voiceOvers[5].stop(STOP_MODE.IMMEDIATE);
-                voiceOvers[6].start();
-                stepsVoiceOver[6] = true;
+                voiceOvers[8].start();
+                stepsVoiceOver[5] = true;
             }
 
             if (honer.GetComponent<Dirty>().dirtiness <= 0 && honer.GetComponent<Clean>().cleanness >= 100 &&
                 knife.GetComponentInChildren<Dirty>().dirtiness <= 0 && knife.GetComponentInChildren<Clean>().cleanness >= 100)
             {
                 instructionIndex++;
-                steps[5] = false;
-                steps[6] = true;
+                //index++;
+                //completeParticles[3].Play();
+                steps[4] = false;
+                steps[5] = true;
             }
         }
-        if (steps[6]) // Clean tools
+        if (steps[5])
         {
-            if (!stepsVoiceOver[7])
+            //stepText.text = "Sanitize Tools";
+
+            if (!stepsVoiceOver[6])
             {
-                voiceOvers[6].stop(STOP_MODE.IMMEDIATE);
-                voiceOvers[7].start();
-                stepsVoiceOver[7] = true;
+                //AudioManager.instance.PlayOneShot(FMODEvents.instance.tutorialVoiceOvers[9], player.transform.position);
+                voiceOvers[8].stop(STOP_MODE.IMMEDIATE);
+                voiceOvers[9].start();
+                stepsVoiceOver[6] = true;
             }
 
-            if (honer.GetComponent<Clean>().cleanness <= 0 && honer.GetComponent<Wet>().wetness >= 100 &&
-                knife.GetComponentInChildren<Clean>().cleanness <= 0 && knife.GetComponentInChildren<Wet>().wetness >= 100)
-            {
-                instructionIndex++;
-                steps[6] = false;
-                steps[7] = true;
-            }
-        }
-        if (steps[7]) // Sanitize tools
-        {
-            if (!stepsVoiceOver[8])
-            {
-                voiceOvers[7].stop(STOP_MODE.IMMEDIATE);
-                voiceOvers[8].start();
-                stepsVoiceOver[8] = true;
-            }
-
-            if (honer.GetComponent<Dirty>().dirtiness <= 0 && honer.GetComponent<Clean>().cleanness <= 0 && honer.GetComponent<Wet>().wetness <= 0 &&
-                knife.GetComponentInChildren<Dirty>().dirtiness <= 0 && knife.GetComponentInChildren<Clean>().cleanness <= 0 && knife.GetComponentInChildren<Wet>().wetness <= 0)
+            if (honer.GetComponent<Dirty>().dirtiness <= 0 && honer.GetComponent<Clean>().cleanness <= 0 &&
+                knife.GetComponentInChildren<Dirty>().dirtiness <= 0 && knife.GetComponentInChildren<Clean>().cleanness <= 0)
             {
                 instructionIndex++;
                 chapterIndex++;
                 completeParticles[3].Play();
-                steps[7] = false;
-                steps[8] = true;
+                steps[5] = false;
+                steps[6] = true;
             }
         }
-        if (steps[8]) // Straighten knife
+        if (steps[6])
         {
-            if (!stepsVoiceOver[9])
-            {
-                voiceOvers[8].stop(STOP_MODE.IMMEDIATE);
-                voiceOvers[9].start();
-                OverrideInstructionsDisplay();
-                stepsVoiceOver[9] = true;
-            }
+            //stepText.text = "Straighten Knife";
 
-            AnimatedInstructionsDisplay(honingImages);
+            if (!stepsVoiceOver[7])
+            {
+                //AudioManager.instance.PlayOneShot(FMODEvents.instance.tutorialVoiceOvers[11], player.transform.position);
+                voiceOvers[9].stop(STOP_MODE.IMMEDIATE);
+                voiceOvers[11].start();
+                stepsVoiceOver[7] = true;
+            }
 
             if (knife.GetComponent<KnifeStraighten>().strength >= 100.0f)
             {
                 instructionIndex++;
                 chapterIndex++;
                 completeParticles[4].Play();
-                OverrideInstructionsDisplay();
-                steps[8] = false;
-                steps[9] = true;
+                steps[6] = false;
+                steps[7] = true;
             }
         }
-        if (steps[9]) // Throw out meat
+        if (steps[7])
         {
-            if (!stepsVoiceOver[10])
-            {
-                voiceOvers[9].stop(STOP_MODE.IMMEDIATE);
-                voiceOvers[10].start();
-                meat.GetComponent<DropMeat>().enabled = true;
-                stepsVoiceOver[10] = true;
-            }
+            //stepText.text = "Spawn and Cut Meat";
 
-            if (meat == null)
+            if (!stepsVoiceOver[8])
             {
-                instructionIndex++;
-                steps[9] = false;
-                steps[10] = true;
+                //AudioManager.instance.PlayOneShot(FMODEvents.instance.tutorialVoiceOvers[13], player.transform.position);
+                voiceOvers[11].stop(STOP_MODE.IMMEDIATE);
+                voiceOvers[13].start();
+                stepsVoiceOver[8] = true;
             }
-        }
-        if (steps[10]) // Cut meat
-        {
-            if (!stepsVoiceOver[11])
-            {
-                voiceOvers[10].stop(STOP_MODE.IMMEDIATE);
-                voiceOvers[11].start();
-                OverrideInstructionsDisplay();
-                stepsVoiceOver[11] = true;
-            }
-
-            AnimatedInstructionsDisplay(cuttingImages);
 
             var cutMeat = FindObjectsOfType(typeof(CutMeat));
             if (cutMeat.Length > 0)
@@ -297,17 +233,17 @@ public class TutorialSystem : MonoBehaviour
                 instructionIndex++;
                 chapterIndex++;
                 completeParticles[5].Play();
-                OverrideInstructionsDisplay();
-                steps[10] = false;
+                steps[7] = false;
             }
         }
-        if (chapterIndex == 4) // Finish
+        if (chapterIndex == 4)
         {
-            if (!stepsVoiceOver[12])
+            if (!stepsVoiceOver[9])
             {
-                voiceOvers[11].stop(STOP_MODE.IMMEDIATE);
-                voiceOvers[12].start();
-                stepsVoiceOver[12] = true;
+                //AudioManager.instance.PlayOneShot(FMODEvents.instance.tutorialVoiceOvers[14], player.transform.position);
+                voiceOvers[13].stop(STOP_MODE.IMMEDIATE);
+                voiceOvers[14].start();
+                stepsVoiceOver[9] = true;
             }
         }
     }
@@ -341,66 +277,15 @@ public class TutorialSystem : MonoBehaviour
 
     public void InstructionDisplay()
     {
-        if (instructionsBool)
+        for (int i = 0; i < instructions.Count; i++)
         {
-            for (int i = 0; i < instructions.Count; i++)
+            if (i == instructionIndex)
             {
-                if (i == instructionIndex)
-                {
-                    instructions[i].enabled = true;
-                }
-                else
-                {
-                    instructions[i].enabled = false;
-                }
-            }
-        }
-    }
-
-    public void OverrideInstructionsDisplay()
-    {
-        instructionsBool = !instructionsBool;
-        lerpTime = 0.0f;
-        lerpIndex = 0;
-
-        foreach (var item in instructions)
-        {
-            item.enabled = false;
-        }
-        foreach (var item in honingImages)
-        {
-            item.enabled = false;
-        }
-        foreach (var item in cuttingImages)
-        {
-            item.enabled = false;
-        }
-    }
-
-    public void AnimatedInstructionsDisplay(List<Image> images)
-    {
-        lerpTime += Time.deltaTime;
-
-        for (int i = 0; i < images.Count; i++)
-        {
-            if (images[i] == images[lerpIndex])
-            {
-                images[i].enabled = true;
+                instructions[i].enabled = true;
             }
             else
             {
-                images[i].enabled = false;
-            }
-        }
-
-        if (lerpTime > lerpTravelTime)
-        {
-            lerpTime = 0.0f;
-            lerpIndex++;
-
-            if (lerpIndex >= images.Count)
-            {
-                lerpIndex = 0;
+                instructions[i].enabled = false;
             }
         }
     }

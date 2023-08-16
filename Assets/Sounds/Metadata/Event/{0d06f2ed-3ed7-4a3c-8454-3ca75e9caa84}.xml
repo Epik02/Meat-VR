@@ -5,7 +5,7 @@
 			<value>T8 Sanitizing 2</value>
 		</property>
 		<property name="outputFormat">
-			<value>1</value>
+			<value>0</value>
 		</property>
 		<relationship name="folder">
 			<destination>{f5d4b6f8-d9d9-406f-99fd-1d22cac42d8d}</destination>
@@ -72,9 +72,6 @@
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{fb9079de-b700-4e6c-a471-6392c9744103}">
-		<property name="volume">
-			<value>-5</value>
-		</property>
 		<relationship name="effectChain">
 			<destination>{e89b3420-4aa4-4ac2-8a19-ce3843a9102c}</destination>
 		</relationship>
@@ -87,7 +84,7 @@
 	</object>
 	<object class="MultiSound" id="{09167f6e-6995-4709-a41d-947163c2fa75}">
 		<relationship name="sounds">
-			<destination>{d673649b-f444-4526-a4ab-a08ae41d6505}</destination>
+			<destination>{7385e938-bc85-4ed6-a132-db9b1a2fe027}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusEffectChain" id="{a79e7f93-4b0e-4ee9-9737-4c68cabbf129}">
@@ -102,9 +99,9 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{4d008405-14ac-417d-83d8-d3228fe23348}" />
-	<object class="SingleSound" id="{d673649b-f444-4526-a4ab-a08ae41d6505}">
+	<object class="SingleSound" id="{7385e938-bc85-4ed6-a132-db9b1a2fe027}">
 		<relationship name="audioFile">
-			<destination>{61af071f-0647-4d95-9d89-94714e353568}</destination>
+			<destination>{17868c7b-d53f-475e-b2bf-5ae4d3dc9842}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusFader" id="{ffde81be-81a3-48b2-a705-5875286640de}" />

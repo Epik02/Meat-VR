@@ -29,36 +29,20 @@ public class HandDryer : MonoBehaviour
     void Update()
     {
         UpdateSound();
-        foreach (var item in hands)
-        {
-            if (hands == null)
-            {
-                hands.Remove(item);
-            }
-        }
-        if (hands.Count <= 0)
-        {
-            airParticle.Stop();
-        }
-        else
-        {
-            airParticle.Play();
-        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
-        {
-            hands.Add(other.gameObject);
-        }
+        hands.Add(other.gameObject);
+        airParticle.Play();
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player"))
+        hands.Remove(other.gameObject);
+        if (hands.Count <= 0)
         {
-            hands.Remove(other.gameObject);
+            airParticle.Stop();
         }
     }
 
@@ -83,6 +67,12 @@ public class HandDryer : MonoBehaviour
                 airSound[1].start();
                 end = false;
             }
+            //end = true;
         }
+        //if (playbackState.Equals(PLAYBACK_STATE.STOPPED))
+        //{
+        //    AudioManager.instance.PlayOneShot(FMODEvents.instance.airDryer[1], this.transform.position);
+        //    //end = false;
+        //}
     }
 }
