@@ -37,9 +37,7 @@ public class Honing : MonoBehaviour
             {
                 if (gameObject.GetComponent<Dirty>().dirtiness <= 0.0f && gameObject.GetComponent<Clean>().cleanness <= 0.0f && gameObject.GetComponent<Wet>().wetness <= 0.0f)
                 {
-                    if (knifeObject.GetComponent<KnifeStraighten>() && knifeObject.GetComponent<KnifeStraighten>().strength < 100.0f &&
-                        ((knifeObject.transform.localEulerAngles.z <= 25.0f && knifeObject.transform.localEulerAngles.z >= 0.0f) ||
-                        (knifeObject.transform.localEulerAngles.z <= 205.0f && knifeObject.transform.localEulerAngles.z >= 180.0f)))
+                    if (knifeObject.GetComponent<KnifeStraighten>() && knifeObject.GetComponent<KnifeStraighten>().strength < 100.0f && knifeObject.GetComponent<KnifeStraighten>().correctAngle)
                     {
                         knifeObject.GetComponent<KnifeStraighten>().strength += 10.0f;
                         AudioManager.instance.PlayOneShot(FMODEvents.instance.honing, this.transform.position);
