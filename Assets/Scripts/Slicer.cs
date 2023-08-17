@@ -36,7 +36,7 @@ public class Slicer : MonoBehaviour
         //    strength = 100.0f;
         //}
 
-        if (isTouched && knife.GetComponent<KnifeStraighten>().strength > 0.0f)
+        if (isTouched /*&& knife.GetComponent<KnifeStraighten>().strength > 0.0f*/)
         {
             isTouched = false;
 

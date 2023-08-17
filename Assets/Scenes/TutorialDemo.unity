@@ -15225,7 +15225,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 177315911}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -61764,8 +61764,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5398748161172729872}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0, z: 1.14}
-  m_LocalScale: {x: 0.43563, y: 1, z: 0.37022555}
+  m_LocalPosition: {x: -0.00000011296186, y: 0, z: 1.140001}
+  m_LocalScale: {x: 0.43563005, y: 0.9999999, z: 0.37022558}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5398748160065017960}
@@ -61806,7 +61806,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5398748161172729872}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
