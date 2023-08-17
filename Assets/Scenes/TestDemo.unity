@@ -54356,6 +54356,7 @@ GameObject:
   - component: {fileID: 2117874823}
   - component: {fileID: 2117874822}
   - component: {fileID: 2117874820}
+  - component: {fileID: 2117874830}
   m_Layer: 15
   m_Name: AccuracyTestKnife
   m_TagString: Item
@@ -54659,6 +54660,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
+--- !u!65 &2117874830
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2117874818}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.62, y: 0.37, z: 0.09}
+  m_Center: {x: 0.88, y: 0, z: 0}
 --- !u!1001 &2124565624
 PrefabInstance:
   m_ObjectHideFlags: 0
