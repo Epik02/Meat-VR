@@ -216,9 +216,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f764194824f659e4bb45bc0741506f24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  droppedPosition: {fileID: 0}
   respawnPosition: {fileID: 0}
   bottom: -0.6
+  tutorial: 0
 --- !u!114 &7753184364643665356
 MonoBehaviour:
   m_ObjectHideFlags: 0
