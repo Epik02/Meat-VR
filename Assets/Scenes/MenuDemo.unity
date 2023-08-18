@@ -3258,6 +3258,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[3]
       value: 
       objectReference: {fileID: 2100000, guid: f1801a88f29c6c2479ef123bc9274c9e, type: 2}
+    - target: {fileID: 1902964633226631591, guid: b75bb2662219f464ba11550ef7f35d4d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 1902964633484610010, guid: b75bb2662219f464ba11550ef7f35d4d,
         type: 3}
       propertyPath: m_Mesh
@@ -3339,6 +3344,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -183
+      objectReference: {fileID: 0}
+    - target: {fileID: 6985504986054122429, guid: b75bb2662219f464ba11550ef7f35d4d,
+        type: 3}
+      propertyPath: maxMoveSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6985504986054122429, guid: b75bb2662219f464ba11550ef7f35d4d,
+        type: 3}
+      propertyPath: snapTurnAngle
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7339666713769622823, guid: b75bb2662219f464ba11550ef7f35d4d,
+        type: 3}
+      propertyPath: reachDistance
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7339666713943794592, guid: b75bb2662219f464ba11550ef7f35d4d,
+        type: 3}
+      propertyPath: reachDistance
+      value: 0.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b75bb2662219f464ba11550ef7f35d4d, type: 3}
