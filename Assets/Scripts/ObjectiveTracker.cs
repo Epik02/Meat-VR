@@ -6,6 +6,7 @@ using TMPro;
 using Autohand;
 using Unity.VisualScripting;
 using FMOD.Studio;
+using System.IO;
 
 public class ObjectiveTracker : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class ObjectiveTracker : MonoBehaviour
     private bool[] stepsVoiceOver = new bool[18];
     private int index;
     private List<EventInstance> voiceOvers = new List<EventInstance>();
+    private string filePath;
 
     // Start is called before the first frame update
     void Start()
@@ -163,6 +165,14 @@ public class ObjectiveTracker : MonoBehaviour
             //    stepsVoiceOver[5] = true;
             //}
 
+            Debug.Log("LAST STEP");
+
+            filePath = Application.persistentDataPath + "/score.txt";
+            if (File.Exists(filePath))
+            {
+                FileManager.instance.UpdateScore(ScoreManager.instance.GetScore());
+                FileManager.instance.Write(filePath);
+            }
             steps[5] = false;
         }
     }
