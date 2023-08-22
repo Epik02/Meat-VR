@@ -14,7 +14,7 @@ public class ObjectiveSystem : MonoBehaviour
     public GameObject leftHand;
     public GameObject gloves;
     public GameObject knife;
-    public GameObject meat;
+    public TMP_Text scoreText;
     public Image[] checkmarks;
     public ParticleSystem[] completeParticles;
     public Image[] instructions;
@@ -58,11 +58,11 @@ public class ObjectiveSystem : MonoBehaviour
 
         if (steps[0]) // Wash hands
         {
-            //if (!stepsVoiceOver[0])
-            //{
-            //    voiceOvers[0].start();
-            //    stepsVoiceOver[0] = true;
-            //}
+            if (!stepsVoiceOver[0])
+            {
+                voiceOvers[0].start();
+                stepsVoiceOver[0] = true;
+            }
 
             var grabbables = FindObjectsOfType(typeof(Grabbable));
             foreach (var item in grabbables)
@@ -83,13 +83,6 @@ public class ObjectiveSystem : MonoBehaviour
         }
         if (steps[1]) // Put on gloves
         {
-            //if (!stepsVoiceOver[1])
-            //{
-            //    voiceOvers[0].stop(STOP_MODE.IMMEDIATE);
-            //    voiceOvers[1].start();
-            //    stepsVoiceOver[1] = true;
-            //}
-
             var grabbables = FindObjectsOfType(typeof(Grabbable));
 
             if (gloves == null)
@@ -108,13 +101,6 @@ public class ObjectiveSystem : MonoBehaviour
         }
         if (steps[2]) // Straighten knife
         {
-            //if (!stepsVoiceOver[2])
-            //{
-            //    voiceOvers[1].stop(STOP_MODE.IMMEDIATE);
-            //    voiceOvers[2].start();
-            //    stepsVoiceOver[2] = true;
-            //}
-
             if (knife.GetComponent<KnifeStraighten>().strength >= 100.0f)
             {
                 completeParticles[2].Play();
@@ -125,12 +111,12 @@ public class ObjectiveSystem : MonoBehaviour
         }
         if (steps[3]) // Cut outer skirt
         {
-            //if (!stepsVoiceOver[3])
-            //{
-            //    voiceOvers[2].stop(STOP_MODE.IMMEDIATE);
-            //    voiceOvers[3].start();
-            //    stepsVoiceOver[3] = true;
-            //}
+            if (!stepsVoiceOver[1])
+            {
+                voiceOvers[0].stop(STOP_MODE.IMMEDIATE);
+                voiceOvers[1].start();
+                stepsVoiceOver[1] = true;
+            }
 
             if (meatSteps[0] == null)
             {
@@ -142,12 +128,12 @@ public class ObjectiveSystem : MonoBehaviour
         }
         if (steps[4]) // Cut inner skirt
         {
-            //if (!stepsVoiceOver[4])
-            //{
-            //    voiceOvers[3].stop(STOP_MODE.IMMEDIATE);
-            //    voiceOvers[4].start();
-            //    stepsVoiceOver[4] = true;
-            //}
+            if (!stepsVoiceOver[2])
+            {
+                voiceOvers[1].stop(STOP_MODE.IMMEDIATE);
+                voiceOvers[2].start();
+                stepsVoiceOver[2] = true;
+            }
 
             if (meatSteps[1] == null)
             {
@@ -159,12 +145,12 @@ public class ObjectiveSystem : MonoBehaviour
         }
         if (steps[5]) // Cut navel
         {
-            //if (!stepsVoiceOver[5])
-            //{
-            //    voiceOvers[4].stop(STOP_MODE.IMMEDIATE);
-            //    voiceOvers[5].start();
-            //    stepsVoiceOver[5] = true;
-            //}
+            if (!stepsVoiceOver[3])
+            {
+                voiceOvers[2].stop(STOP_MODE.IMMEDIATE);
+                voiceOvers[3].start();
+                stepsVoiceOver[3] = true;
+            }
 
             if (meatSteps[2] == null)
             {
@@ -176,12 +162,12 @@ public class ObjectiveSystem : MonoBehaviour
         }
         if (steps[6]) // Cut short rib plate (handsaw)
         {
-            //if (!stepsVoiceOver[6])
-            //{
-            //    voiceOvers[5].stop(STOP_MODE.IMMEDIATE);
-            //    voiceOvers[6].start();
-            //    stepsVoiceOver[6] = true;
-            //}
+            if (!stepsVoiceOver[4])
+            {
+                voiceOvers[3].stop(STOP_MODE.IMMEDIATE);
+                voiceOvers[4].start();
+                stepsVoiceOver[4] = true;
+            }
 
             if (meatSteps[3] == null)
             {
@@ -193,12 +179,14 @@ public class ObjectiveSystem : MonoBehaviour
         }
         if (steps[7]) // Finish
         {
-            //if (!stepsVoiceOver[7])
-            //{
-            //    voiceOvers[6].stop(STOP_MODE.IMMEDIATE);
-            //    voiceOvers[7].start();
-            //    stepsVoiceOver[7] = true;
-            //}
+            if (!stepsVoiceOver[5])
+            {
+                voiceOvers[4].stop(STOP_MODE.IMMEDIATE);
+                voiceOvers[5].start();
+                stepsVoiceOver[5] = true;
+            }
+
+            scoreText.text = "Score: " + ScoreManager.instance.GetScore().ToString();
 
             filePath = Application.persistentDataPath + "/score.txt";
             if (File.Exists(filePath))
