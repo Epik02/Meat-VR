@@ -8,7 +8,7 @@ using Unity.VisualScripting;
 using FMOD.Studio;
 using System.IO;
 
-public class ObjectiveTracker : MonoBehaviour
+public class ObjectiveSystem : MonoBehaviour
 {
     public GameObject rightHand;
     public GameObject leftHand;
@@ -18,8 +18,9 @@ public class ObjectiveTracker : MonoBehaviour
     public Image[] checkmarks;
     public ParticleSystem[] completeParticles;
     public Image[] instructions;
+    public GameObject[] meatSteps;
 
-    private bool[] steps = new bool[6];
+    private bool[] steps = new bool[9];
     private bool[] stepsVoiceOver = new bool[18];
     private int index;
     private List<EventInstance> voiceOvers = new List<EventInstance>();
@@ -122,7 +123,7 @@ public class ObjectiveTracker : MonoBehaviour
                 index++;
             }
         }
-        if (steps[3]) // Place meat
+        if (steps[3]) // Cut outer skirt
         {
             //if (!stepsVoiceOver[3])
             //{
@@ -131,15 +132,15 @@ public class ObjectiveTracker : MonoBehaviour
             //    stepsVoiceOver[3] = true;
             //}
 
-            if (meat.GetComponent<Collider>().isTrigger)
+            if (meatSteps[0] == null)
             {
-                completeParticles[3].Play();
+                completeParticles[4].Play();
                 steps[3] = false;
                 steps[4] = true;
-                index = 4;
+                index++;
             }
         }
-        if (steps[4]) // Cut meat
+        if (steps[4]) // Cut inner skirt
         {
             //if (!stepsVoiceOver[4])
             //{
@@ -148,7 +149,7 @@ public class ObjectiveTracker : MonoBehaviour
             //    stepsVoiceOver[4] = true;
             //}
 
-            if (meat == null)
+            if (meatSteps[1] == null)
             {
                 completeParticles[4].Play();
                 steps[4] = false;
@@ -156,7 +157,7 @@ public class ObjectiveTracker : MonoBehaviour
                 index++;
             }
         }
-        if (steps[5]) // Finish
+        if (steps[5]) // Cut navel
         {
             //if (!stepsVoiceOver[5])
             //{
@@ -165,7 +166,39 @@ public class ObjectiveTracker : MonoBehaviour
             //    stepsVoiceOver[5] = true;
             //}
 
-            Debug.Log("LAST STEP");
+            if (meatSteps[2] == null)
+            {
+                completeParticles[4].Play();
+                steps[5] = false;
+                steps[6] = true;
+                index++;
+            }
+        }
+        if (steps[6]) // Cut short rib plate (handsaw)
+        {
+            //if (!stepsVoiceOver[6])
+            //{
+            //    voiceOvers[5].stop(STOP_MODE.IMMEDIATE);
+            //    voiceOvers[6].start();
+            //    stepsVoiceOver[6] = true;
+            //}
+
+            if (meatSteps[3] == null)
+            {
+                completeParticles[4].Play();
+                steps[6] = false;
+                steps[7] = true;
+                index++;
+            }
+        }
+        if (steps[7]) // Finish
+        {
+            //if (!stepsVoiceOver[7])
+            //{
+            //    voiceOvers[6].stop(STOP_MODE.IMMEDIATE);
+            //    voiceOvers[7].start();
+            //    stepsVoiceOver[7] = true;
+            //}
 
             filePath = Application.persistentDataPath + "/score.txt";
             if (File.Exists(filePath))
@@ -173,7 +206,7 @@ public class ObjectiveTracker : MonoBehaviour
                 FileManager.instance.UpdateScore(ScoreManager.instance.GetScore());
                 FileManager.instance.Write(filePath);
             }
-            steps[5] = false;
+            steps[7] = false;
         }
     }
 

@@ -102,7 +102,6 @@ public class FileManager : MonoBehaviour
         {
             foreach (var item in highscores)
             {
-                Debug.Log(item);
                 streamWriter.WriteLine(item.ToString());
             }
         }
