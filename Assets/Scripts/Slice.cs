@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using EzySlice;
 using Autohand;
+using static UnityEngine.GraphicsBuffer;
 
 public class Slice : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class Slice : MonoBehaviour
     public LayerMask sliceableLayer;
 
     [Header("Cut Elements")]
+    public Transform meatSpawn;
+    public Material dirtMaterial;
     public Material cutMaterial;
     public float cutForce = 2000f;
 
@@ -57,6 +60,7 @@ public class Slice : MonoBehaviour
                 GameObject upperHull = hull.CreateUpperHull(target, cutMaterial);
                 SetupSlicedObject(upperHull, "Sliceable", "Meat");
                 if (freeze) { Freeze(upperHull); }
+                else { SetupDropMeat(upperHull); }
 
                 GameObject lowerHull = hull.CreateLowerHull(target, cutMaterial);
                 SetupSlicedObject(lowerHull, "Grabbable", "Finish");
@@ -101,6 +105,26 @@ public class Slice : MonoBehaviour
         {
             AccuracySystem accuracySystem = slicedObject.AddComponent<AccuracySystem>();
         }
+        else
+        {
+            SetupDropMeat(slicedObject);
+        }
+    }
+
+    public void SetupDropMeat(GameObject target)
+    {
+        DropMeat dm = target.AddComponent<DropMeat>();
+        dm.respawnPosition = meatSpawn;
+        dm.bottom = -0.35f;
+
+        MeshRenderer meshRenderer = target.GetComponent<MeshRenderer>();
+        List<Material> tempMaterials = new List<Material>();
+        foreach (var item in meshRenderer.materials)
+        {
+            tempMaterials.Add(item);
+        }
+        tempMaterials.Add(dirtMaterial);
+        meshRenderer.materials = tempMaterials.ToArray();
     }
 
     public void Freeze(GameObject target)
@@ -116,6 +140,7 @@ public class Slice : MonoBehaviour
         skirts[0].GetComponent<MeshCollider>().isTrigger = false;
         skirts[0].AddComponent<Rigidbody>();
         skirts[0].AddComponent<Grabbable>();
+        SetupDropMeat(skirts[0]);
         skirts.RemoveAt(0);
     }
 }

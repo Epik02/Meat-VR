@@ -36,6 +36,10 @@ public class DropMeat : MonoBehaviour
             transform.position = respawnPosition.position;
             transform.rotation = respawnPosition.rotation;
             rb.velocity = Vector3.zero;
+            if (ScoreManager.instance)
+            {
+                ScoreManager.instance.RemoveScore(10);
+            }
             dropped = true;
         }
         if (dropped)
@@ -56,6 +60,10 @@ public class DropMeat : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Trash") && dropped)
         {
+            if (ScoreManager.instance)
+            {
+                ScoreManager.instance.AddScore(5);
+            }
             if (!tutorial)
             {
                 GameObject newMeat = Instantiate(gameObject);
