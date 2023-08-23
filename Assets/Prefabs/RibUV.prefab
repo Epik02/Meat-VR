@@ -14,11 +14,10 @@ GameObject:
   - component: {fileID: 1955474152705500441}
   - component: {fileID: 1955474152705500440}
   - component: {fileID: 1955474152705500447}
-  - component: {fileID: 1955474152705500446}
-  - component: {fileID: 1955474152705500445}
+  - component: {fileID: 573750003044940105}
   m_Layer: 8
   m_Name: RibUV
-  m_TagString: cuttable
+  m_TagString: Meat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32,8 +31,8 @@ Transform:
   m_GameObject: {fileID: 1721031124571199602}
   m_LocalRotation: {x: -0.44168848, y: -0.540577, z: -0.40380037, w: 0.59129775}
   m_LocalPosition: {x: 2.73, y: 0.17, z: -2.39}
-  m_LocalScale: {x: 1.1746968, y: 1.1746968, z: 1.1746968}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -67,7 +66,6 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 8843d8b08b2ce4545a6513b2f47de0d0, type: 2}
-  - {fileID: 2100000, guid: 507946e71773c60469c56b240c742632, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -182,22 +180,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   lockHandOnGrab: 0
---- !u!114 &1955474152705500446
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1721031124571199602}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f764194824f659e4bb45bc0741506f24, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  respawnPosition: {fileID: 0}
-  bottom: -0.6
-  tutorial: 1
---- !u!114 &1955474152705500445
+--- !u!114 &573750003044940105
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -206,16 +189,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1721031124571199602}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cea952937fc49104e9477b8eee2334a4, type: 3}
+  m_Script: {fileID: 11500000, guid: 9c171cced7e742b4cb064e9e0c7483a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
-  timeBetweenInstantiation: 0.5
-  myTimer: 0
-  objectToInstantiate: {fileID: 0}
-  Knife: {fileID: 0}
-  cuttingPathCheck: {fileID: 0}
-  accuracyObject: {fileID: 0}
-  mText: {fileID: 0}
-  mText2: {fileID: 0}
-  cut: {fileID: 0}

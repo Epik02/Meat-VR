@@ -33,15 +33,7 @@ public class Slice : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (tutorial)
-        {
-            bool hasHit = Physics.Linecast(startSlicePoint.position, endSlicePoint.position, out RaycastHit hit, sliceableLayer);
-            if (hasHit && GetComponent<KnifeStraighten>().strength > 0.0f)
-            {
-                GameObject target = hit.transform.gameObject;
-                SliceObject(target);
-            }
-        }
+
     }
 
     public void SlicePlane(GameObject target, Transform plane, bool freeze)
@@ -62,20 +54,16 @@ public class Slice : MonoBehaviour
                 else { SetupDropMeat(upperHull); }
 
                 GameObject lowerHull = hull.CreateLowerHull(target, cutMaterial);
-                SetupSlicedObject(lowerHull, "Grabbable", "Finish");
+                SetupSlicedObject(lowerHull, "Untagged", "Default");
 
                 Destroy(target);
             }
         }
     }
 
-    public void SliceObject(GameObject target)
+    public void SliceBasic(GameObject target, Transform plane)
     {
-        Vector3 velocity = velocityEstimator.GetVelocityEstimate();
-        Vector3 normal = Vector3.Cross(endSlicePoint.position - startSlicePoint.position, velocity);
-        normal.Normalize();
-
-        SlicedHull hull = target.Slice(endSlicePoint.position, normal);
+        SlicedHull hull = target.Slice(plane.position, plane.up);
 
         if (hull != null)
         {
@@ -83,7 +71,7 @@ public class Slice : MonoBehaviour
             SetupSlicedObject(upperHull, "Sliceable", "Meat");
 
             GameObject lowerHull = hull.CreateLowerHull(target, cutMaterial);
-            SetupSlicedObject(lowerHull, "Grabbable", "Finish");
+            SetupSlicedObject(lowerHull, "Sliceable", "Meat");
 
             Destroy(target);
         }

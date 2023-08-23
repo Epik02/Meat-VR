@@ -14,6 +14,7 @@ public class Guidelines : MonoBehaviour
     public LineController line;
     public TMP_Text accuracyText;
     public bool hasStartedCutting { get; private set; } = false;
+    public bool tutorial = false;
 
     private bool canCut = false;
 
@@ -75,14 +76,32 @@ public class Guidelines : MonoBehaviour
             canCut = true;
         }
 
-        if (canCut && hasStartedCutting)
+        if (canCut)
         {
             if (triggers.IndexOf(CuttingSurface.KnifeAccuracy.BAD) != -1)
             {
                 if (triggers.IndexOf(CuttingSurface.KnifeAccuracy.COMPLETE) != -1)
                 {
+                    if (tutorial)
+                    {
+                        foreach (var item in objectsToBeSliced)
+                        {
+                            if (item != null)
+                            {
+                                float overallAccuracy = item.GetComponent<AccuracySystem>().CalculateAccuracy();
+                                accuracyText.text = "Accuracy: " + overallAccuracy.ToString("F2") + "%";
+                                sliceObject.SliceBasic(item.transform.gameObject, cuttablePlane);
+                            }
+                        }
+                        lineColour.material.color = Color.white;
+                        lineColour.material.SetColor("_EmissionColor", Color.white);
+                        hasStartedCutting = false;
+                        line.GenerateHitboxes();
+                        return;
+                    }
+
                     // Complete
-                    if (line.NextGuideline())
+                    if (line.NextGuideline() && !tutorial)
                     {
                         foreach (var item in objectsToBeSliced)
                         {

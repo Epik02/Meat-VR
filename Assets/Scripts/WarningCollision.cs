@@ -45,7 +45,7 @@ public class WarningCollision : MonoBehaviour
                     warningPanel.SetActive(true);
                     warningText.text = "Warning: Must have clean equipment before using them";
                 }
-                if (other.gameObject.tag == "cuttable" && gameObject.tag == "Item")
+                if (other.gameObject.tag == "Meat" && gameObject.tag == "Item")
                 {
                     warningPanel.SetActive(true);
                     warningText.text = "Warning: Must have clean equipment before using them";
@@ -66,7 +66,7 @@ public class WarningCollision : MonoBehaviour
                     warningPanel.SetActive(true);
                     warningText.text = "Warning: Must have clean equipment before using them";
                 }
-                if (other.gameObject.tag == "cuttable" && gameObject.tag == "Item")
+                if (other.gameObject.tag == "Meat" && gameObject.tag == "Item")
                 {
                     warningPanel.SetActive(true);
                     warningText.text = "Warning: Must have clean equipment before using them";
@@ -88,7 +88,7 @@ public class WarningCollision : MonoBehaviour
                     warningPanel.SetActive(true);
                     warningText.text = "Warning: Must have clean equipment before using them";
                 }
-                if (other.gameObject.tag == "cuttable" && gameObject.tag == "Item")
+                if (other.gameObject.tag == "Meat" && gameObject.tag == "Item")
                 {
                     warningPanel.SetActive(true);
                     warningText.text = "Warning: Must have clean equipment before using them";
@@ -109,7 +109,7 @@ public class WarningCollision : MonoBehaviour
                     warningPanel.SetActive(true);
                     warningText.text = "Warning: Must have clean equipment before using them";
                 }
-                if (other.gameObject.tag == "cuttable" && gameObject.tag == "Item")
+                if (other.gameObject.tag == "Meat" && gameObject.tag == "Item")
                 {
                     warningPanel.SetActive(true);
                     warningText.text = "Warning: Must have clean equipment before using them";
@@ -131,7 +131,7 @@ public class WarningCollision : MonoBehaviour
                     warningPanel.SetActive(true);
                     warningText.text = "Warning: Must have clean equipment before using them";
                 }
-                if (other.gameObject.tag == "cuttable" && gameObject.tag == "Item")
+                if (other.gameObject.tag == "Meat" && gameObject.tag == "Item")
                 {
                     warningPanel.SetActive(true);
                     warningText.text = "Warning: Must have clean equipment before using them";
@@ -152,7 +152,7 @@ public class WarningCollision : MonoBehaviour
                     warningPanel.SetActive(true);
                     warningText.text = "Warning: Must have clean equipment before using them";
                 }
-                if (other.gameObject.tag == "cuttable" && gameObject.tag == "Item")
+                if (other.gameObject.tag == "Meat" && gameObject.tag == "Item")
                 {
                     warningPanel.SetActive(true);
                     warningText.text = "Warning: Must have clean equipment before using them";

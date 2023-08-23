@@ -169,6 +169,15 @@ public class TutorialSystem : MonoBehaviour
                 steps[3] = false;
                 steps[4] = true;
             }
+
+            if (!rightHand.GetComponentInChildren<Dirty>() && !rightHand.GetComponentInChildren<Clean>() && !rightHand.GetComponentInChildren<Wet>() &&
+                !leftHand.GetComponentInChildren<Dirty>() && !leftHand.GetComponentInChildren<Clean>() && !leftHand.GetComponentInChildren<Wet>())
+            {
+                instructionIndex++;
+                chapterIndex++;
+                steps[3] = false;
+                steps[4] = true;
+            }
         }
         if (steps[4]) // Put gloves on
         {
