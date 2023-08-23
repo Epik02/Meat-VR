@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using EzySlice;
 using Autohand;
-using static UnityEngine.GraphicsBuffer;
 
 public class Slice : MonoBehaviour
 {

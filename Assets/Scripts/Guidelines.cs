@@ -7,6 +7,7 @@ public class Guidelines : MonoBehaviour
 {
     List<CuttingSurface.KnifeAccuracy> triggers = new List<CuttingSurface.KnifeAccuracy>();
 
+    public GameObject item;
     public GameObject nextStep;
     public Transform cuttablePlane;
     public Renderer lineColour;
@@ -14,17 +15,17 @@ public class Guidelines : MonoBehaviour
     public TMP_Text accuracyText;
     public bool hasStartedCutting { get; private set; } = false;
 
-    private GameObject knife;
+    private bool canCut = false;
 
     // Start is called before the first frame update
     private void Start()
     {
-        knife = GameObject.Find("AccuracyTestKnife");
+
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.name == "AccuracyTestKnife") 
+        if (other.name == item.name) 
         {
             hasStartedCutting = true;
             lineColour.material.color = Color.green;
@@ -54,15 +55,27 @@ public class Guidelines : MonoBehaviour
 
     void UpdateLook()
     {
-        Slice sliceObject = knife.GetComponent<Slice>();
-        Collider[] objectsToBeSliced = Physics.OverlapBox(knife.transform.position, new Vector3(1, 0.1f, 0.1f), knife.transform.rotation, sliceObject.sliceableLayer);
+        Slice sliceObject = item.GetComponent<Slice>();
+        Collider[] objectsToBeSliced = Physics.OverlapBox(item.transform.position, new Vector3(1, 0.1f, 0.1f), item.transform.rotation, sliceObject.sliceableLayer);
 
         if (!hasStartedCutting)
         {
             return;
         }
 
-        if (knife.GetComponent<KnifeStraighten>().strength >= 100.0f)
+        if (item.GetComponent<KnifeStraighten>())
+        {
+            if (item.GetComponent<KnifeStraighten>().strength >= 100.0f)
+            {
+                canCut = true;
+            }
+        }
+        else
+        {
+            canCut = true;
+        }
+
+        if (canCut && hasStartedCutting)
         {
             if (triggers.IndexOf(CuttingSurface.KnifeAccuracy.BAD) != -1)
             {
@@ -76,7 +89,10 @@ public class Guidelines : MonoBehaviour
                             if (item != null)
                             {
                                 float overallAccuracy = item.GetComponent<AccuracySystem>().CalculateAccuracy();
-                                ScoreManager.instance.AddScore(Mathf.RoundToInt(overallAccuracy));
+                                if (ScoreManager.instance)
+                                {
+                                    ScoreManager.instance.AddScore(Mathf.RoundToInt(overallAccuracy));
+                                }
                                 accuracyText.text = "Accuracy: " + overallAccuracy.ToString("F2") + "%";
                                 if (nextStep != null)
                                 {

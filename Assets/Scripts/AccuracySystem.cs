@@ -37,7 +37,7 @@ public class AccuracySystem : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.name == "AccuracyTestKnife")
+        if (other.name == "Knife" || other.name == "Handsaw")
         {
             inMeat = true;
             path = FindAnyObjectByType<CuttingPath>();
@@ -46,7 +46,7 @@ public class AccuracySystem : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.name == "AccuracyTestKnife")
+        if (other.name == "Knife" || other.name == "Handsaw")
         {
             inMeat = false;
             path = null;

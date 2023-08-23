@@ -8,7 +8,7 @@ public class CuttingPath : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.name == "AccuracyTestKnife")
+        if (other.name == "Knife" || other.name == "Handsaw")
         {
             isCutting = true;
         }
@@ -16,7 +16,7 @@ public class CuttingPath : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.name == "AccuracyTestKnife")
+        if (other.name == "Knife" || other.name == "Handsaw")
         {
             isCutting = false;
         }

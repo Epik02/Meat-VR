@@ -19,14 +19,14 @@ public class CuttingSurface : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.name == "AccuracyTestKnife")
+        if (other.name == guide.item.name)
         {
             guide.OnKnifeEnter(accuracy);
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.name == "AccuracyTestKnife")
+        if (other.name == guide.item.name)
         {
             guide.OnKnifeExit(accuracy);
         }
