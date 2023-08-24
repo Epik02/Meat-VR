@@ -25,12 +25,14 @@ public class Sink : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        // When objects are under the sensor it will play the water particle
         hands.Add(other.gameObject);
         waterParticle.Play();
     }
 
     private void OnTriggerExit(Collider other)
     {
+        // When there are no objects under the sensor it will stop the water particle
         hands.Remove(other.gameObject);
         if (hands.Count <= 0)
         {
@@ -38,6 +40,7 @@ public class Sink : MonoBehaviour
         }
     }
 
+    // Updates the sound of the sink when there are objects under the sensor or not
     private void UpdateSound()
     {
         if (hands.Count > 0)

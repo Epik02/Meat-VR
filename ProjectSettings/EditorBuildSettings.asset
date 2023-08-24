@@ -21,7 +21,7 @@ EditorBuildSettings:
     path: Assets/Scenes/MenuDemo.unity
     guid: 3852cdebd715b8842b9e20eafc79cfdd
   - enabled: 1
-    path: Assets/Scenes/TestDemo.unity
+    path: Assets/Scenes/GameDemo.unity
     guid: 89dfdaeb7c83557448a201da88ecb973
   - enabled: 1
     path: Assets/Scenes/TutorialDemo.unity

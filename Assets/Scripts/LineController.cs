@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class LineController : MonoBehaviour
 {
+    // This is so you can create multiple lists of points the guideline should follow
     [System.Serializable] 
     public class GameObjectList
     {
@@ -17,6 +18,7 @@ public class LineController : MonoBehaviour
     private LineRenderer line;
     private int pointIndex = 0;
 
+    // Checks if there is a next guideline to cut and if so increase the index
     public bool NextGuideline() 
     {
         pointIndex++;
@@ -28,6 +30,7 @@ public class LineController : MonoBehaviour
         return true;
     }
 
+    // Generates new invisible hitboxes
     public void GenerateHitboxes()
     {
         GameObjectList pts = points[pointIndex];
@@ -39,7 +42,7 @@ public class LineController : MonoBehaviour
 
         for (int i = 0; i < pts.points.Count - 1; i++)
         {
-            // Cut path checker
+            // Cut path checker hitbox
             GameObject pathChecker = new GameObject();
             pathChecker.name = "PathCheckerObject";
             pathChecker.AddComponent<CuttingPath>();
@@ -87,10 +90,6 @@ public class LineController : MonoBehaviour
         for (int i = 0; i < points[pointIndex].points.Count; i++)
         {
             line.SetPosition(i, points[pointIndex].points[i].transform.position);
-        }
-        if (pointIndex >= points.Count - 1) 
-        {
-            
         }
     }
 }

@@ -25,12 +25,14 @@ public class SoapDispenser : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        // When objects are under the sensor it will play the soap particle
         hands.Add(other.gameObject);
         soapParticle.Play();
     }
 
     private void OnTriggerExit(Collider other)
     {
+        // When there are no objects under the sensor it will stop the soap particle
         hands.Remove(other.gameObject);
         if (hands.Count <= 0)
         {
@@ -38,6 +40,7 @@ public class SoapDispenser : MonoBehaviour
         }
     }
 
+    // Updates the sound of the soap dispenser when there are objects under the sensor or not
     private void UpdateSound()
     {
         if (hands.Count > 0)

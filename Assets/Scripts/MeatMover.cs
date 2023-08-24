@@ -12,6 +12,7 @@ public class MeatMover : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // The movement of the mover is different depending on the part
         switch (part)
         {
             case 0:
@@ -30,11 +31,11 @@ public class MeatMover : MonoBehaviour
     {
         var tempMeatList = GameObject.FindGameObjectsWithTag("Meat");
 
-        if (moveMeat)
+        if (moveMeat)                                       // Checks to see if meat is on mover
         {
             foreach (var item in tempMeatList)
             {
-                item.transform.localPosition += push;
+                item.transform.localPosition += push;       // Push meat on mover
             }
         }
     }

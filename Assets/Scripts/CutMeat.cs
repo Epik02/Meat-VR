@@ -4,15 +4,5 @@ using UnityEngine;
 
 public class CutMeat : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    // This component is meant as a checker to see if the meat has been cut in the tutorial
 }

@@ -6,11 +6,11 @@ using FMOD.Studio;
 
 public class AudioManager : MonoBehaviour
 {
-    public static AudioManager instance;
+    public static AudioManager instance;       // Create instance
 
     void Awake()
     {
-        if (instance == null)
+        if (instance == null)                  // If instance does not exist then this will be the instnace
         {
             instance = this;
         }
@@ -28,11 +28,13 @@ public class AudioManager : MonoBehaviour
         
     }
 
+    // Plays a sound once with FMOD Studio
     public void PlayOneShot(EventReference sound, Vector3 worldPosition)
     {
         RuntimeManager.PlayOneShot(sound, worldPosition);
     }
 
+    // Creates a sound instance with FMOD studio
     public EventInstance CreateInstance(EventReference eventReference)
     {
         EventInstance ei = RuntimeManager.CreateInstance(eventReference);

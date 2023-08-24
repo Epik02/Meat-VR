@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using Unity.VisualScripting;
 
 public class KnifeStraighten : MonoBehaviour
 {
@@ -19,21 +18,21 @@ public class KnifeStraighten : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (strength > 100.0f)
+        if (strength > 100.0f)                                      // Make sure the strength does not go above 100
         {
             strength = 100.0f;
         }
         if (textDisplay != null)
         {
-            textDisplay.text = "Straighten: " + strength + "%";
+            textDisplay.text = "Straighten: " + strength + "%";     // Update the straighten text
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.name == "Honer")
+        if (other.name == "Honer")                                  // If the honer has entered the trigger...
         {
-            correctAngle = true;
+            correctAngle = true;                                    // Then it is on the correct angle
         }
     }
 

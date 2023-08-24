@@ -21,13 +21,17 @@ public class MeatMaker : MonoBehaviour
         
     }
 
+    // Creates a new meat object when button is pressed
     public void CreateMeat()
     {
+        // Find and destroy all the current meats in the scene
         var meats = GameObject.FindGameObjectsWithTag("Meat");
         foreach (var meat in meats) 
         {
             Destroy(meat);
         }
+
+        // Create a new meat model from the prefab
         newMeat = Instantiate(meatPrefab);
         newMeat.transform.SetPositionAndRotation(spawnPosition.position, spawnPosition.rotation);
     }

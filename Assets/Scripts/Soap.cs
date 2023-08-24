@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class Soap : MonoBehaviour
@@ -24,36 +23,36 @@ public class Soap : MonoBehaviour
 
     private void OnParticleCollision(GameObject other)
     {
-        Clean clean = other.GetComponent<Clean>();
-        Clean cleanChild = other.GetComponentInChildren<Clean>();
+        Clean clean = other.GetComponent<Clean>();                  // Must check if the object has a Clean component
+        Clean cleanChild = other.GetComponentInChildren<Clean>();   // If they do not have a Clean component then check if the objects children have a Clean component
 
-        Dirty dirty = other.GetComponent<Dirty>();
-        Dirty dirtyChild = other.GetComponentInChildren<Dirty>();
+        Dirty dirty = other.GetComponent<Dirty>();                  // Must check if the object has a Dirty component
+        Dirty dirtyChild = other.GetComponentInChildren<Dirty>();   // If they do not have a Dirty component then check if the objects children have a Dirty component
 
-        if (clean)
+        if (clean)                                                  // Checks if the player does have a Clean component and if true...
         {
-            if (!soapObjects.Contains(clean))
+            if (!soapObjects.Contains(clean))                       // If clean is not on the soaped list then we add it
             {
                 soapObjects.Add(clean);
             }
-            if (clean.cleanness < 100.0f)
+            if (clean.cleanness < 100.0f)                           // If cleanness is not fully...
             {
-                soapObjects.Remove(clean);
-                clean.cleanness += soapPerParticle;
+                soapObjects.Remove(clean);                          // Remove from the soaped list
+                clean.cleanness += soapPerParticle;                 // Add to cleanness per particle collision
             }
-            if (dirty.dirtiness > 0.0f)
+            if (dirty.dirtiness > 0.0f)                             // If dirtiness is not fully gone...
             {
-                soapObjects.Remove(clean);
-                dirty.dirtiness -= soapPerParticle;
+                soapObjects.Remove(clean);                          // Remove from soaped list
+                dirty.dirtiness -= soapPerParticle;                 // Remove to dirtiness per particle collision
             }
-            if (!soapObjects.Contains(clean) && clean.cleanness >= 100.0f && dirty.dirtiness <= 0.0f)
+            if (!soapObjects.Contains(clean) && clean.cleanness >= 100.0f && dirty.dirtiness <= 0.0f)   // If fully cleaned and fully undirty...
             {
-                soapObjects.Add(clean);
-                ps.Play();
+                soapObjects.Add(clean);                             // Add back to soaped list
+                ps.Play();                                          // Play complete particle
             }
         }
 
-        if (cleanChild)
+        if (cleanChild)                                             // Same as above but with the children components
         {
             if (!soapObjects.Contains(cleanChild))
             {
@@ -75,29 +74,5 @@ public class Soap : MonoBehaviour
                 ps.Play();
             }
         }
-
-        //if (clean)
-        //{
-        //    if (clean.cleanness < 100.0f)
-        //    {
-        //        clean.cleanness += soapPerParticle;
-        //    }
-        //    if (dirty.dirtiness > 0.0f)
-        //    {
-        //        dirty.dirtiness -= soapPerParticle;
-        //    }
-        //}
-
-        //if (cleanChild)
-        //{
-        //    if (cleanChild.cleanness < 100.0f)
-        //    {
-        //        cleanChild.cleanness += soapPerParticle;
-        //    }
-        //    if (dirtyChild.dirtiness > 0.0f)
-        //    {
-        //        dirtyChild.dirtiness -= soapPerParticle;
-        //    }
-        //}
     }
 }

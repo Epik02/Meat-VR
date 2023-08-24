@@ -36,31 +36,36 @@ public class Slice : MonoBehaviour
 
     }
 
+    // Slices an object from a plane
     public void SlicePlane(GameObject target, Transform plane, bool freeze)
     {
-        if (skirts.Count > 0)
+        if (skirts.Count > 0)                                                       // If there are still skirts in the meat then remove them
         {
             DeSkirt();
         }
-        else
+        else                                                                        // If there are no skirts in the meat then do a normal slice
         {
-            SlicedHull hull = target.Slice(plane.position, plane.up);
+            SlicedHull hull = target.Slice(plane.position, plane.up);               // Slice the meat by the plane position
 
             if (hull != null)
             {
+                // Create and setup the upper hull of the meat
                 GameObject upperHull = hull.CreateUpperHull(target, cutMaterial);
                 SetupSlicedObject(upperHull, "Sliceable", "Meat");
                 if (freeze) { Freeze(upperHull); }
                 else { SetupDropMeat(upperHull); }
 
+                // Create and setup the lower hull of the meat
                 GameObject lowerHull = hull.CreateLowerHull(target, cutMaterial);
                 SetupSlicedObject(lowerHull, "Untagged", "Default");
 
+                // Delete the original meat
                 Destroy(target);
             }
         }
     }
 
+    // Slices an object from a plane without other steps
     public void SliceBasic(GameObject target, Transform plane)
     {
         SlicedHull hull = target.Slice(plane.position, plane.up);
@@ -77,6 +82,7 @@ public class Slice : MonoBehaviour
         }
     }
 
+    // Sets up components of the sliced hull
     public void SetupSlicedObject(GameObject slicedObject, string layer, string tag)
     {
         CutMeat cm = slicedObject.AddComponent<CutMeat>();
@@ -86,8 +92,11 @@ public class Slice : MonoBehaviour
         collider.convex = true;
         rb.AddExplosionForce(cutForce, slicedObject.transform.position, 1f);
         int LayerSwitch = LayerMask.NameToLayer(layer);
-        slicedObject.layer = LayerSwitch;
-        slicedObject.tag = tag;
+        if (tag != "Default")
+        {
+            slicedObject.layer = LayerSwitch;
+            slicedObject.tag = tag;
+        }
         if (tag == "Meat")
         {
             AccuracySystem accuracySystem = slicedObject.AddComponent<AccuracySystem>();
@@ -98,6 +107,7 @@ public class Slice : MonoBehaviour
         }
     }
 
+    // Sets up dropped meat component for sliced hull
     public void SetupDropMeat(GameObject target)
     {
         DropMeat dm = target.AddComponent<DropMeat>();
@@ -114,6 +124,7 @@ public class Slice : MonoBehaviour
         meshRenderer.materials = tempMaterials.ToArray();
     }
 
+    // Freezes sliced hull
     public void Freeze(GameObject target)
     {
         target.GetComponent<MeshCollider>().isTrigger = true;
@@ -121,6 +132,7 @@ public class Slice : MonoBehaviour
         Destroy(target.GetComponent<Grabbable>());
     }
 
+    // Removes the skirt of the meat
     public void DeSkirt()
     {
         skirts[0].transform.parent = null;

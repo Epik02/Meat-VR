@@ -27,18 +27,20 @@ public class Gloves : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
+        // If the right and left hand have been fully cleaned
         if (rightHand.GetComponentInChildren<Dirty>().dirtiness <= 0.0f && leftHand.GetComponentInChildren<Dirty>().dirtiness <= 0.0f &&
             rightHand.GetComponentInChildren<Clean>().cleanness <= 0.0f && leftHand.GetComponentInChildren<Clean>().cleanness <= 0.0f &&
             rightHand.GetComponentInChildren<Wet>().wetness <= 0.0f && leftHand.GetComponentInChildren<Wet>().wetness <= 0.0f)
         {
-            if (other.gameObject.CompareTag("Player"))
+            if (other.gameObject.CompareTag("Player"))                  // If the other object is a hand...
             {
-                rightHandMesh.sharedMesh = gloveMesh;
-                rightHandMesh.material = gloveMaterial;
+                rightHandMesh.sharedMesh = gloveMesh;                   // Switch from hand to glove mesh
+                rightHandMesh.material = gloveMaterial;                 // Switch from hand to glove material
 
                 leftHandMesh.sharedMesh = gloveMesh;
                 leftHandMesh.material = gloveMaterial;
 
+                // Removes components for each hand
                 Destroy(rightHand.GetComponentInChildren<Dirty>());
                 Destroy(rightHand.GetComponentInChildren<Clean>());
                 Destroy(rightHand.GetComponentInChildren<Wet>());
@@ -46,7 +48,7 @@ public class Gloves : MonoBehaviour
                 Destroy(leftHand.GetComponentInChildren<Clean>());
                 Destroy(leftHand.GetComponentInChildren<Wet>());
 
-                Destroy(gameObject);
+                Destroy(gameObject);                                    // Destroy this object
             }
         }
     }

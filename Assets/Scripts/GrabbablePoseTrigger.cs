@@ -20,18 +20,17 @@ public class GrabbablePoseTrigger : MonoBehaviour
 
     }
 
+    // When spray bottle is triggered it will create a sanitize particle
     public void UseBottle()
     {
-        GameObject newParticle = Instantiate(soapParticle);
-        //newParticle.transform.parent = gameObject.transform;
-        newParticle.transform.position = particleStart.position;
+        GameObject newParticle = Instantiate(soapParticle);                                             // Create a new santize particle
+        newParticle.transform.position = particleStart.position;                                        // Particle position starts at the start position
         newParticle.transform.rotation = gameObject.transform.rotation;
         newParticle.transform.localScale = Vector3.one;
-        AudioManager.instance.PlayOneShot(FMODEvents.instance.sprayBottle, this.transform.position);
-        if (newParticle.GetComponent<ParticleSystem>().isStopped)
+        AudioManager.instance.PlayOneShot(FMODEvents.instance.sprayBottle, this.transform.position);    // Play spray bottle sound once
+        if (newParticle.GetComponent<ParticleSystem>().isStopped)                                       // When the particle has stopped playing...
         {
-            Destroy(newParticle);
+            Destroy(newParticle);                                                                       // Delete the particle object
         }
-        //soapParticle.Play();
     }
 }

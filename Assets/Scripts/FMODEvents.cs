@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class FMODEvents : MonoBehaviour
 {
+    // Define the sounds so they can be called later from the instance
     [SerializeField] public EventReference soapDispenser;
     [SerializeField] public EventReference sink;
     [SerializeField] public List<EventReference> airDryer;

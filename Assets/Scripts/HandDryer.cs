@@ -2,7 +2,6 @@ using FMOD.Studio;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.ParticleSystem;
 
 public class HandDryer : MonoBehaviour
 {
@@ -31,7 +30,7 @@ public class HandDryer : MonoBehaviour
         UpdateSound();
         foreach (var item in hands)
         {
-            if (hands == null)
+            if (hands == null)      // Check if the hands are still in the sensor otherwise remove it
             {
                 hands.Remove(item);
             }
@@ -40,7 +39,7 @@ public class HandDryer : MonoBehaviour
         {
             airParticle.Stop();
         }
-        else
+        else                        // Play particles when hands are in the sensor
         {
             airParticle.Play();
         }
@@ -62,26 +61,27 @@ public class HandDryer : MonoBehaviour
         }
     }
 
+    // Update the sound from part 1 to part 2
     private void UpdateSound()
     {
         PLAYBACK_STATE playbackState;
         airSound[0].getPlaybackState(out playbackState);
 
-        if (hands.Count > 0)
+        if (hands.Count > 0)                                    // If there are hands on the hand dryer...
         {
-            if (playbackState.Equals(PLAYBACK_STATE.STOPPED))
+            if (playbackState.Equals(PLAYBACK_STATE.STOPPED))   // If sound is not playing
             {
-                airSound[0].start();
-                end = true;
+                airSound[0].start();                            // Then play air sound
+                end = true;                                     // End part is true
             }
         }
-        else
+        else                                                    // If there are no hands on the hand dryer...
         {
-            if (end)
+            if (end)                                            // If end part is true
             {
-                airSound[0].stop(STOP_MODE.IMMEDIATE);
-                airSound[1].start();
-                end = false;
+                airSound[0].stop(STOP_MODE.IMMEDIATE);          // Stop the first sound part
+                airSound[1].start();                            // Start the second sound part
+                end = false;                                    // End part is false
             }
         }
     }

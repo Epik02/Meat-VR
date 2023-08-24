@@ -6,9 +6,9 @@ public class CuttingSurface : MonoBehaviour
 {
     public enum KnifeAccuracy 
     {
-        // Reset distance
+        // Reset
         BAD, 
-        // Good range
+        // Good
         GOOD,
         // Complete
         COMPLETE,
@@ -19,16 +19,16 @@ public class CuttingSurface : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.name == guide.item.name)
+        if (other.name == guide.item.name)      // Notify guidelines of slice object entering
         {
-            guide.OnKnifeEnter(accuracy);
+            guide.OnKnifeEnter(accuracy);       // Then allow cutting
         }
     }
     private void OnTriggerExit(Collider other)
     {
-        if (other.name == guide.item.name)
+        if (other.name == guide.item.name)      // Notify guidelines of slice object exiting
         {
-            guide.OnKnifeExit(accuracy);
+            guide.OnKnifeExit(accuracy);        // Then allow cutting
         }
     }
 }

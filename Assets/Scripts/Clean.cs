@@ -17,24 +17,24 @@ public class Clean : MonoBehaviour
         meshRenderer = GetComponent<MeshRenderer>();
         skinnedMeshRenderer = GetComponent<SkinnedMeshRenderer>();
 
-        if (skinnedMeshRenderer)
+        if (skinnedMeshRenderer)                                            // Checks if object has skinned mesh renderer or not
         {
             skinned = true;
         }
 
-        if (skinned)
+        if (skinned)                                                        // If object does have skinned mesh renderer...
         {
-            for (int i = 0; i < skinnedMeshRenderer.materials.Length; i++)
+            for (int i = 0; i < skinnedMeshRenderer.materials.Length; i++)  // Take each skinned mesh renderer material
             {
-                if (skinnedMeshRenderer.materials[i].name.Contains("soap"))
+                if (skinnedMeshRenderer.materials[i].name.Contains("soap")) // If material has soap in it then...
                 {
-                    mat = i;
+                    mat = i;                                                // That is the material we will change transparency
                 }
             }
         }
-        else
-        {
-            for (int i = 0; i < meshRenderer.materials.Length; i++)
+        else                                                                // If object has a mesh renderer...
+        {                                                                   // Same thing as above
+            for (int i = 0; i < meshRenderer.materials.Length; i++)  
             {
                 if (meshRenderer.materials[i].name.Contains("soap"))
                 {
@@ -49,13 +49,13 @@ public class Clean : MonoBehaviour
     {
         if (skinned)
         {
-            Color c = skinnedMeshRenderer.materials[mat].color;
-            c.a = cleanness / 100.0f;
-            skinnedMeshRenderer.materials[mat].color = c;
+            Color c = skinnedMeshRenderer.materials[mat].color;     // Creates a new color from the soap material
+            c.a = cleanness / 100.0f;                               // Changes the alpha of the color depending on the cleanness value
+            skinnedMeshRenderer.materials[mat].color = c;           // Puts the new color back into the original materials spot
         }
         else
         {
-            Color c = meshRenderer.materials[mat].color;
+            Color c = meshRenderer.materials[mat].color;            // Same proccess
             c.a = cleanness / 100.0f;
             meshRenderer.materials[mat].color = c;
         }

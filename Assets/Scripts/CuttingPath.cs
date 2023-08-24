@@ -8,17 +8,17 @@ public class CuttingPath : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.name == "Knife" || other.name == "Handsaw")
+        if (other.name == "Knife" || other.name == "Handsaw")       // If a slice object has entered the accuracy path then...
         {
-            isCutting = true;
+            isCutting = true;                                       // Cutting is true
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.name == "Knife" || other.name == "Handsaw")
+        if (other.name == "Knife" || other.name == "Handsaw")       // If a slice object has exited the accuracy path then...
         {
-            isCutting = false;
+            isCutting = false;                                      // Cutting is false
         }
     }
 }

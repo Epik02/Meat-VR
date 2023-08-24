@@ -9,11 +9,12 @@ public class HoningCheckpoint : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        // If the knife layer matches the other objects layer...
         if (knifeLayer == (knifeLayer | (1 << other.gameObject.layer)))
         {
             if (other.attachedRigidbody == null || other.attachedRigidbody.mass > 0.0000001f)
             {
-                check = true;
+                check = true;   // Checkpoint is true
             }
         }
     }

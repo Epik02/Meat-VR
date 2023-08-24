@@ -34,6 +34,7 @@ public class ObjectiveSystem : MonoBehaviour
             voiceOvers.Add(AudioManager.instance.CreateInstance(FMODEvents.instance.gameVoiceOvers[i]));
         }
 
+        // If the left and right hand are not placed here then skip the wash hands step (this is a debug thing only)
         if (rightHand == null && leftHand == null)
         {
             index = 0;
@@ -58,18 +59,19 @@ public class ObjectiveSystem : MonoBehaviour
 
         if (steps[0]) // Wash hands
         {
-            if (!stepsVoiceOver[0])
+            if (!stepsVoiceOver[0])                                     // This is just so the sound does not keep playing on loop
             {
                 voiceOvers[0].start();
                 stepsVoiceOver[0] = true;
             }
 
-            var grabbables = FindObjectsOfType(typeof(Grabbable));
+            var grabbables = FindObjectsOfType(typeof(Grabbable)); 
             foreach (var item in grabbables)
             {
-                item.GetComponent<Grabbable>().enabled = false;
+                item.GetComponent<Grabbable>().enabled = false;         // Make sure nothing is grabbable until hands are washed and gloves are put on
             }
 
+            // If hands are fully washed then play complete particle, add score and go to the next step
             if (rightHand.GetComponentInChildren<Dirty>().dirtiness <= 0.0f && leftHand.GetComponentInChildren<Dirty>().dirtiness <= 0.0f &&
                 rightHand.GetComponentInChildren<Clean>().cleanness <= 0.0f && leftHand.GetComponentInChildren<Clean>().cleanness <= 0.0f &&
                 rightHand.GetComponentInChildren<Wet>().wetness <= 0.0f && leftHand.GetComponentInChildren<Wet>().wetness <= 0.0f)
@@ -85,13 +87,14 @@ public class ObjectiveSystem : MonoBehaviour
         {
             var grabbables = FindObjectsOfType(typeof(Grabbable));
 
-            if (gloves == null)
+            if (gloves == null)                                         // If gloves are put on then...
             {
                 foreach (var item in grabbables)
                 {
-                    item.GetComponent<Grabbable>().enabled = true;
+                    item.GetComponent<Grabbable>().enabled = true;      // Make everything grabbable again
                 }
 
+                // Play complete particle, add score and go to next step
                 completeParticles[1].Play();
                 ScoreManager.instance.AddScore(5);
                 steps[1] = false;
@@ -101,6 +104,7 @@ public class ObjectiveSystem : MonoBehaviour
         }
         if (steps[2]) // Straighten knife
         {
+            // If knife is straighten fully then play complete particle and go to next step
             if (knife.GetComponent<KnifeStraighten>().strength >= 100.0f)
             {
                 completeParticles[2].Play();
@@ -118,6 +122,7 @@ public class ObjectiveSystem : MonoBehaviour
                 stepsVoiceOver[1] = true;
             }
 
+            // If step 1 of cutting is complete then play complete particle and go to next step
             if (meatSteps[0] == null)
             {
                 completeParticles[4].Play();
@@ -135,6 +140,7 @@ public class ObjectiveSystem : MonoBehaviour
                 stepsVoiceOver[2] = true;
             }
 
+            // If step 2 of cutting is complete then play complete particle and go to next step
             if (meatSteps[1] == null)
             {
                 completeParticles[4].Play();
@@ -152,6 +158,7 @@ public class ObjectiveSystem : MonoBehaviour
                 stepsVoiceOver[3] = true;
             }
 
+            // If step 3 of cutting is complete then play complete particle and go to next step
             if (meatSteps[2] == null)
             {
                 completeParticles[4].Play();
@@ -169,6 +176,7 @@ public class ObjectiveSystem : MonoBehaviour
                 stepsVoiceOver[4] = true;
             }
 
+            // If step 4 of cutting is complete then play complete particle and go to finish
             if (meatSteps[3] == null)
             {
                 completeParticles[4].Play();
@@ -186,18 +194,19 @@ public class ObjectiveSystem : MonoBehaviour
                 stepsVoiceOver[5] = true;
             }
 
-            scoreText.text = "Score: " + ScoreManager.instance.GetScore().ToString();
+            scoreText.text = "Score: " + ScoreManager.instance.GetScore().ToString();   // Show final score on the board
 
-            filePath = Application.persistentDataPath + "/score.txt";
+            filePath = Application.persistentDataPath + "/score.txt"; 
             if (File.Exists(filePath))
             {
-                FileManager.instance.UpdateScore(ScoreManager.instance.GetScore());
-                FileManager.instance.Write(filePath);
+                FileManager.instance.UpdateScore(ScoreManager.instance.GetScore());     // Update the final score
+                FileManager.instance.Write(filePath);                                   // Write the final leaderboard scores to text file
             }
             steps[7] = false;
         }
     }
 
+    // Update the checkmark display on the board
     public void CheckmarkDisplay()
     {
         for (int i = 0; i < checkmarks.Length; i++)
@@ -213,6 +222,7 @@ public class ObjectiveSystem : MonoBehaviour
         }
     }
 
+    // Update the instruction image on the board
     public void InstructionDisplay()
     {
         for (int i = 0; i < instructions.Length; i++)

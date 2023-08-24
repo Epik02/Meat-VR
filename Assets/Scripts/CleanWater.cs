@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
 public class CleanWater : MonoBehaviour
@@ -8,15 +7,11 @@ public class CleanWater : MonoBehaviour
     public ParticleSystem finishedParticle;
     public float cleanPerParticle = 0.1f;
 
-    private List<Dirty> dirtyObjects;
-    private List<Clean> cleanObjects;
     private List<Wet> wetObjects;
 
     // Start is called before the first frame update
     void Start()
     {
-        dirtyObjects = new List<Dirty>();
-        cleanObjects = new List<Clean>();
         wetObjects = new List<Wet>();
         finishedParticle.Stop();
     }
@@ -29,77 +24,39 @@ public class CleanWater : MonoBehaviour
 
     private void OnParticleCollision(GameObject other)
     {
-        Dirty dirty = other.GetComponent<Dirty>();
-        Dirty dirtyChild = other.GetComponentInChildren<Dirty>();
+        Dirty dirty = other.GetComponent<Dirty>();                      // Must check if the object has a Dirty component
+        Dirty dirtyChild = other.GetComponentInChildren<Dirty>();       // If they do not have a Dirty component then check if the objects children have a Dirty component
 
-        Clean clean = other.GetComponent<Clean>();
-        Clean cleanChild = other.GetComponentInChildren<Clean>();
+        Clean clean = other.GetComponent<Clean>();                      // Must check if the object has a Clean component
+        Clean cleanChild = other.GetComponentInChildren<Clean>();       // If they do not have a Clean component then check if the objects children have a Clean component
 
-        Wet wet = other.GetComponent<Wet>();
-        Wet wetChild = other.GetComponentInChildren<Wet>();
+        Wet wet = other.GetComponent<Wet>();                            // Must check if the object has a Wet component
+        Wet wetChild = other.GetComponentInChildren<Wet>();             // If they do not have a Wet component then check if the objects children have a Wet component
 
-        //if (dirty)
-        //{
-        //    if (!dirtyObjects.Contains(dirty))
-        //    {
-        //        dirtyObjects.Add(dirty);
-        //    }
-        //    if (dirty.dirtiness > 0.0f)
-        //    {
-        //        dirtyObjects.Remove(dirty);
-        //        warningPanel.SetActive(false);
-        //        dirty.dirtiness -= cleanPerParticle;
-        //    }
-        //    if (!dirtyObjects.Contains(dirty) && dirty.dirtiness <= 0.0f)
-        //    {
-        //        dirtyObjects.Add(dirty);
-        //        finishedParticle.Play();
-        //    }
-        //}
-
-        //if (dirtyChild)
-        //{
-        //    if (!dirtyObjects.Contains(dirtyChild))
-        //    {
-        //        dirtyObjects.Add(dirtyChild);
-        //    }
-        //    if (dirtyChild.dirtiness > 0.0f)
-        //    {
-        //        dirtyObjects.Remove(dirtyChild);
-        //        warningPanel.SetActive(false);
-        //        dirtyChild.dirtiness -= cleanPerParticle;
-        //    }
-        //    if (!dirtyObjects.Contains(dirtyChild) && dirtyChild.dirtiness <= 0.0f)
-        //    {
-        //        dirtyObjects.Add(dirtyChild);
-        //        finishedParticle.Play();
-        //    }
-        //}
-
-        if (clean && wet)
+        if (clean && wet)                                                                       // Checks if the player does have a Clean and Wet component and if true...
         {
-            if (!wetObjects.Contains(wet))
+            if (!wetObjects.Contains(wet))                                                      // If wet is not on the wet list then we add it 
             {
                 wetObjects.Add(wet);
             }
-            if (clean.cleanness > 0.0f && dirty.dirtiness <= 0.0f)
+            if (clean.cleanness > 0.0f && dirty.dirtiness <= 0.0f)                              // If soap is fully on then...
             {
-                wetObjects.Remove(wet);
-                clean.cleanness -= cleanPerParticle;
+                wetObjects.Remove(wet);                                                         // Remove wet from wet list
+                clean.cleanness -= cleanPerParticle;                                            // Decrease cleanness by particle collision
             }
-            if (wet.wetness < 100.0f && dirty.dirtiness <= 0.0f)
+            if (wet.wetness < 100.0f && dirty.dirtiness <= 0.0f)                                // If not fully wet then...
             {
-                wetObjects.Remove(wet);
-                wet.wetness += cleanPerParticle;
+                wetObjects.Remove(wet);                                                         // Remove from wet list
+                wet.wetness += cleanPerParticle;                                                // Increase wetness by particle collision
             }
-            if (!wetObjects.Contains(wet) && clean.cleanness <= 0.0f && wet.wetness >= 100.0f)
+            if (!wetObjects.Contains(wet) && clean.cleanness <= 0.0f && wet.wetness >= 100.0f)  // If soap has been removed and is now fully wet...
             {
-                wetObjects.Add(wet);
-                finishedParticle.Play();
+                wetObjects.Add(wet);                                                            // Add object to wet list
+                finishedParticle.Play();                                                        // Play finished particle
             }
         }
 
-        if (cleanChild && wetChild)
+        if (cleanChild && wetChild)                                                             // Same thing as above but for components in children
         {
             if (!wetObjects.Contains(wetChild))
             {
@@ -118,42 +75,6 @@ public class CleanWater : MonoBehaviour
             if (!wetObjects.Contains(wetChild) && cleanChild.cleanness <= 0.0f && wetChild.wetness >= 100.0f)
             {
                 wetObjects.Add(wetChild);
-                finishedParticle.Play();
-            }
-        }
-
-        if (clean && wet == null)
-        {
-            if (!cleanObjects.Contains(clean))
-            {
-                cleanObjects.Add(clean);
-            }
-            if (clean.cleanness > 0.0f)
-            {
-                cleanObjects.Remove(clean);
-                clean.cleanness -= cleanPerParticle;
-            }
-            if (!cleanObjects.Contains(clean) && clean.cleanness <= 0.0f)
-            {
-                cleanObjects.Add(clean);
-                finishedParticle.Play();
-            }
-        }
-
-        if (cleanChild && wetChild == null)
-        {
-            if (!cleanObjects.Contains(cleanChild))
-            {
-                cleanObjects.Add(cleanChild);
-            }
-            if (cleanChild.cleanness > 0.0f)
-            {
-                cleanObjects.Remove(cleanChild);
-                cleanChild.cleanness -= cleanPerParticle;
-            }
-            if (!cleanObjects.Contains(cleanChild) && cleanChild.cleanness <= 0.0f)
-            {
-                cleanObjects.Add(cleanChild);
                 finishedParticle.Play();
             }
         }

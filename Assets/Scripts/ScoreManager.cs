@@ -28,16 +28,19 @@ public class ScoreManager : MonoBehaviour
         
     }
 
+    // Gets the total score
     public int GetScore()
     {
         return totalScore;
     }
 
+    // Adds to the total score
     public void AddScore(int score)
     {
         totalScore += score;
     }
 
+    // Removes from the total score
     public void RemoveScore(int score) 
     {
         totalScore -= score;

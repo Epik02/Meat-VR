@@ -3,11 +3,8 @@ using Autohand.Demo;
 using FMOD.Studio;
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.InputSystem.Interactions;
-using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 
 public class TutorialSystem : MonoBehaviour
@@ -79,19 +76,21 @@ public class TutorialSystem : MonoBehaviour
 
         if (steps[0]) // Movement
         {
-            if (!stepsVoiceOver[1])
+            if (!stepsVoiceOver[1])                                         // This is just so the sound does not keep playing on loop
             {
                 voiceOvers[1].start();
                 stepsVoiceOver[1] = true;
             }
 
-            if (moveController.GetAxis2D(Common2DAxis.primaryAxis).x > 0.5f) hasMovement[0] = true;   // Right Move
-            if (moveController.GetAxis2D(Common2DAxis.primaryAxis).x < -0.5f) hasMovement[1] = true;   // Left Move
-            if (moveController.GetAxis2D(Common2DAxis.primaryAxis).y > 0.5f) hasMovement[2] = true;   // Up Move
-            if (moveController.GetAxis2D(Common2DAxis.primaryAxis).y < -0.5f) hasMovement[3] = true;   // Down Move
+            if (moveController.GetAxis2D(Common2DAxis.primaryAxis).x > 0.5f) hasMovement[0] = true;     // Right move
+            if (moveController.GetAxis2D(Common2DAxis.primaryAxis).x < -0.5f) hasMovement[1] = true;    // Left move
+            if (moveController.GetAxis2D(Common2DAxis.primaryAxis).y > 0.5f) hasMovement[2] = true;     // Up move
+            if (moveController.GetAxis2D(Common2DAxis.primaryAxis).y < -0.5f) hasMovement[3] = true;    // Down move
 
             int tempCount = 0;
             foreach (var control in hasMovement) if (control) tempCount++;
+
+            // If the player has moved from each axis then play complete particles and go to next step
             if (tempCount == 4)
             {
                 instructionIndex++;
@@ -109,11 +108,13 @@ public class TutorialSystem : MonoBehaviour
                 stepsVoiceOver[2] = true;
             }
 
-            if (turnController.GetAxis2D(Common2DAxis.primaryAxis).x > 0.1f) hasRotation[0] = true;   // Right Turn
-            if (turnController.GetAxis2D(Common2DAxis.primaryAxis).x < -0.1f) hasRotation[1] = true;   // Left Turn
+            if (turnController.GetAxis2D(Common2DAxis.primaryAxis).x > 0.1f) hasRotation[0] = true;     // Right turn
+            if (turnController.GetAxis2D(Common2DAxis.primaryAxis).x < -0.1f) hasRotation[1] = true;    // Left turn
 
             int tempCount = 0;
             foreach (var control in hasRotation) if (control) tempCount++;
+
+            // If the player has rotated from each axis then play complete particles and go to next step
             if (tempCount == 2)
             {
                 instructionIndex++;
@@ -131,6 +132,7 @@ public class TutorialSystem : MonoBehaviour
                 stepsVoiceOver[3] = true;
             }
 
+            // If item has been grabbed then play complete particles and go to next step
             if (isGrabbed)
             {
                 instructionIndex++;
@@ -153,6 +155,7 @@ public class TutorialSystem : MonoBehaviour
             GameObject rightHand = gloves.GetComponent<Gloves>().rightHand;
             GameObject leftHand = gloves.GetComponent<Gloves>().leftHand;
 
+            // If both hands are fully washed
             if (rightHand.GetComponentInChildren<Dirty>().dirtiness <= 0.0f && leftHand.GetComponentInChildren<Dirty>().dirtiness <= 0.0f &&
             rightHand.GetComponentInChildren<Clean>().cleanness <= 0.0f && leftHand.GetComponentInChildren<Clean>().cleanness <= 0.0f &&
             rightHand.GetComponentInChildren<Wet>().wetness <= 0.0f && leftHand.GetComponentInChildren<Wet>().wetness <= 0.0f)
@@ -162,6 +165,7 @@ public class TutorialSystem : MonoBehaviour
 
             var tempObject = FindAnyObjectByType(typeof(HandDryer));
 
+            // If both hands are fully washed and hand dryer has stopped playing then play complete particle and go to next step
             if (tempCheck && tempObject.GetComponent<HandDryer>().airParticle.isStopped)
             {
                 instructionIndex++;
@@ -170,6 +174,7 @@ public class TutorialSystem : MonoBehaviour
                 steps[4] = true;
             }
 
+            // If users skipped steps and already cleaned then play complete particle and go to next step
             if (!rightHand.GetComponentInChildren<Dirty>() && !rightHand.GetComponentInChildren<Clean>() && !rightHand.GetComponentInChildren<Wet>() &&
                 !leftHand.GetComponentInChildren<Dirty>() && !leftHand.GetComponentInChildren<Clean>() && !leftHand.GetComponentInChildren<Wet>())
             {
@@ -188,6 +193,7 @@ public class TutorialSystem : MonoBehaviour
                 stepsVoiceOver[5] = true;
             }
 
+            // If gloves are put on then play complete particle and go to next step
             if (gloves == null)
             {
                 instructionIndex++;
@@ -205,6 +211,7 @@ public class TutorialSystem : MonoBehaviour
                 stepsVoiceOver[6] = true;
             }
 
+            // If honer and knife have soap applied to them then play complete particle and go to next step
             if (honer.GetComponent<Dirty>().dirtiness <= 0 && honer.GetComponent<Clean>().cleanness >= 100 &&
                 knife.GetComponentInChildren<Dirty>().dirtiness <= 0 && knife.GetComponentInChildren<Clean>().cleanness >= 100)
             {
@@ -222,6 +229,7 @@ public class TutorialSystem : MonoBehaviour
                 stepsVoiceOver[7] = true;
             }
 
+            // If honer and knife have water on them then play complete particle and go to next step
             if (honer.GetComponent<Clean>().cleanness <= 0 && honer.GetComponent<Wet>().wetness >= 100 &&
                 knife.GetComponentInChildren<Clean>().cleanness <= 0 && knife.GetComponentInChildren<Wet>().wetness >= 100)
             {
@@ -239,6 +247,7 @@ public class TutorialSystem : MonoBehaviour
                 stepsVoiceOver[8] = true;
             }
 
+            // If honer and knife have been fully cleaned then play complete particle and go to next step
             if (honer.GetComponent<Dirty>().dirtiness <= 0 && honer.GetComponent<Clean>().cleanness <= 0 && honer.GetComponent<Wet>().wetness <= 0 &&
                 knife.GetComponentInChildren<Dirty>().dirtiness <= 0 && knife.GetComponentInChildren<Clean>().cleanness <= 0 && knife.GetComponentInChildren<Wet>().wetness <= 0)
             {
@@ -261,6 +270,7 @@ public class TutorialSystem : MonoBehaviour
 
             AnimatedInstructionsDisplay(honingImages);
 
+            // If knife has been fully straighten then play complete particle and go to next step
             if (knife.GetComponent<KnifeStraighten>().strength >= 100.0f)
             {
                 instructionIndex++;
@@ -281,6 +291,7 @@ public class TutorialSystem : MonoBehaviour
                 stepsVoiceOver[10] = true;
             }
 
+            // If meat has been put in the trash and destroyed then play complete particle and go to next step
             if (meat == null)
             {
                 instructionIndex++;
@@ -300,6 +311,7 @@ public class TutorialSystem : MonoBehaviour
 
             AnimatedInstructionsDisplay(cuttingImages);
 
+            // If the meat has been cut then play complete particle and finish
             var cutMeat = FindObjectsOfType(typeof(CutMeat));
             if (cutMeat.Length > 0)
             {
@@ -321,6 +333,7 @@ public class TutorialSystem : MonoBehaviour
         }
     }
 
+    // Checks if item has been grabbed
     public void BeingGrabbed(GameObject tool)
     {
         foreach (var item in tools)
@@ -333,6 +346,7 @@ public class TutorialSystem : MonoBehaviour
         }
     }
 
+    // Updates checkmarks
     public void CheckmarkDisplay()
     {
         for (int i = 0; i < checkmarks.Length; i++)
@@ -348,6 +362,7 @@ public class TutorialSystem : MonoBehaviour
         }
     }
 
+    // Updates instruction images
     public void InstructionDisplay()
     {
         if (instructionsBool)
@@ -366,6 +381,7 @@ public class TutorialSystem : MonoBehaviour
         }
     }
 
+    // Disables all instruction images
     public void OverrideInstructionsDisplay()
     {
         instructionsBool = !instructionsBool;
@@ -386,6 +402,7 @@ public class TutorialSystem : MonoBehaviour
         }
     }
 
+    // Updates a GIF of an instruction
     public void AnimatedInstructionsDisplay(List<Image> images)
     {
         lerpTime += Time.deltaTime;

@@ -23,31 +23,31 @@ public class Air : MonoBehaviour
 
     private void OnParticleCollision(GameObject other)
     {
-        Wet wet = other.GetComponent<Wet>();
-        Wet wetChild = other.GetComponentInChildren<Wet>();
+        Wet wet = other.GetComponent<Wet>();                    // Must check if the object has a Wet component
+        Wet wetChild = other.GetComponentInChildren<Wet>();     // If they do not have a Wet component then check if the objects children have a Wet component
 
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player"))                         // This is specifically for the hands
         {
-            if (wet)
+            if (wet)                                                    // Checks if the player does have a Wet component and if true...
             {
-                if (!dryObjects.Contains(wet))
+                if (!dryObjects.Contains(wet))                          // If wet is not on the dry list then we add it 
                 {
                     dryObjects.Add(wet);
                 }
-                if (wet.wetness > 0.0f)
+                if (wet.wetness > 0.0f)                                 // If wetness is not dried off yet then...
                 {
-                    dryObjects.Remove(wet);
-                    wet.wetness -= dryPerParticle;
+                    dryObjects.Remove(wet);                             // It will be removed from the dry list
+                    wet.wetness -= dryPerParticle;                      // Wetness will be decreased per particle colliding
                 }
-                if (!dryObjects.Contains(wet) && wet.wetness >= 100.0f)
+                if (!dryObjects.Contains(wet) && wet.wetness <= 0.0f)   // If wet object is fully dry and not in dry list then...
                 {
-                    dryObjects.Add(wet);
-                    ps.Play();
+                    dryObjects.Add(wet);                                // Add to dry list
+                    ps.Play();                                          // Play complete particle effect
                 }
             }
 
-            if (wetChild)
-            {
+            if (wetChild)                                               // Checks if the player does have a Wet component in children and if true...
+            {                                                           // Same outcomes as above but with Wet component in children
                 if (!dryObjects.Contains(wetChild))
                 {
                     dryObjects.Add(wetChild);

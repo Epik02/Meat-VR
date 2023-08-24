@@ -1,8 +1,6 @@
-using Autohand.Demo;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.XR.OpenXR.Features.Interactions.HTCViveControllerProfile;
 
 public class CreditsChanger : MonoBehaviour
 {
@@ -14,13 +12,14 @@ public class CreditsChanger : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        menuPage.SetActive(!creditsOn);
-        credits.SetActive(creditsOn);
+        menuPage.SetActive(!creditsOn);     // Set menu page to opposite of creditsOn value
+        credits.SetActive(creditsOn);       // Set credits page to creditsOn value
     }
 
+    // Switches boolean value when button is pressed
     public void Credits()
     {
-        creditsOn = !creditsOn;
+        creditsOn = !creditsOn;             // Switch creditsOn value to opposite of original value
         menuPage.SetActive(!creditsOn);
         credits.SetActive(creditsOn);
     }

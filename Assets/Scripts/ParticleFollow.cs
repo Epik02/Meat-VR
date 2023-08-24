@@ -15,6 +15,7 @@ public class ParticleFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // If there is a target follow it
         if (target != null)
         {
             transform.position = target.position;
