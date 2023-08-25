@@ -87,11 +87,11 @@ public class ObjectiveSystem : MonoBehaviour
         {
             var grabbables = FindObjectsOfType(typeof(Grabbable));
 
-            if (gloves == null)                                         // If gloves are put on then...
+            if (!gloves.activeSelf)                                         // If gloves are put on then...
             {
                 foreach (var item in grabbables)
                 {
-                    item.GetComponent<Grabbable>().enabled = true;      // Make everything grabbable again
+                    item.GetComponent<Grabbable>().enabled = true;          // Make everything grabbable again
                 }
 
                 // Play complete particle, add score and go to next step

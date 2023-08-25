@@ -136,8 +136,10 @@ public class Slice : MonoBehaviour
     public void DeSkirt()
     {
         skirts[0].transform.parent = null;
-        skirts[0].GetComponent<MeshCollider>().isTrigger = false;
         skirts[0].AddComponent<Rigidbody>();
+        skirts[0].GetComponent<MeshCollider>().isTrigger = false;
+        skirts[0].GetComponent<Rigidbody>().velocity = Vector3.zero;
+        skirts[0].GetComponent<Rigidbody>().angularVelocity = Vector3.zero;
         skirts[0].AddComponent<Grabbable>();
         SetupDropMeat(skirts[0]);
         skirts.RemoveAt(0);
