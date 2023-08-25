@@ -123,7 +123,7 @@ MonoBehaviour:
   Path: Assets/Sounds/Build/Desktop/Tutorial VO.bank
   Name: Tutorial VO
   StudioPath: bank:/Tutorial VO
-  lastModified: 638278132494607658
+  lastModified: 638285556450560032
   FileSizes: []
   Exists: 1
 --- !u!114 &-5167095068164639613
@@ -503,12 +503,14 @@ MonoBehaviour:
   - {fileID: 225388508993933824}
   - {fileID: -2462960309780078457}
   - {fileID: 388884834389846353}
+  - {fileID: 5565490579018300793}
+  - {fileID: 3891771099408216796}
   EditorParameters: []
   MasterBanks:
   - {fileID: 5637830065149755805}
   StringsBanks:
   - {fileID: 750009050509082882}
-  cacheTime: 638278132494607658
+  cacheTime: 638285556450560032
   cacheVersion: 131605
 --- !u!114 &96945368748312194
 MonoBehaviour:
@@ -651,10 +653,10 @@ MonoBehaviour:
   Path: Assets/Sounds/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638278132494514490
+  lastModified: 638285556450417774
   FileSizes:
   - Name: 
-    Value: 2456
+    Value: 2550
   Exists: 1
 --- !u!114 &1590604548881589840
 MonoBehaviour:
@@ -818,6 +820,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 0
+--- !u!114 &3891771099408216796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Tutorial VO/T10 Santizing 4
+  m_EditorClassIdentifier: 
+  Path: event:/Tutorial VO/T10 Santizing 4
+  Guid:
+    Data1: 1379506623
+    Data2: 1203567052
+    Data3: 1738097306
+    Data4: 1247194167
+  Banks:
+  - {fileID: -5476938557829214333}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
 --- !u!114 &4068935056403160562
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -946,6 +975,33 @@ MonoBehaviour:
     Data4: -302901392
   Banks:
   - {fileID: 96945368748312194}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 0
+--- !u!114 &5565490579018300793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Tutorial VO/T17 Glove Swap
+  m_EditorClassIdentifier: 
+  Path: event:/Tutorial VO/T17 Glove Swap
+  Guid:
+    Data1: 953824825
+    Data2: 1267670784
+    Data3: 190419866
+    Data4: -1798691635
+  Banks:
+  - {fileID: -5476938557829214333}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1

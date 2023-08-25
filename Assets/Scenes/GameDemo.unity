@@ -33865,6 +33865,12 @@ MonoBehaviour:
       Data4: 1767655068
     Path: event:/Tutorial VO/T15 Dropping
   - Guid:
+      Data1: 953824825
+      Data2: 1267670784
+      Data3: 190419866
+      Data4: -1798691635
+    Path: event:/Tutorial VO/T17 Glove Swap
+  - Guid:
       Data1: -1320916572
       Data2: 1080959442
       Data3: 988226997
@@ -33907,6 +33913,12 @@ MonoBehaviour:
       Data3: -897460556
       Data4: -1102770321
     Path: event:/Beef VO/B5 Rib Plate
+  - Guid:
+      Data1: -190518072
+      Data2: 1188018725
+      Data3: 1873734073
+      Data4: 1667225914
+    Path: event:/Beef VO/B5 Rib Plate w Handsaw
   - Guid:
       Data1: -2080632805
       Data2: 1074599251
@@ -39416,6 +39428,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa045def5c3b9e44e97ff43b02f7e197, type: 3}
+--- !u!1 &1370792044 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 403767924, guid: aa045def5c3b9e44e97ff43b02f7e197,
+    type: 3}
+  m_PrefabInstance: {fileID: 1370792043}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1370792045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1370792044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be9aae9e52b08134bb87b22553e5f478, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gloves: {fileID: 1838009267}
 --- !u!1 &1387475921
 GameObject:
   m_ObjectHideFlags: 0
@@ -45156,6 +45187,7 @@ MonoBehaviour:
     type: 3}
   gloveMaterial: {fileID: 5775114374088842911, guid: fb6f32a108ab90c4a97402c0a10a11b5,
     type: 3}
+  gloveParticles: {fileID: 396015423}
 --- !u!1 &1855630599
 GameObject:
   m_ObjectHideFlags: 0
@@ -46431,7 +46463,7 @@ MonoBehaviour:
   meatSpawn: {fileID: 1763628402}
   dirtMaterial: {fileID: 2100000, guid: e7f5001c6b6babd49bfae2fc41e4bd30, type: 2}
   cutMaterial: {fileID: 2100000, guid: 77c4fd79c177bb44a8360088452edcb4, type: 2}
-  cutForce: 10
+  cutForce: 1
   skirts:
   - {fileID: 203357847}
   - {fileID: 1922919458}

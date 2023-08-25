@@ -22,7 +22,7 @@ public class TutorialSystem : MonoBehaviour
     private XRHandControllerLink moveController;
     private XRHandControllerLink turnController;
     private List<EventInstance> voiceOvers = new List<EventInstance>();
-    private bool[] steps = new bool[11];
+    private bool[] steps = new bool[12];
     private bool[] stepsVoiceOver = new bool[18];
     private GameObject honer;
     private GameObject knife;
@@ -194,7 +194,7 @@ public class TutorialSystem : MonoBehaviour
             }
 
             // If gloves are put on then play complete particle and go to next step
-            if (gloves == null)
+            if (!gloves.activeSelf)
             {
                 instructionIndex++;
                 completeParticles[2].Play();
@@ -299,14 +299,30 @@ public class TutorialSystem : MonoBehaviour
                 steps[10] = true;
             }
         }
-        if (steps[10]) // Cut meat
+        if (steps[10]) // Put on new gloves
         {
             if (!stepsVoiceOver[11])
             {
                 voiceOvers[10].stop(STOP_MODE.IMMEDIATE);
                 voiceOvers[11].start();
-                OverrideInstructionsDisplay();
                 stepsVoiceOver[11] = true;
+            }
+
+            if (!gloves.activeSelf)
+            {
+                instructionIndex++;
+                steps[10] = false;
+                steps[11] = true;
+            }
+        }
+        if (steps[11]) // Cut meat
+        {
+            if (!stepsVoiceOver[12])
+            {
+                voiceOvers[11].stop(STOP_MODE.IMMEDIATE);
+                voiceOvers[12].start();
+                OverrideInstructionsDisplay();
+                stepsVoiceOver[12] = true;
             }
 
             AnimatedInstructionsDisplay(cuttingImages);
@@ -319,16 +335,16 @@ public class TutorialSystem : MonoBehaviour
                 chapterIndex++;
                 completeParticles[5].Play();
                 OverrideInstructionsDisplay();
-                steps[10] = false;
+                steps[11] = false;
             }
         }
         if (chapterIndex == 4) // Finish
         {
-            if (!stepsVoiceOver[12])
+            if (!stepsVoiceOver[13])
             {
-                voiceOvers[11].stop(STOP_MODE.IMMEDIATE);
-                voiceOvers[12].start();
-                stepsVoiceOver[12] = true;
+                voiceOvers[12].stop(STOP_MODE.IMMEDIATE);
+                voiceOvers[13].start();
+                stepsVoiceOver[13] = true;
             }
         }
     }
